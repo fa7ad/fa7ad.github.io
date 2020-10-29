@@ -1,0 +1,13 @@
+baseURL = "https://mildlyboring.com/"
+languageCode = "en-us"
+title = "Mildly Boring"
+author = "Fahad Hossain"
+paginate = 3
+theme = "arabika"
+copyright = "Fahad Hossain"
+
+[params]
+    description = "Some mildly boring rants, mostly about programming."
+    dateFormatToUse = "2020-11-01"
+    twitter = "dev_fahad"
+    github = "fa7ad"
