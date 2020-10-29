@@ -394,12 +394,14 @@ a.nav-blog {
   align-items: center;
 }
 .social-icons a {
-  display: block;
+  display: inline-flex;
+  align-items: center;
   margin: 0.5em 0.75em;
 }
 
 .social-icons ion-icon {
   font-size: 0.85em;
+  margin-right: 0.25em;
 }
 
 .site-footer a {
