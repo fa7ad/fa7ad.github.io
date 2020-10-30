@@ -2,11 +2,8 @@
   <div class="main-header-content">
     <h1 class="blog-title">
       <a href="{{ "/" | relLangURL }}">
-        {{ if .Site.Params.logoTitle }}
-          {{ .Site.Params.logoTitle | safeHTML }}
-          {{ else }}
-          {{ .Site.Title }}
-        {{ end }}
+        {{ if .Site.Params.logoTitle }} {{ .Site.Params.logoTitle | safeHTML }} <br /> {{ end }}
+        {{ .Site.Title }}
       </a>
     </h1>
     <h2 class="blog-description">{{ .Site.Params.description }}</h2>
