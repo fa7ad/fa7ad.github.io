@@ -2,23 +2,6 @@
   General styles
   ========================================================================== */
 
-/* Font sizes used
-
-Base font size: 1rem = 18px
-
-0.702rem  13px
-0.79rem    14px
-0.889rem  16px
-1.125rem  20px
-1.266rem  23px
-1.424rem  26px
-1.602rem  29px
-1.802rem  32px
-2.887rem  52px
-
-http://modularscale.com/
-8:9 major second
-*/
 
 body {
   --primary-color: #fc7e0f;
@@ -34,7 +17,6 @@ body.darkmode--activated {
 html {
   height: 100%;
   max-height: 100%;
-  font-size: 112.5%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -46,7 +28,7 @@ body {
   font-feature-settings: 'kern' 1;
   height: 100%;
   max-height: 100%;
-  width: 80%;
+  width: 95%;
   max-width: 650px;
   margin: 0 auto;
   font-family: 'Lato', sans-serif;
@@ -68,23 +50,23 @@ h6 {
 }
 
 h1 {
-  font-size: 1.802rem;
+  font-size: 2rem;
 }
 
 h2 {
-  font-size: 1.602rem;
+  font-size: 1.813rem;
 }
 
 h3 {
-  font-size: 1.424rem;
+  font-size: 1.625rem;
 }
 
 h4 {
-  font-size: 1.266rem;
+  font-size: 1.438rem;
 }
 
 h5 {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 
 h6 {
@@ -100,7 +82,7 @@ tt,
 pre {
   font-family: 'Source Code Pro', monospace, sans-serif;
   white-space: pre-wrap;
-  font-size: 0.79rem;
+  font-size: 0.875rem;
   border: none;
   background: none;
 }
@@ -131,7 +113,7 @@ blockquote p {
 
 blockquote cite {
   font-style: normal;
-  font-size: 0.889rem;
+  font-size: 1rem;
 }
 
 hr {
@@ -251,7 +233,7 @@ dl dd {
 .main-header {
   position: relative;
   width: 100%;
-  padding: 2rem 0;
+  padding: 1rem 0;
   margin-bottom: 1rem;
   text-align: center;
   vertical-align: middle;
@@ -268,9 +250,10 @@ dl dd {
   padding: 0;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  font-size: 2.887rem;
+  font-size: 1.625rem;
   vertical-align: middle;
   line-height: 1;
+  margin: 0.5em 0;
 }
 
 .blog-title a {
@@ -278,8 +261,8 @@ dl dd {
 }
 
 .blog-description {
-  margin: 0;
-  font-size: 0.889rem;
+  margin: 0.5em 0;
+  font-size: 1rem;
   font-family: 'Lato', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0;
@@ -291,22 +274,21 @@ dl dd {
   Dark Mode
   ========================================================================== */
 .dark-mode-switcher {
-  font-size: 0.79rem;
+  font-size: 1rem;
   position: relative;
   display: inline-block;
+  width: 4em;
 }
 
 .dark-mode-switcher::before {
-  font-size: 0.79rem;
-  position: absolute;
-  left: -3.75em;
   content: '🌙';
+  position: absolute;
+  left: -1.5em;
 }
 .dark-mode-switcher::after {
   content: '☀️';
   position: absolute;
-  right: -1.75em;
-  font-size: 0.79rem;
+  right: -1.5em;
 }
 
 .dark-mode-switcher input {
@@ -317,24 +299,28 @@ dl dd {
   border-radius: 50%;
   background: var(--primary-color);
   outline: none;
-  transition: all ease-in-out 150ms;
+  transition: all ease-in-out 200ms;
+  transform-origin: center center;
+  transform: translateX(1em);
   position: relative;
-  top: 0.2em;
+  margin: 0;
+  top: 0.05em;
 }
 
 .dark-mode-switcher input:checked {
-  transform: translateX(-2em);
+  transform: translateX(-1em);
   background: var(--secondary-color);
 }
 
 .dark-mode-switcher label:before {
+  font-size: 1rem;
   content: '';
   display: block;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -2.25em;
-  width: 3.65em;
+  left: 0;
+  right: 0;
   border: 1px solid var(--secondary-color);
   border-radius: 1em;
   cursor: pointer;
@@ -350,7 +336,7 @@ dl dd {
 
 .nav {
   text-transform: uppercase;
-  font-size: 0.889rem;
+  font-size: 1rem;
 }
 
 .nav a {
@@ -383,7 +369,7 @@ a.nav-blog {
   padding-bottom: 1rem;
   text-align: center;
   overflow: hidden;
-  font-size: 0.79rem;
+  font-size: 0.875rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -467,7 +453,7 @@ a.nav-blog {
 
 .post-meta {
   text-transform: uppercase;
-  font-size: 0.79rem;
+  font-size: 0.875rem;
 }
 
 .post-footer {
@@ -552,7 +538,7 @@ a.nav-blog {
 }
 
 .kg-image-card figcaption {
-  font-size: 0.79rem;
+  font-size: 0.875rem;
   text-align: center;
 }
 
@@ -584,7 +570,7 @@ a.nav-blog {
 
 .tag-title {
   font-family: 'Lato', sans-serif;
-  font-size: 1.802rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-top: 0;
 }
@@ -605,7 +591,7 @@ a.nav-blog {
 .pagination {
   position: relative;
   margin: 2rem auto;
-  font-size: 0.79rem;
+  font-size: 0.875rem;
   color: var(--secondary-color);
   text-align: center;
 }
@@ -664,10 +650,10 @@ a.nav-blog {
   }
 
   .blog-title {
-    font-size: 2.281rem;
+    font-size: 1.25rem;
   }
 
   .blog-description {
-    font-size: 0.889rem;
+    font-size: 0.75rem;
   }
 }
