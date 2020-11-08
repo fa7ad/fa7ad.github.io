@@ -1,13 +1,11 @@
 ---
-title: 'Hello, Blog (again)'
+title: 'Hello, Blog (again) 🙄'
 date: 2020-11-08T21:50:17+06:00
 draft: false
 author: 'Fahad Hossain'
 image: /featured/hello-blog-again.jpg
 comments: true
 ---
-
-# Hello, Blog (again) 🙄
 
 This is the nth time I've switched blogging platforms.
 
@@ -45,7 +43,7 @@ So my problem with wordpress is that its just too big of a software for running 
 
 ### Ghost
 
-Ghost is awesome! Loved it the first time I used it. Their markdown editor is just crazy awesome 🔥. I wish someone would take that beautiful markdown editor and put it on something far simpler to setup and run.
+Ghost is awesome! Loved it the first time I used it. Their markdown editor is just 💯 awesome. I wish someone would take that beautiful markdown editor and put it on something far simpler to setup and run.
 
 ### Medium
 
