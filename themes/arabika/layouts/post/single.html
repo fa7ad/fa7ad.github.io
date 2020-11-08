@@ -29,4 +29,9 @@
     </footer>
   </article>
 </main>
+{{ if .Params.comments }}
+<section class="comments" role="feed">
+  {{ template "_internal/disqus.html" . }}
+</section>
+{{ end }}
 {{ end }}
