@@ -1,15 +1,23 @@
 <footer class="site-footer">
   <section class="social-icons">
-    <a class="subscribe-button rss" href="/index.xml"> <ion-icon name="logo-rss"></ion-icon> Subscribe </a>
-    {{ with .Site.Params.twitter }}
+    {{ with .Site.Params.linkedin }}
+      <a href="https://linkedin.com/in/{{ . }}" class="linkedin">
+        <ion-icon name="logo-linkedin"></ion-icon> {{ . }}
+      </a>
       &middot;
-      <a href="https://twitter.com/{{ . }}" class="twitter"> <ion-icon name="logo-twitter"></ion-icon> {{ . }} </a>
     {{ end }}
 
     {{ with .Site.Params.github }}
-      &middot;
       <a href="https://github.com/{{ . }}" class="github"> <ion-icon name="logo-github"></ion-icon> {{ . }} </a>
+      &middot;
     {{ end }}
+
+    {{ with .Site.Params.twitter }}
+      <a href="https://twitter.com/{{ . }}" class="twitter"> <ion-icon name="logo-twitter"></ion-icon> {{ . }} </a>
+    {{ end }}
+
+    &middot;
+    <a class="subscribe-button rss" href="/index.xml"> <ion-icon name="logo-rss"></ion-icon> Subscribe </a>
   </section>
 
   <section class="copyright">&copy; {{ now.Format "2006" }} {{ .Site.Copyright }}</section>
@@ -20,13 +28,14 @@
 </footer>
 
 {{/*  Little Foot  */}}
-<script src="https://unpkg.com/littlefoot/dist/littlefoot.js" type="application/javascript"></script>
+<script src="https://unpkg.com/littlefoot@3.4.1/dist/littlefoot.js"></script>
 <script type="application/javascript">
   littlefoot.littlefoot()
 </script>
 
 {{/*  IonIcons  */}}
-<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
 
 {{/*  Darkmode  */}}
 <script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
