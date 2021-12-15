@@ -1,0 +1,60 @@
+/* Header */
+.header {
+  @apply fixed w-full z-10 top-0;
+}
+
+.headerActive {
+  @apply bg-white text-slate-800 shadow;
+}
+
+.navContent {
+  @apply w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-transparent z-20;
+}
+
+.progress {
+  @apply h-1 z-20 top-0;
+  background: linear-gradient(to right, teal, var(--scroll), transparent 0);
+}
+
+.navToggle {
+  @apply flex items-center px-3 py-2 border rounded appearance-none focus:outline-none;
+  @apply text-teal-600 border-teal-600;
+}
+
+.navMenu {
+  @apply list-none p-0 lg:flex justify-end flex-1 items-center;
+}
+
+.navItem {
+  @apply md:mr-3;
+}
+
+.navItemLink {
+  @apply md:inline-block block no-underline hover:underline py-2 px-4 hover:text-teal-600;
+}
+
+.navItemActive {
+  @apply text-teal-600 hover:text-gray-400 font-bold;
+}
+
+.navContainer {
+  @apply w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3;
+}
+
+.navBrand {
+  @apply pl-4;
+}
+
+.navBrand a {
+  @apply text-inherit no-underline hover:no-underline font-extrabold text-xl;
+}
+
+/* Footer */
+.footer {
+  @apply flex flex-1 py-6 bg-white text-neutral-900 justify-center items-center;
+}
+
+/* Page */
+.main {
+  @apply min-h-screen py-16 flex flex-1 flex-col justify-center items-center;
+}

@@ -1,0 +1,6 @@
+{
+  "allowJs": true,
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}
