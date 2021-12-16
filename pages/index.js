@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import Metadata from 'components/Metadata'
-import { setActiveNavKey, setTheme } from 'app/redux/ui.slice'
+import { setActiveNavKey } from 'app/redux/ui.slice'
 
 import styles from './Home/Home.module.css'
 import Page from 'components/Page'
@@ -11,15 +10,11 @@ export default function Home() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const browserPref = window.matchMedia('(prefers-color-scheme: dark)')
-    const darkMode = localStorage.getItem('darkMode') ?? browserPref.matches.toString()
-    dispatch(setTheme(darkMode === 'true' ? 'dark' : 'light'))
     dispatch(setActiveNavKey('home'))
   }, [dispatch])
 
   return (
     <>
-      <Metadata />
       <Page>
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>

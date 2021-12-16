@@ -13,12 +13,12 @@ export const defaultNavItems = [
   },
   {
     key: 'about',
-    href: '/about',
+    href: '/pages/about',
     label: 'About'
   },
   {
     key: 'contact',
-    href: '/contact',
+    href: '/pages/contact',
     label: 'Contact'
   }
 ]
@@ -44,7 +44,7 @@ const Header = () => {
   }, [])
 
   useEffect(() => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1024) {
       setNavContent(false)
       setHeaderActive(true)
     }
@@ -59,7 +59,7 @@ const Header = () => {
       progress.current.style.setProperty('--scroll', scroll + '%')
     }
 
-    setHeaderActive(scrollpos > 10 || window.innerWidth < 768)
+    setHeaderActive(scrollpos > 10 || window.innerWidth < 1024)
   }
 
   const toggleNavContent = () => {

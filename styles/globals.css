@@ -6,3 +6,8 @@ body {
   @apply bg-white dark:bg-slate-800 text-slate-800 dark:text-white;
   @apply font-sans leading-normal tracking-normal;
 }
+
+.dark .prose {
+  --tw-prose-headings: var(--color-white);
+  color: var(--color-white);
+}

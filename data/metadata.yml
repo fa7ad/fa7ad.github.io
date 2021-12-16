@@ -1,0 +1,13 @@
+posts:
+  - title: Hello World
+    date: 2021-12-15
+    file: 00_hello-world.md
+
+pages:
+  - title: About
+    file: about.md
+    slug: about
+  - title: Contact
+    file: contact.md
+    slug: contact
+
