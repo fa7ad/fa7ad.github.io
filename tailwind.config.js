@@ -35,7 +35,8 @@ module.exports = {
   variants: {
     extend: {
       backgroundColor: ['dark'],
-      typography: ['dark']
+      typography: ['dark'],
+      text: ['dark']
     }
   },
   plugins: [require('@tailwindcss/typography'), renderColors]

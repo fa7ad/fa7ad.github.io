@@ -1,14 +1,15 @@
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from 'react'
 
 import styles from './Page.module.css'
+import { setTheme } from 'app/redux/ui.slice'
 
 export const defaultNavItems = [
   {
     key: 'home',
-    href: '/',
+    href: '/#',
     label: 'Home'
   },
   {
@@ -24,17 +25,31 @@ export const defaultNavItems = [
 ]
 const NavItem = ({ href, label, active }) => (
   <li className={clsx(styles.navItem, { [styles.navItemActive]: active })}>
-    <Link href={href}>
-      <a className={styles.navItemLink}>{label}</a>
+    <Link href={href} className={styles.navItemLink}>
+      {label}
     </Link>
   </li>
 )
 
 const Header = () => {
   const progress = useRef(null)
+  const dispatch = useDispatch()
   const [navContent, setNavContent] = useState(true)
   const [headerActive, setHeaderActive] = useState(false)
+  const theme = useSelector(state => state.ui.theme)
   const activeNavKey = useSelector(state => state.ui.activeNavKey)
+
+  const updateNavScroll = function () {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
+    const scrollpos = window.scrollY
+    const scroll = (scrollTop / (scrollHeight - document.documentElement.clientHeight)) * 100
+    if (progress.current) {
+      progress.current.style.setProperty('--scroll', scroll + '%')
+    }
+
+    setHeaderActive(scrollpos > 10 || window.innerWidth < 1024)
+  }
 
   useEffect(() => {
     document.addEventListener('scroll', updateNavScroll)
@@ -50,29 +65,31 @@ const Header = () => {
     }
   }, [])
 
-  const updateNavScroll = function () {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
-    const scrollpos = window.scrollY
-    const scroll = (scrollTop / (scrollHeight - document.documentElement.clientHeight)) * 100
-    if (progress.current) {
-      progress.current.style.setProperty('--scroll', scroll + '%')
-    }
-
-    setHeaderActive(scrollpos > 10 || window.innerWidth < 1024)
-  }
+  useEffect(() => {
+    const browserPref = window.matchMedia('(prefers-color-scheme: dark)')
+    const darkMode = localStorage.getItem('darkMode') ?? browserPref.matches.toString()
+    dispatch(setTheme(darkMode === 'true' ? 'dark' : 'light'))
+  })
 
   const toggleNavContent = () => {
     setNavContent(n => !n)
   }
 
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    dispatch(setTheme(newTheme))
+  }
+
   return (
     <nav id='header' className={clsx(styles.header, { [styles.headerActive]: headerActive })}>
-      <div id='progress' className={styles.progress} ref={progress}></div>
+      <div id='progress' className={styles.progress} ref={progress} />
 
       <div className={styles.navContainer}>
         <div className={styles.navBrand}>
           <Link href='/'>Mildly Boring</Link>
+          <button className='mx-2 cursor-pointer' title='Toggle Dark Mode' onClick={toggleTheme}>
+            {theme === 'dark' ? '🌙' : '🌞'}
+          </button>
         </div>
 
         <div className='block lg:hidden pr-4'>

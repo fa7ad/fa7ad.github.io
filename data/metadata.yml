@@ -1,7 +1,14 @@
 posts:
-  - title: Hello World
-    date: 2021-12-15
-    file: 00_hello-world.md
+  - title: Hello Blog
+    date: 2020-11-08T21:50:17+06:00
+    file: 00_hello-blog.md
+    slug: hello-blog
+    cover: /featured/hello-blog-again.jpg
+  - title: "The Introduction. A Fool's Guide To Writing Functional JS (Part 1)"
+    date: 2020-04-10T18:57:22Z
+    file: 01_fp-the-introduction.md
+    slug: fp-the-introduction
+    cover: /featured/intro-functional-js.jpg
 
 pages:
   - title: About

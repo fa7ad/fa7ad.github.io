@@ -1,0 +1,20 @@
+.article {
+  @apply prose lg:prose-xl w-full md:max-w-4xl px-4;
+}
+
+.title {
+  @apply mt-8 mb-2 text-center;
+}
+
+.date {
+  @apply text-sm text-neutral-600 dark:text-neutral-400 text-center;
+}
+
+.coverImage {
+  @apply block w-full relative overflow-hidden rounded object-cover object-center;
+  @apply h-48 md:h-[30rem];
+}
+
+.content {
+  @apply text-justify;
+}

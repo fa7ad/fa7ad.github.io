@@ -3,11 +3,28 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white dark:bg-slate-800 text-slate-800 dark:text-white;
+  @apply bg-slate-100 dark:bg-black text-slate-800 dark:text-white;
   @apply font-sans leading-normal tracking-normal;
+  @apply transition-all duration-300 ease-in-out;
+  > * {
+    @apply transition-all duration-300 ease-in-out;
+  }
 }
 
 .dark .prose {
   --tw-prose-headings: var(--color-white);
+  --tw-prose-quotes: var(--color-neutral-400);
+  --tw-prose-bold: var(--color-neutral-400);
+  --tw-prose-links: var(--color-neutral-400);
   color: var(--color-white);
+}
+
+.single-line {
+  @apply flex flex-row divide-x-4 divide-transparent;
+  > * {
+    @apply flex-grow-0;
+  }
+  img {
+    @apply inline-block;
+  }
 }

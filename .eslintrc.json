@@ -6,11 +6,15 @@
   },
   "extends": [
     "next/core-web-vitals",
+    "plugin:react/jsx-runtime",
     "plugin:react/recommended",
-    "plugin:prettier/recommended",
     "plugin:import/recommended",
-    "prettier",
-    "standard"
+    "plugin:jsx-a11y/recommended",
+    "standard",
+    "standard-jsx",
+    "standard-react",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "parserOptions": {
     "ecmaFeatures": {

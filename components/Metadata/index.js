@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
 
-function Metadata() {
+function Metadata({ title }) {
+  const pageTitle = title ? `${title} | Mildly Boring` : 'Mildly Boring'
+
   return (
     <Head>
       <meta charSet='UTF-8' />
@@ -12,7 +14,7 @@ function Metadata() {
       <meta name='description' content='Some mildly boring rants, mostly about programming.' />
       <meta name='keywords' content='programming,tutorial,functional,blog,rants,mildlyboring,fa7ad,fahad,hossain' />
 
-      <title>Mildly Boring</title>
+      <title>{pageTitle}</title>
 
       <link rel='apple-touch-icon' sizes='180x180' href='/icons/apple-touch-icon.png?v=1.0.0' />
       <link rel='icon' type='image/png' sizes='32x32' href='/icons/favicon-32x32.png?v=1.0.0' />

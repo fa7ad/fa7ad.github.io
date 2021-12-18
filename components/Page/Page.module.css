@@ -26,7 +26,7 @@
 }
 
 .navItem {
-  @apply md:mr-3;
+  @apply md:mr-3 py-2 px-4 md:p-0;
 }
 
 .navItemLink {
@@ -34,7 +34,7 @@
 }
 
 .navItemActive {
-  @apply text-teal-600 hover:text-gray-400 font-bold;
+  @apply text-teal-700 dark:text-teal-500 hover:text-gray-400 font-bold;
 }
 
 .navContainer {
@@ -52,6 +52,7 @@
 /* Footer */
 .footer {
   @apply flex flex-1 py-6 bg-white text-neutral-900 justify-center items-center;
+  box-shadow: 0 -1px 2px 0 var(--color-neutral-200);
 }
 
 /* Page */
