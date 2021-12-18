@@ -27,6 +27,15 @@ function Metadata({ title }) {
       <meta name='msapplication-TileColor' content='#00aba9' />
       <meta name='msapplication-config' content='/icons/browserconfig.xml?v=1.0.0' />
       <meta name='theme-color' content='#ffffff' />
+      <link
+        rel='preload'
+        as='style'
+        href='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.min.css'
+        onLoad="this.onload=null;this.rel='stylesheet'"
+      />
+      <noscript>
+        <link href='https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.min.css' rel='stylesheet' />
+      </noscript>
     </Head>
   )
 }
