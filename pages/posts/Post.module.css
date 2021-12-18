@@ -1,5 +1,5 @@
 .article {
-  @apply prose lg:prose-xl w-full md:max-w-4xl px-4 dark:text-white;
+  @apply w-full md:max-w-4xl px-4 dark:text-white;
 }
 
 .title {

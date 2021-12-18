@@ -8,6 +8,7 @@ import { setActiveNavKey } from 'app/redux/ui.slice'
 import { getAllMeta, getContentBySlug } from 'lib/content'
 
 import styles from './Post.module.css'
+import clsx from 'clsx'
 
 export default function BlogPostFull({ post }) {
   const dispatch = useDispatch()
@@ -18,7 +19,7 @@ export default function BlogPostFull({ post }) {
 
   return (
     <Page title={post.title}>
-      <article className={styles.article}>
+      <article className={clsx('prose', 'lg:prose-xl', styles.article)}>
         <h1 className={styles.title}>{post.title}</h1>
         <p className={styles.date}>{post.date}</p>
         {post.cover ? (
