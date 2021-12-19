@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import parse from 'html-react-parser'
@@ -11,7 +12,12 @@ import { getAllMeta, getContentBySlug } from 'lib/content'
 
 import styles from './Post.module.css'
 import Link from 'next/link'
-import { NextSeo } from 'next-seo'
+import dynamic from 'next/dynamic'
+
+const DiscussionEmbed = dynamic(() => import('disqus-react').then(mod => mod.DiscussionEmbed), {
+  ssr: false,
+  loading: ({ isLoading }) => <p>{isLoading ? 'Loading comments...' : 'Failed to load disqus'}</p>
+})
 
 export default function BlogPostFull({ post }) {
   const dispatch = useDispatch()
@@ -79,17 +85,15 @@ export default function BlogPostFull({ post }) {
         <div className={styles.content}>{parse(post.content)}</div>
         <hr />
         <section id='idc_comments' className='relative'>
-          <script
-            type='text/javascript'
-            dangerouslySetInnerHTML={{
-              __html: `window.idcomments_acct = 'e1fd06a976e503ac92ce810aa47b1b50';window.idcomments_post_id = undefined;window.idcomments_post_url = undefined`
+          <DiscussionEmbed
+            shortname='mildly-boring'
+            config={{
+              url: `${process.env.NEXT_PUBLIC_URL || ''}/posts/${post.slug}`,
+              identifier: post.slug,
+              title: post.title,
+              language: 'en_US'
             }}
           />
-          <span id='IDCommentsPostTitle' style={{ display: 'none' }} />
-          {
-            // eslint-disable-next-line @next/next/no-sync-scripts
-            <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js' />
-          }
         </section>
       </article>
     </Page>
