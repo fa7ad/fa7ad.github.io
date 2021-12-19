@@ -16,7 +16,12 @@ body {
   --tw-prose-quotes: var(--color-neutral-400);
   --tw-prose-bold: var(--color-neutral-400);
   --tw-prose-links: var(--color-neutral-400);
+  --tw-prose-code: var(--color-neutral-400);
   color: var(--color-white);
+}
+
+.prose pre {
+  @apply p-0;
 }
 
 .single-line {

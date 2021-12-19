@@ -1,6 +1,6 @@
 posts:
   - title: Hello Blog
-    date: 2020-11-08T21:50:17+06:00
+    date: 2020-02-08T21:50:17+06:00
     file: 00_hello-blog.md
     slug: hello-blog
     cover: /featured/hello-blog-again.jpg
@@ -9,6 +9,19 @@ posts:
     file: 01_fp-the-introduction.md
     slug: fp-the-introduction
     cover: /featured/intro-functional-js.jpg
+    series: fp-js
+  - title: "Functions. A Fool's Guide To Writing Functional JS (Part 2)"
+    date: 2020-04-25T17:34:39Z
+    file: 02_fp-functions.md
+    slug: fp-functions
+    cover: /featured/functions-functional-js.jpg
+    series: fp-js
+  - title: "Some Higher-Order Functions. A Fool's Guide To Writing Functional JS (Part 3)"
+    date: 2020-06-12T16:41:10Z
+    file: 03_fp-higher-order-functions.md
+    slug: fp-higher-order-functions
+    cover: /featured/higher-order-functions-functional-js.jpg
+    series: fp-js
 
 pages:
   - title: About
@@ -18,3 +31,13 @@ pages:
     file: contact.md
     slug: contact
 
+series:
+  fp-js:
+    title: A Fool's Guide To Writing Functional JS
+    posts:
+      - title: "Part 1: The Introduction"
+        slug: fp-the-introduction
+      - title: "Part 2: Functions"
+        slug: fp-functions
+      - title: "Part 3: Some Higher-Order Functions"
+        slug: fp-higher-order-functions

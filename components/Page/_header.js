@@ -14,12 +14,12 @@ export const defaultNavItems = [
   },
   {
     key: 'about',
-    href: '/pages/about',
+    href: '/about',
     label: 'About'
   },
   {
     key: 'contact',
-    href: '/pages/contact',
+    href: '/contact',
     label: 'Contact'
   }
 ]

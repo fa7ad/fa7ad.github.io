@@ -18,3 +18,21 @@
 .content {
   @apply text-justify;
 }
+
+.seriesListing {
+  @apply flex flex-col justify-center max-w-sm mx-auto;
+  h2 {
+    @apply text-sm font-bold;
+  }
+}
+.seriesBox {
+  @apply bg-slate-200 dark:bg-slate-700 dark:shadow-slate-800;
+  @apply rounded shadow  p-0 overflow-hidden;
+  @apply list-none divide-y-[1px] divide-slate-300 dark:divide-slate-600;
+  .seriesItem {
+    @apply text-base text-center py-4 my-0 cursor-pointer;
+  }
+  .activeSeriesItem {
+    @apply bg-white dark:bg-black;
+  }
+}

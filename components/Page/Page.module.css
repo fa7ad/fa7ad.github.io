@@ -36,6 +36,9 @@
 .navItemActive {
   @apply text-teal-700 dark:text-teal-500 hover:text-gray-400 font-bold;
 }
+.headerActive .navItemActive {
+  @apply dark:text-teal-700;
+}
 
 .navContainer {
   @apply w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3;

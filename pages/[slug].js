@@ -5,6 +5,7 @@ import parse from 'html-react-parser'
 import Page from 'components/Page'
 import { setActiveNavKey } from 'app/redux/ui.slice'
 import { getAllMeta, getContentBySlug } from 'lib/content'
+import { NextSeo } from 'next-seo'
 
 export default function ContentPage({ page }) {
   const dispatch = useDispatch()
@@ -14,7 +15,8 @@ export default function ContentPage({ page }) {
   }, [dispatch, page.slug])
 
   return (
-    <Page title={page.title}>
+    <Page>
+      <NextSeo title={page.title} description={page.excerpt} />
       <article className='prose lg:prose-xl w-full md:max-w-4xl px-4'>{parse(page.content)}</article>
     </Page>
   )

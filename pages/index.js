@@ -21,7 +21,7 @@ export default function Home({ posts }) {
 
   return (
     <>
-      <Page title='Home' className={styles.homeContainer}>
+      <Page className={styles.homeContainer}>
         <section className={styles.heroSection}>
           <h1>Welcome to Mildly Boring!</h1>
           <p>This is a collection of some mildly boring rants, mostly about programming.</p>
@@ -40,7 +40,7 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = await getAllMeta('posts', true)
+  const allPosts = await getAllMeta('posts')
   const posts = compose(
     map(post => ({ ...post, date: dayjs(post.date).format('dddd, MMMM D, YYYY HH:mm') })),
     reverse,
