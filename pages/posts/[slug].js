@@ -25,7 +25,7 @@ export default function BlogPostFull({ post }) {
   useEffect(() => {
     dispatch(setActiveNavKey('home'))
     setTimeout(() => {
-      import('highlight.js').then(mod => mod.default.highlightAll())
+      import('highlight.js').then(mod => mod.default.highlightAll({ ignoreUnescapedHTML: true }))
     }, 50)
   }, [dispatch])
 
