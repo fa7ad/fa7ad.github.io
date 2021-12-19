@@ -24,7 +24,7 @@ function Metadata() {
       <DefaultSeo
         defaultTitle='Mildly Boring'
         titleTemplate='%s | Mildly Boring'
-        description='Some mildly boring rants, mostly about programming.'
+        description='Some mildly boring rants, mostly about programming; all from the mind of a bored weirdo.'
         additionalMetaTags={[
           {
             name: 'author',

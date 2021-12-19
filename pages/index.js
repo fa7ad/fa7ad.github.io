@@ -1,6 +1,7 @@
+import dayjs from 'dayjs'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import dayjs from 'dayjs'
+import { NextSeo } from 'next-seo'
 import { compose, map, reverse, sortBy } from 'ramda'
 
 import { getAllMeta } from 'lib/content'
@@ -20,18 +21,17 @@ export default function Home({ posts }) {
   }, [dispatch])
 
   return (
-    <>
-      <Page className={styles.homeContainer}>
-        <section className={styles.postsSection} id='blog'>
-          <h1>Blog Posts</h1>
-          <div className={styles.postsList}>
-            {posts?.map(post => (
-              <PostPreview key={post.slug + post.date} {...post} />
-            ))}
-          </div>
-        </section>
-      </Page>
-    </>
+    <Page className={styles.homeContainer}>
+      <NextSeo title='Boring you with code ever so mildly' />
+      <section className={styles.postsSection} id='blog'>
+        <h1>Blog Posts</h1>
+        <div className={styles.postsList}>
+          {posts?.map(post => (
+            <PostPreview key={post.slug + post.date} {...post} />
+          ))}
+        </div>
+      </section>
+    </Page>
   )
 }
 
