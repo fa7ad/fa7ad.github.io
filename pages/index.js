@@ -22,7 +22,7 @@ export default function Home({ posts }) {
 
   return (
     <Page className={styles.homeContainer}>
-      <NextSeo title='Boring you with code ever so mildly' />
+      <NextSeo title='Boring you with code ever so mildly' titleTemplate='%s' />
       <section className={styles.postsSection} id='blog'>
         <h1>Blog Posts</h1>
         <div className={styles.postsList}>
