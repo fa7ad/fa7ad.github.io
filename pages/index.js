@@ -22,12 +22,8 @@ export default function Home({ posts }) {
   return (
     <>
       <Page className={styles.homeContainer}>
-        <section className={styles.heroSection}>
-          <h1>Welcome to Mildly Boring!</h1>
-          <p>This is a collection of some mildly boring rants, mostly about programming.</p>
-        </section>
         <section className={styles.postsSection} id='blog'>
-          <h2>Blog Posts</h2>
+          <h1>Blog Posts</h1>
           <div className={styles.postsList}>
             {posts?.map(post => (
               <PostPreview key={post.slug + post.date} {...post} />

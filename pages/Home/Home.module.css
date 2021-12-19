@@ -3,19 +3,11 @@
   @apply w-full md:max-w-4xl mx-auto px-4;
 }
 
-.heroSection {
-  @apply prose lg:prose-lg rounded-lg w-full max-w-none p-8 my-4 text-center;
-  @apply bg-white dark:bg-neutral-800 shadow-inner outline outline-1 outline-neutral-300 dark:outline-neutral-700;
-  > * {
-    @apply !text-neutral-600 dark:!text-neutral-300;
-  }
-}
-
 .postsSection {
   @apply flex flex-1 flex-col items-stretch w-full;
 }
 
-.postsSection h2 {
+.postsSection h1 {
   @apply text-4xl font-bold text-center mt-6 mb-4;
 }
 
