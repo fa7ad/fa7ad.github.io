@@ -36,7 +36,7 @@ export default function BlogPostFull({ post }) {
           images: [
             post.cover
               ? {
-                  url: `/og${post.cover}`,
+                  url: `${process.env.NEXT_PUBLIC_URL || ''}/og${post.cover}`,
                   width: 1200,
                   height: 630,
                   type: 'image/jpeg'

@@ -49,7 +49,7 @@ function Metadata() {
           defaultImageWidth: 1200,
           images: [
             {
-              url: '/og/featured/default_cover.jpg',
+              url: (process.env.NEXT_PUBLIC_URL || '') + '/og/featured/default_cover.jpg',
               alt: 'Mildly Boring',
               width: 1200,
               height: 630,
