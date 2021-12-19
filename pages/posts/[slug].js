@@ -90,8 +90,7 @@ export default function BlogPostFull({ post }) {
             config={{
               url: `${process.env.NEXT_PUBLIC_URL || ''}/posts/${post.slug}`,
               identifier: post.slug,
-              title: post.title,
-              language: 'en_US'
+              title: post.title
             }}
           />
         </section>
