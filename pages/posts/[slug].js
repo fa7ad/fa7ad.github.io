@@ -77,6 +77,20 @@ export default function BlogPostFull({ post }) {
           </div>
         ) : null}
         <div className={styles.content}>{parse(post.content)}</div>
+        <hr />
+        <section id='idc_comments' className='relative'>
+          <script
+            type='text/javascript'
+            dangerouslySetInnerHTML={{
+              __html: `window.idcomments_acct = 'e1fd06a976e503ac92ce810aa47b1b50';window.idcomments_post_id = undefined;window.idcomments_post_url = undefined`
+            }}
+          />
+          <span id='IDCommentsPostTitle' style={{ display: 'none' }} />
+          {
+            // eslint-disable-next-line @next/next/no-sync-scripts
+            <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js' />
+          }
+        </section>
       </article>
     </Page>
   )
