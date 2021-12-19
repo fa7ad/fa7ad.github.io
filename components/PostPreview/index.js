@@ -17,7 +17,7 @@ function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
     <article className={styles.root}>
       <Link passHref href={`/posts/${slug}`}>
         <a href='#hack' className={styles.title}>
-          <h3>{title}</h3>
+          <h2>{title}</h2>
         </a>
       </Link>
       <p className={styles.subtitle}>{date}</p>
