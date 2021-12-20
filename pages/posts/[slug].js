@@ -13,6 +13,7 @@ import { getAllMeta, getContentBySlug } from 'lib/content'
 import styles from './Post.module.css'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import Script from 'next/script'
 
 const DiscussionEmbed = dynamic(() => import('disqus-react').then(mod => mod.DiscussionEmbed), {
   ssr: false,
@@ -98,6 +99,7 @@ export default function BlogPostFull({ post }) {
             }}
           />
         </section>
+        <Script strategy='afterInteractive' src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61bfe1b0843dc42e' />
       </article>
     </Page>
   )
