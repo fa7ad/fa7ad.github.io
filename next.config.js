@@ -38,6 +38,15 @@ const nextConfig = {
     })
 
     return config
+  },
+  async redirects() {
+    return [
+      {
+        source: '/pages/:slug*',
+        destination: '/:slug*',
+        permanent: true
+      }
+    ]
   }
 }
 
