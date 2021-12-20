@@ -22,6 +22,12 @@ posts:
     slug: fp-higher-order-functions
     cover: /featured/higher-order-functions-functional-js.jpg
     series: fp-js
+  - title: "The Trials and Tribulations. A Fool's Guide To Writing Functional JS (Part 4)"
+    date: 2020-08-16T17:38:30Z
+    file: 04_fp-trials-tribulations.md
+    slug: fp-trial-tribulations
+    cover: /featured/trials-tribulations-functional-js.jpg
+    series: fp-js
 
 pages:
   - title: About
@@ -41,3 +47,5 @@ series:
         slug: fp-functions
       - title: "Part 3: Some Higher-Order Functions"
         slug: fp-higher-order-functions
+      - title: "Part 4: The Trials and Tribulations"
+        slug: fp-trial-tribulations
