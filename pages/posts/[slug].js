@@ -66,7 +66,7 @@ export default function BlogPostFull({ post }) {
               priority
               placeholder='blur'
               blurDataURL={post.placeholderImage}
-              alt=''
+              alt={post.title}
               layout='fill'
             />
           </div>

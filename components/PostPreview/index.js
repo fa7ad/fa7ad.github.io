@@ -23,7 +23,7 @@ function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
       <p className={styles.subtitle}>{date}</p>
       {cover ? (
         <p className={styles.coverImage}>
-          <Image src={cover} alt='' layout='fill' placeholder='blur' blurDataURL={placeholderImage} />
+          <Image src={cover} alt={title} layout='fill' placeholder='blur' blurDataURL={placeholderImage} />
         </p>
       ) : null}
       {excerpt ? <p className={styles.excerpt}>{excerpt}</p> : null}
