@@ -2,8 +2,8 @@ In the [last article](/posts/fp-functions) we discussed the basics of **Function
 
 You could be wondering,
 
-> How is any of this terminology useful to me?
->
+## How is any of this terminology useful to me?
+
 > Sure, now I know what functions are. How do I use them?
 
 All these are very valid responses to that article, I didn't cover any day-to-day uses for Higher-Order Functions (*the article was already getting too long*).
@@ -30,7 +30,7 @@ According to wikipedia (and most literature),
 
 You might be cursing and saying
 
-> "What the F@#$ is  a functor?"
+### What the F@#$ is  a functor?
 
 Let's ignore that for now, and try to define map in a way that sounds (*a bit more*) human,
 
@@ -98,7 +98,7 @@ Lets try to break it down,
 > A **Functor** is basically any data structure that you can map over\*.  
 > So, in our case Object and Array (and potentially other data structures that store key->value) are both Functors from the perspective of our map function even though natively, only Arrays might be considered *Functors*.
 
-> Congrats! Now you know another FP buzzword/jargon.
+### Congratulations! Now you know another FP buzzword/jargon.
 
 **Line 8-9:** here, we are iterating through the keys of the container (indices in case of arrays) and applying the function `func` to each value and associating it with the same key in the resulting container.
 
@@ -126,8 +126,8 @@ Once again, JS has a native implementation of *filter*, but only in **Arrays**. 
 > Most *Functors* tend to be *Filterable* as well, but there is no guarantee that a *Functor* is *Filterable*.  
 > If we assume that *Array.prototype.filter*\* is the only possible implementation of filter, then only **Array**s can be considered *Filterable*.  
 > But, because we can write a function that can *filter* **objects**, we can consider plain JS objects as *Filterable* too.
->
-> Now you know another Category of data structures.
+
+### Now you know another *Category* of data structures.
 
 > **NOTE:** It should go without saying, Array.prototype.filter may/may not be 1:1 with the spec of filter
 
@@ -152,7 +152,7 @@ Then, we make a call to *Array.prototype.filter* by invoking `fruits.filter` wit
 
 | ![array-filter](https://i.loli.net/2020/06/02/mc417p3ewoKInJr.png) |
 |:---:|
-| *Illustration adapted from [John Ferris' article](https://atendesigngroup.com/blog/array-map-filter-and-reduce-js)* |
+| *Illustration adapted from **John Ferris' article*** |
 
 Let's try to implement a filter (using mutable code) that works for different containers (object & array).
 
@@ -235,7 +235,7 @@ Then, we make a call to *Array.prototype.reduce* by invoking `fruits.reduce` wit
 
 | ![array-reduce](https://i.loli.net/2020/06/13/mv6y8d7qrEHenFs.png) |
 | :----------------------------------------------------------: |
-| *Illustration adapted from [John Ferris' article](https://atendesigngroup.com/blog/array-map-filter-and-reduce-js)* |
+| *Illustration adapted from **John Ferris' article*** |
 
 Let's try to implement a *fold* of our own. Using mutable and imperative code, of course.
 
@@ -251,7 +251,7 @@ let fold_left = function (folding_fn, inital_value, foldable) {
 
 You might be thinking...
 
-> What? Where is all the code?
+### What? Where is all the code?
 
 Folds are notoriously very simple to implement, but they are so useful that you'll find yourself wondering why more people don't use them.
 

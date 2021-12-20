@@ -15,7 +15,7 @@
   @apply h-48 md:h-[30rem];
 }
 .excerpt {
-  @apply whitespace-pre-wrap font-mono my-4 text-justify dark:text-neutral-100;
+  @apply whitespace-pre-wrap font-mono my-4 dark:text-neutral-100;
 }
 .button {
   @apply inline-block bg-primary-700 hover:bg-primary-800 text-white font-bold py-2 px-4 rounded-full;

@@ -1,9 +1,6 @@
 You're a developer going about your day writing loops and pushing and deleting stuff from arrays and what not. And then some day you think 🤔
 
-> Maybe I should test my code...
->
-> Shouldn't be too hard
-
+## Maybe I should test my code... Shouldn't be too hard
 — you say.
 
 And then you get started, you learn the basics of unit testing and even write some tests. But as soon as your code gets a bit more complex, it starts to seem like almost impossible to test. But, you are determined, you're not gonna give up that easy; you start creating and destroying objects after every test. Maybe your chosen test framework even offers hooks for those.
@@ -84,7 +81,7 @@ On the other hand, _twoItemList_ always has these two items and never changes, s
 
 ## Side Effects (and pure functions)
 
-> Relax, we are not gonna discuss pharmaceuticals.
+### Relax, we are not gonna discuss pharmaceuticals.
 
 One of the core tenants of FP is to try and avoid side-effects.
 

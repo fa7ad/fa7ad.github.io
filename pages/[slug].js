@@ -17,7 +17,9 @@ export default function ContentPage({ page }) {
   return (
     <Page>
       <NextSeo title={page.title} description={page.excerpt} />
-      <article className='prose lg:prose-xl w-full md:max-w-4xl px-4'>{parse(page.content)}</article>
+      <article className='prose lg:prose-xl w-full md:max-w-4xl px-4' id='content'>
+        {parse(page.content)}
+      </article>
     </Page>
   )
 }

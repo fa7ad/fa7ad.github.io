@@ -36,6 +36,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const [navContent, setNavContent] = useState(true)
   const [headerActive, setHeaderActive] = useState(false)
+  const [hideDarkModeTooltip, setHideDarkModeTooltip] = useState(true)
   const theme = useSelector(state => state.ui.theme)
   const activeNavKey = useSelector(state => state.ui.activeNavKey)
 
@@ -66,10 +67,16 @@ const Header = () => {
   }, [])
 
   useEffect(() => {
-    const browserPref = window.matchMedia('(prefers-color-scheme: dark)')
-    const darkMode = localStorage.getItem('darkMode') ?? browserPref.matches.toString()
+    const darkModePrefs = localStorage.getItem('darkMode')
+    if (!darkModePrefs) {
+      setHideDarkModeTooltip(false)
+      setTimeout(() => {
+        setHideDarkModeTooltip(true)
+      }, 3e3)
+    }
+    const darkMode = darkModePrefs ?? 'false'
     dispatch(setTheme(darkMode === 'true' ? 'dark' : 'light'))
-  })
+  }, [dispatch])
 
   const toggleNavContent = () => {
     setNavContent(n => !n)
@@ -77,18 +84,21 @@ const Header = () => {
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
+    setHideDarkModeTooltip(true)
     dispatch(setTheme(newTheme))
   }
 
   return (
     <nav id='header' className={clsx(styles.header, { [styles.headerActive]: headerActive })}>
       <div id='progress' className={styles.progress} ref={progress} />
-
       <div className={styles.navContainer}>
         <div className={styles.navBrand}>
           <Link href='/'>Mildly Boring</Link>
-          <button className='mx-2 cursor-pointer' title='Toggle Dark Mode' onClick={toggleTheme}>
+          <button className='mx-2 cursor-pointer relative' title='Toggle Dark Mode' onClick={toggleTheme}>
             {theme === 'dark' ? '🌙' : '🌞'}
+            <span className={clsx({ hidden: hideDarkModeTooltip }, styles.darkModeTooltip)} role='tooltip'>
+              Toggle Dark Mode
+            </span>
           </button>
         </div>
 

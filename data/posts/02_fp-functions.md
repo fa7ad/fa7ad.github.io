@@ -31,13 +31,13 @@ const addOne = x => x + 1
 Yes, all of those are functions.
 But those are examples of functions. What I want you to think about is,
 
-> What is a function? What does it do?
+### What is a function? What does it do?
 
 As you may/may not be aware, the world of computer science is very intertwined with the world of mathematics. Functions are one of many things that we borrow from the world of mathematics.
 
 However, math is very abstract (for good reason). And so, if you look for a definition of functions in mathematics, you will find multiple. One that I like is,
 
-> A function is a relation between 2 sets
+#### A function is a relation between 2 sets
 
 Or in less abstract, computer science-y terms
 
@@ -65,7 +65,7 @@ Now there are several rules that a _thing_ must follow before it can be consider
 
 Now you may be thinking,
 
-> What about functions that don't return anything.
+#### What about functions that don't return anything.
 
 I don't know (nor care for the purposes of this discussion) about the behaviour of this in other languages, but in JS your functions always return something whether you want to or not.
 
@@ -77,7 +77,7 @@ In that case, **Its an impure function** and its causing side effect. And you sh
 
 But you might be thinking,
 
-> What about functions that don't take an input.
+#### What about functions that don't take an input.
 
 This can go one of several ways,
 

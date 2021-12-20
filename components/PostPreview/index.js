@@ -9,10 +9,11 @@ import styles from './PostPreview.module.css'
  * date: String,
  * excerpt?: String,
  * cover?: String,
+ * coverAlt?: String,
  * placeHolderImage?: String,
  * }} props
  */
-function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
+function PostPreview({ excerpt, slug, title, date, cover, coverAlt, placeholderImage }) {
   return (
     <article className={styles.root}>
       <Link passHref href={`/posts/${slug}`}>
@@ -23,7 +24,14 @@ function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
       <p className={styles.subtitle}>{date}</p>
       {cover ? (
         <p className={styles.coverImage}>
-          <Image src={cover} alt={title} layout='fill' placeholder='blur' blurDataURL={placeholderImage} />
+          <Image
+            src={cover}
+            alt=''
+            role='presentation'
+            layout='fill'
+            placeholder='blur'
+            blurDataURL={placeholderImage}
+          />
         </p>
       ) : null}
       {excerpt ? <p className={styles.excerpt}>{excerpt}</p> : null}

@@ -10,6 +10,9 @@ const Page = ({ children, className }) => {
   return (
     <>
       <Metadata />
+      <a className={styles.skipToContent} href='#content' tabIndex={0}>
+        Skip to content
+      </a>
       <Header />
       <main className={clsx(styles.main, className)}>{children}</main>
       <Footer />

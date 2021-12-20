@@ -52,6 +52,24 @@
   @apply text-inherit no-underline hover:no-underline font-extrabold text-xl;
 }
 
+.darkModeTooltip {
+  @apply bg-black/75 text-white p-2 rounded absolute top-full mt-2 left-1/2 transform -translate-x-1/2 w-max;
+  &::before {
+  @apply content-['▲'] absolute -top-[1.01rem] block left-1/2 transform scale-x-[125%] -translate-x-[.25em] text-black/75;
+  }
+  @apply animate-pulse;
+  animation-iteration-count: 2;
+  animation-duration: 600ms;
+}
+
+.skipToContent {
+  @apply transition-opacity duration-300 ease-in-out opacity-0;
+  @apply text-black bg-white p-2 absolute left-0 top-0;
+  &:focus {
+    @apply opacity-100;
+  }
+}
+
 /* Footer */
 .footer {
   @apply flex flex-1 py-6 bg-white text-neutral-900 justify-center items-center;

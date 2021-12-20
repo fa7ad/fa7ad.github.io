@@ -9,8 +9,8 @@ If you have been writing functional code, or even just trying to avoid mutations
 ```javascript
 const data = {
   /*...*/
-}; // some data
-const result = doSomethingCompletelyDiff(doSomethingElse(doSomething(data)));
+} // some data
+const result = doSomethingCompletelyDiff(doSomethingElse(doSomething(data)))
 ```
 
 At some point, making this kinda nested function calls becomes inevitable; specially if you don't want to make really specific, single-use functions. But this kind of function calls are not only ugly to look at, sometimes they are difficult to follow as well. Specially if you add some higher-order functions in between, then you've got a nasty mess of parentheses.
@@ -25,15 +25,15 @@ Let's see it in math first.
 
 Lets define a function _f(x)_
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;f&space;:&space;x&space;\mapsto&space;x&space;&plus;&space;1" title="\large f : x \mapsto x + 1" />
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;f&space;:&space;x&space;\mapsto&space;x&space;&plus;&space;1" alt="f : x => x + 1" />
 
 And another function _g(x)_
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;g&space;:&space;x&space;\mapsto&space;x&space;*&space;2" title="\large g : x \mapsto x * 2" />
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;g&space;:&space;x&space;\mapsto&space;x&space;*&space;2" alt="g : x => x * 2" />
 
 Lets take a letter `y` and let its value be...
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;y&space;=&space;f(g(10))" title="\large y = f(g(10))" />
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;y&space;=&space;f(g(10))" alt="y = f(g(10))" />
 
 We can see our old friend nested function call here again... So how did math come up with a solution?
 
@@ -41,11 +41,11 @@ They made an operator, of course. This operator allows you to define a function 
 
 Here's composition operator put to use,
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;h&space;=&space;f&space;\circ&space;g" title="\large h = f \circ g" />
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;h&space;=&space;f&space;\circ&space;g" alt="h = f &middot; g" />
 
 Here, _h_ is defined as the composition of _g_ and _f_. Functionally, calling `h(x)` is the same as calling `f(g(x))` So now, we can do this
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;y'&space;=&space;h(10)" title="\large y' = h(10)" />
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;y'&space;=&space;h(10)" alt="y' = h(10)" />
 
 _"Great"_ I hear you say, _"How does that help me in code, I can't just put a big ol' dot between two functions in JS can I?"_
 
@@ -56,7 +56,7 @@ No, not put a big ol' dot... you can compose functions in JS just not using an o
 It goes something like this
 
 ```javascript
-const newSuperFunction = compose(lastFn, secondFn, firstFn);
+const newSuperFunction = compose(lastFn, secondFn, firstFn)
 ```
 
 Doesn't look too horrible, if you ask me 🤷
@@ -68,9 +68,11 @@ I'm glad you asked, remember our old friend the fold (reduce)? We can very easil
 ```javascript
 const compose = (...funcs) =>
   funcs.reduceRight(
-    (fx, gx) => (...args) => gx(fx(...args)),
-    (val) => val
-  );
+    (fx, gx) =>
+      (...args) =>
+        gx(fx(...args)),
+    val => val
+  )
 ```
 
 Here, our `compose` function takes a _variadic_ number of arguments, all of which are functions.
@@ -90,16 +92,14 @@ Happy composing, Enjoy!
 Once you understood map, filter and reduce you just can't go back. You write code that looks like this
 
 ```javascript
-const dataSet = [
-  /*...*/
-]; // Some dataset
+const dataSet = [/*...*/] // Some dataset
 const finalData = dataSet
   .map(someTransformation)
   .map(someFurtherTransformation)
   .filter(somePredicate)
   .filter(anotherPredicate)
   .map(evenMoreTransformation)
-  .reduce(combinatorFunction);
+  .reduce(combinatorFunction)
 ```
 
 While this code is **_very_** contrived but you get the idea. If you don't want to make a bunch of one-off transformations and predicates you end up doing this.
@@ -136,7 +136,10 @@ Just a word of warning, there are better solutions out there. But, for now we ca
    Let's try to implement a binary `and` function
 
   ```javascript
-  const and = (pred1, pred2) => (...args) => pred1(...args) && pred2(...args);
+  const and =
+    (pred1, pred2) =>
+    (...args) =>
+      pred1(...args) && pred2(...args)
   ```
 
   So now we can rewrite this
@@ -176,4 +179,4 @@ Enjoy writing more FP code. I'll try to write about a few more problems and solu
 
 Till then, Peace ✌️
 
-![peace](https://res.cloudinary.com/practicaldev/image/fetch/s--5QyGr6Q0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.loli.net/2020/06/13/YxJLIu3ADvrHfog.gif)
+![deuces](https://res.cloudinary.com/practicaldev/image/fetch/s--5QyGr6Q0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.loli.net/2020/06/13/YxJLIu3ADvrHfog.gif)

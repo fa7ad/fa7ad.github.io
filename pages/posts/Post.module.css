@@ -15,10 +15,6 @@
   @apply h-48 md:h-[30rem];
 }
 
-.content {
-  @apply text-justify;
-}
-
 .seriesListing {
   @apply flex flex-col justify-center max-w-sm mx-auto;
   h2 {

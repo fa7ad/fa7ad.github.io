@@ -39,6 +39,7 @@ export default function BlogPostFull({ post }) {
       <NextSeo
         title={post.title}
         description={post.excerpt}
+        canonical={`https://mildlyboring.com/posts/${post.slug}`}
         openGraph={{
           article: {
             publishedTime: post.published,
@@ -56,7 +57,7 @@ export default function BlogPostFull({ post }) {
           ]
         }}
       />
-      <article className={clsx('prose', 'lg:prose-xl', styles.article)}>
+      <article id='content' className={clsx('prose', 'lg:prose-xl', styles.article)}>
         <h1 className={styles.title}>{post.title}</h1>
         <p className={styles.date}>{post.date}</p>
 
@@ -67,7 +68,7 @@ export default function BlogPostFull({ post }) {
               priority
               placeholder='blur'
               blurDataURL={post.placeholderImage}
-              alt={post.title}
+              alt=''
               layout='fill'
             />
           </div>
@@ -87,9 +88,9 @@ export default function BlogPostFull({ post }) {
             </ul>
           </div>
         ) : null}
-        <div className={styles.content}>{parse(post.content)}</div>
+        <div id='readable_content'>{parse(post.content)}</div>
         <hr />
-        <section id='idc_comments' className='relative'>
+        <section id='comments_section' className='relative'>
           <DiscussionEmbed
             shortname='mildly-boring'
             config={{
