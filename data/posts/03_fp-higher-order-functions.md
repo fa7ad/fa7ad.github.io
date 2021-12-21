@@ -218,7 +218,7 @@ let fruits = ["apple", "banana", "orange"]
 // The accumulating function
 let makeSalad = (salad, fruit) => `${fruit}-${salad}`
 
-// Inital Salad
+// Initial Salad
 let saladStarter = "salad"
 
 // The Result
@@ -240,8 +240,8 @@ Then, we make a call to *Array.prototype.reduce* by invoking `fruits.reduce` wit
 Let's try to implement a *fold* of our own. Using mutable and imperative code, of course.
 
 ```javascript
-let fold_left = function (folding_fn, inital_value, foldable) {
-  let accumulated = inital_value
+let fold_left = function (folding_fn, initial_value, foldable) {
+  let accumulated = initial_value
   for (let key in foldable) {
     accumulated = folding_fn(accumulated, foldable[key])
   }
@@ -287,7 +287,7 @@ Folds should come in handy when you need to,
 
 ## Appendix / Additional Links
 
-I talk briefly about a few *Categories* of data types. If you wanna look at more of these categories, take a look at the wonderful [**fantasy-land**](https://github.com/fantasyland/fantasy-land) specifications that defines *Algebraic* Data Types in terminology we JS devs can understand.
+I talk briefly about a few *Categories* of data types. If you want to look at more of these categories, take a look at the wonderful [**fantasy-land**](https://github.com/fantasyland/fantasy-land) specifications that defines *Algebraic* Data Types in terminology we JS devs can understand.
 
 Also check out the amazing [**ramda**](https://ramdajs.com/) library for more useful functional utilities like *performant* and *curried* implementations of *map*, *filter*, *reduce* or even helper functions that help you easily combine these operations into a *transducer* (more on this in a later article).
 
