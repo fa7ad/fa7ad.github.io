@@ -1,4 +1,4 @@
-It's been a while since my [last article](/post/fp-higher-order-functions) so, hopefully you didn't forget what we last discussed. Throughout the last 3 articles I alluded to some nifty tricks and nice-ties like `compose`. So in this article we will try to cover some of these topics.
+It's been a while since my [last article](/posts/fp-higher-order-functions) so, hopefully you didn't forget what we last discussed. Throughout the last 3 articles I alluded to some nifty tricks and nice-ties like `compose`. So in this article we will try to cover some of these topics.
 
 Let's see some problems that we come across when starting out our FP journey in JS.
 
