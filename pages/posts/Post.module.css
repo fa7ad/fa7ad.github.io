@@ -16,8 +16,11 @@
 }
 
 .seriesListing {
-  @apply flex flex-col justify-center max-w-sm mx-auto;
+  @apply flex flex-col justify-center max-w-sm;
+  @apply md:border-2 md:border-dashed md:border-neutral-300 md:dark:border-neutral-800;
+  @apply md:rounded-md md:float-right md:my-4 md:ml-6 md:p-4;
   h2 {
+    @apply first-of-type:mt-0;
     @apply text-sm font-bold;
   }
 }

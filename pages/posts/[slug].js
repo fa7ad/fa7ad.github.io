@@ -56,11 +56,18 @@ export default function BlogPostFull({ post }) {
               : undefined
           ]
         }}
+        additionalLinkTags={
+          post?.content?.includes('katex')
+            ? [
+                {
+                  rel: 'stylesheet',
+                  href: 'https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css'
+                }
+              ]
+            : []
+        }
       />
       <article id='content' className={clsx('prose', 'lg:prose-xl', styles.article)}>
-        <h1 className={styles.title}>{post.title}</h1>
-        <p className={styles.date}>{post.date}</p>
-
         {post.cover ? (
           <div className={styles.coverImage}>
             <Image
@@ -73,6 +80,9 @@ export default function BlogPostFull({ post }) {
             />
           </div>
         ) : null}
+        <h1 className={styles.title}>{post.title}</h1>
+        <p className={styles.date}>{post.date}</p>
+
         {post.series ? (
           <div className={styles.seriesListing}>
             <h2>This article is part of a series</h2>

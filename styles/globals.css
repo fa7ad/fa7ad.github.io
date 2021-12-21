@@ -11,6 +11,12 @@ body {
   }
 }
 
+@layer utilities {
+  .float-desktop {
+    @apply mb-4 ml-6 float-right;
+  }
+}
+
 .dark .prose {
   --tw-prose-headings: var(--color-white);
   --tw-prose-quotes: var(--color-neutral-400);
@@ -31,5 +37,20 @@ body {
   }
   img {
     @apply inline-block;
+  }
+}
+
+.katex .vlist > span {
+  display: inherit;
+}
+
+#readable_content {
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  {
+    @apply first-of-type:clear-both;
   }
 }

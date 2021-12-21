@@ -269,4 +269,4 @@ In later articles, We will discuss a function that's basically `combine` but muc
 
 Peace ✌️
 
-![deuces](https://i.giphy.com/media/NG6dWJC9wFX2/giphy.gif)
+![deuces](/images/679493a2b51cda300edb28d7d078267a.gif)

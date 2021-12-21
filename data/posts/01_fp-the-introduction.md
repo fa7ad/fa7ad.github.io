@@ -43,7 +43,7 @@ Don't worry about the jargon for now, we will discuss those terms shortly.
 
 Lets begin by examining some objects in real life. Do you remember those digital watches (CASIO et al) from back in the day that lit up when you pressed a button on the side?
 
-| ![Casio W-86 / W86 / W-86-1VQES "Illuminator" digital watch](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Casio_W-86_digital_watch_electroluminescent_backlight_%28ii%29.jpg/480px-Casio_W-86_digital_watch_electroluminescent_backlight_%28ii%29.jpg) |
+| ![Casio W-86 / W86 / W-86-1VQES "Illuminator" digital watch](/images/2d2cecbb109c538689e71394efe2d804.jpg) |
 | :-: |
 | **Image**: _Casio W-86 / W86 / W-86-1VQES "Illuminator" digital watch_. [Multicherry](<https://commons.wikimedia.org/wiki/File:Casio_W-86_digital_watch_electroluminescent_backlight_(ii).jpg> 'via Wikimedia Commons') / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0) |
 
@@ -113,4 +113,4 @@ I feel like the above topics are a good enough indication of how things work in 
 
 **Till then, Peace ✌️**
 
-![Deuces](https://media.giphy.com/media/NG6dWJC9wFX2/giphy.gif)
+![Deuces](/images/679493a2b51cda300edb28d7d078267a.gif)

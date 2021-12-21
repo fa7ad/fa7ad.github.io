@@ -67,7 +67,7 @@ Next, we defined a function named `firstLetter` that takes a string input and re
 
 Then, we make a call to *Array.prototype.map* by invoking `fruits.map` with the argument `firstLetter`. What this is doing is, telling the map function to iterate over every element contained by `fruits` and *apply* `firstLetter` to each element, store the results in a new array, and then return the new resulting array. This return value is what we assign to `firstLetters`.
 
-| ![array-map](https://i.loli.net/2020/05/30/Ee5o3WysuqVGP46.png) |
+| ![array-map](/images/7c94d5a7bdb514d0b1e801f997a5d9f5.png) |
 |:---:|
 | *Illustration adapted from [John Ferris' article](https://atendesigngroup.com/blog/array-map-filter-and-reduce-js)* |
 
@@ -150,7 +150,7 @@ Next, we defined a function named `isCitrus` that takes a string input and check
 
 Then, we make a call to *Array.prototype.filter* by invoking `fruits.filter` with the argument `isCitrus`. What this does is, tell the filter function to iterate over every element contained by `fruits` and call `isCitrus` with each element as argument, if `isCitrus` returns `true` that elements is kept, otherwise the element is skipped over and the next element is checked. This process is repeated for all the elements of the array. An array is constructed containing only the elements for which `isCitrus` returned `true`.
 
-| ![array-filter](https://i.loli.net/2020/06/02/mc417p3ewoKInJr.png) |
+| ![array-filter](/images/e4238c2f183527e388a814e9feeb105c.png) |
 |:---:|
 | *Illustration adapted from **John Ferris' article*** |
 
@@ -233,7 +233,7 @@ We then define another variables, this time its a string named `saladStarter`.
 
 Then, we make a call to *Array.prototype.reduce* by invoking `fruits.reduce` with the arguments `makeSalad` and `saladStarter`. What this does is, it tells the fold function to iterate over every element contained in `fruits` and call `makeSalad` with an *accumulated value* and an element from `fruits`. For the first iteration, there is no accumulated value, so `makeSalad` is called with `saladStarter` as the *accumulated value*. For every subsequent iteration, `makeSalad` is called with the return value of the previous iteration as the *accumulated value* and the next item in the array. This process is continued until `makeSalad` has been called with the accumulated value from its previous iteration and the last item in `fruits`. Finally the return value from the final call is passed on as the return value for the *reduce* call and stored in the variable named `salad`.
 
-| ![array-reduce](https://i.loli.net/2020/06/13/mv6y8d7qrEHenFs.png) |
+| ![array-reduce](/images/f4a6519b84d8d5c0f5f85c6207d9e20c.png) |
 | :----------------------------------------------------------: |
 | *Illustration adapted from **John Ferris' article*** |
 
@@ -299,4 +299,4 @@ If you are even slightly mathematically minded, lookup Category theory as well a
 
 Peace ✌️
 
-![doggy-dogg-peace](https://i.loli.net/2020/06/13/YxJLIu3ADvrHfog.gif)
+![doggy-dogg-peace](/images/679493a2b51cda300edb28d7d078267a.gif)

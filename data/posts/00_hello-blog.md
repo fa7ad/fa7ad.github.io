@@ -21,7 +21,7 @@ What’s that got to do with anything?
 
 Nothing really, I’m just trying to indoctrinate you into using markdown.
 
-![weird meme gif](https://media.giphy.com/media/AVhAQBjLoJc1q/giphy.gif)
+![weird meme gif](/images/1640049434_giphy.gif)
 
 No, that’s not it _(maybe?😉)_. The reason for bringing up markdown is that I like writing in markdown.
 

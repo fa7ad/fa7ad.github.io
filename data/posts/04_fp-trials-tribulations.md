@@ -25,15 +25,21 @@ Let's see it in math first.
 
 Lets define a function _f(x)_
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;f&space;:&space;x&space;\mapsto&space;x&space;&plus;&space;1" alt="f : x => x + 1" />
+$$
+f : x \mapsto x + 1
+$$
 
 And another function _g(x)_
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;g&space;:&space;x&space;\mapsto&space;x&space;*&space;2" alt="g : x => x * 2" />
+$$
+g : x \mapsto x * 2
+$$
 
 Lets take a letter `y` and let its value be...
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;y&space;=&space;f(g(10))" alt="y = f(g(10))" />
+$$
+y = f(g(10))
+$$
 
 We can see our old friend nested function call here again... So how did math come up with a solution?
 
@@ -41,11 +47,15 @@ They made an operator, of course. This operator allows you to define a function 
 
 Here's composition operator put to use,
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;h&space;=&space;f&space;\circ&space;g" alt="h = f &middot; g" />
+$$
+h : f \circ g
+$$
 
 Here, _h_ is defined as the composition of _g_ and _f_. Functionally, calling `h(x)` is the same as calling `f(g(x))` So now, we can do this
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\dpi{200}&space;\bg_black&space;\large&space;y'&space;=&space;h(10)" alt="y' = h(10)" />
+$$
+y^{\prime} = h(10)
+$$
 
 _"Great"_ I hear you say, _"How does that help me in code, I can't just put a big ol' dot between two functions in JS can I?"_
 
