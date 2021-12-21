@@ -68,7 +68,7 @@ const Header = () => {
 
   useEffect(() => {
     const darkModePrefs = localStorage.getItem('darkMode')
-    if (!darkModePrefs) {
+    if (!darkModePrefs && window.innerWidth >= 640) {
       setHideDarkModeTooltip(false)
       setTimeout(() => {
         setHideDarkModeTooltip(true)

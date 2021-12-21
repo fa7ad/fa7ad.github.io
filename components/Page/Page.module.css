@@ -52,14 +52,29 @@
   @apply text-inherit no-underline hover:no-underline font-extrabold text-xl;
 }
 
-.darkModeTooltip {
-  @apply bg-black/75 text-white p-2 rounded absolute top-full mt-2 left-1/2 transform -translate-x-1/2 w-max;
-  &::before {
-  @apply content-['▲'] absolute -top-[1.01rem] block left-1/2 transform scale-x-[125%] -translate-x-[.25em] text-black/75;
+@keyframes pulse-size {
+  0%,
+  100% {
+    transform: translateX(var(--translate-tooltip-x)) scale(1);
   }
-  @apply animate-pulse;
-  animation-iteration-count: 2;
-  animation-duration: 600ms;
+  33% {
+    transform: translateX(var(--translate-tooltip-x)) scale(0.9);
+  }
+  66% {
+    transform: translateX(var(--translate-tooltip-x)) scale(1.1);
+  }
+}
+
+.darkModeTooltip {
+  @apply bg-black/75 text-white p-2 rounded absolute top-full mt-2 left-1/2 mx-auto w-max;
+  transition: all 0.2s ease-in-out;
+  --translate-tooltip-x: -50%;
+  transform: translateX(var(--translate-tooltip-x)) scale(1);
+  animation: ease-in-out 300ms 1 pulse-size;
+  &::before {
+    @apply content-['▲'] absolute -top-[1.01rem] left-1/2 text-black/75;
+    transform: translateX(-33%);
+  }
 }
 
 .skipToContent {
