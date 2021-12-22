@@ -1,0 +1,8 @@
+ramda
+Ramda
+foldl
+variadic
+tree-shakeable
+memoization
+creds
+interwebs

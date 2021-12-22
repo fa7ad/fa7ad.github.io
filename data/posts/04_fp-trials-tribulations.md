@@ -4,7 +4,7 @@ Let's see some problems that we come across when starting out our FP journey in 
 
 ## Problem #1
 
-If you have been writing functional code, or even just trying to avoid mutations and side-effects, you probably ended up writing something like this
+If you have been writing functional code, or even just trying to avoid mutations and side effects, you probably ended up writing something like this
 
 ```javascript
 const data = {
@@ -23,7 +23,7 @@ We do have precisely that exact tool. (Un)surprisingly, it's another one of thos
 
 Let's see it in math first.
 
-Lets define a function _f(x)_
+Let's define a function _f(x)_
 
 $$
 f : x \mapsto x + 1
@@ -35,7 +35,7 @@ $$
 g : x \mapsto x * 2
 $$
 
-Lets take a letter `y` and let its value be...
+Let's take a letter `y` and let its value be...
 
 $$
 y = f(g(10))
@@ -112,7 +112,7 @@ const finalData = dataSet
   .reduce(combinatorFunction)
 ```
 
-While this code is **_very_** contrived but you get the idea. If you don't want to make a bunch of one-off transformations and predicates you end up doing this.
+While this code is **_very_** contrived, but you get the idea. If you don't want to make a bunch of one-off transformations and predicates you end up doing this.
 
 Even if it might not seem like a problem at first, you will start to see a crash coming from miles away as soon as your dataset becomes large enough.
 
@@ -140,7 +140,7 @@ Just a word of warning, there are better solutions out there. But, for now we ca
 - Combine successive filters
 
   You might get the idea that we can combine filters the same way we combined maps.
-  However, the moment you go to do such a thing, you realise that you forgot that composing predicates just won't work.
+  However, the moment you go to do such a thing, you realize that you forgot that composing predicates just won't work.
 
   But we can get around that by implement a logical `and` function to combine predicates, since that's essentially what two successive filters do anyway.  
    Let's try to implement a binary `and` function
@@ -179,7 +179,7 @@ The reason why so many JS devs have this problem is that our language gives the 
 
 ### Solution (not really, but it is what it is)
 
-A lot of this can be avoided by adding a Functional utility library to your toolchain. I _highly recommend_ **Ramda**, because it gives a lot of functionality at a very reasonable file size. All of its functions are at least on par with some language built-in implementations, if not better, in terms of performance. And the cherry on top, its tree-shakeable; so almost any build system like webpack or rollup can remove the functions you don't use from the final JS bundle.
+A lot of this can be avoided by adding a Functional utility library to your tool chain. I _highly recommend_ **Ramda**, because it gives a lot of functionality at a very reasonable file size. All of its functions are at least on par with some language built-in implementations, if not better, in terms of performance. And the cherry on top, its tree-shakeable; so almost any build system like webpack or rollup can remove the functions you don't use from the final JS bundle.
 
 ---
 

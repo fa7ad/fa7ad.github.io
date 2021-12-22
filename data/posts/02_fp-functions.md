@@ -1,4 +1,4 @@
-In the [last article](/posts/fp-the-introduction), I introduced some core concepts of Functional Programming. In that article I quickly glossed over Pure Functions. In this article the goal is to discuss functions in more details.
+In the [last article](/posts/fp-the-introduction), I introduced some core concepts of Functional Programming; but I quickly glossed over Pure Functions. The goal of this article is to discuss functions in more detail.
 
 If there is one thing that you can call absolutely necessary to do functional programming is a good understanding of _Functions_. *(I guess you could infer that from the name, **Function**al Programming)*
 
@@ -14,7 +14,7 @@ function doSomething(x) {
 }
 ```
 
-Its this (👆) thing. Or this
+It's this (👆) thing. Or this
 
 ```javascript
 const addTwo = function (x) {
@@ -31,7 +31,7 @@ const addOne = x => x + 1
 Yes, all of those are functions.
 But those are examples of functions. What I want you to think about is,
 
-### What is a function? What does it do?
+### What is a function? And what does it do?
 
 As you may/may not be aware, the world of computer science is very intertwined with the world of mathematics. Functions are one of many things that we borrow from the world of mathematics.
 
@@ -57,7 +57,7 @@ Now there are several rules that a _thing_ must follow before it can be consider
 
 - Same input can not map to multiple outputs.
 
-  This is because that would lead to non deterministic behaviour and this is undesirable in both computer science and math.
+  This is because that would lead to non-deterministic behavior and this is undesirable in both computer science and math.
 
   ```javascript
   fx(1) // it should not be true once and false the next second.
@@ -67,13 +67,13 @@ Now you may be thinking,
 
 #### What about functions that don't return anything.
 
-I don't know (nor care for the purposes of this discussion) about the behaviour of this in other languages, but in JS your functions always return something whether you want to or not.
+I don't know (nor care for the purposes of this discussion) about the behavior of this in other languages, but in JS your functions always return something whether you want to or not.
 
 If you do return something, that's well and good.
 However, if you don't, JS returns `undefined` for you.
 
 So your function that returns nothing, is actually a mapping from some input to `undefined`. But more importantly, you might be getting the results of such a function in some other place, maybe the function is pushing the result on to a variable outside its scope.
-In that case, **Its an impure function** and its causing side effect. And you should probably avoid doing that (when possible).
+In that case, **It's an impure function** and its causing side effect. And you should probably avoid doing that (when possible).
 
 But you might be thinking,
 
@@ -82,23 +82,22 @@ But you might be thinking,
 This can go one of several ways,
 
 1. Your function always returns something valuable if you call it with no input.
-   Your function is a mapping from a null set (nothing) to a value, **Its
-   a function**.
+   Your function is a mapping from a null set (nothing) to a value, **It's a function**.
 
-2. Your function takes no input and returns nothing (or `undefined`) as we discussed.
-   1. Its useless (i.e. not doing anything), but **Its a function**.
-   2. Its useful (i.e. gives some output), but its output is not available as a return value, **Its (probably) not a (_pure_) function** and you should try and avoid these as its making a _side effect!_
+2. Said function takes no input and returns nothing (or `undefined`) as we discussed.
+   1. It is useless (i.e. not doing anything), but **It's a function**.
+   2. It is useful (i.e. gives some output), but its output is not available as a return value, **Its (probably) not a (_pure_) function**, and you should try and avoid these (this is a _side effect!_)
 
-So, we now know what functions are, that's it right? that's all there is to know about functions?
+So, we now know what functions are, that's it right? That's all there is to know about functions?
 
-No, my dear reader. You can dig yourself into a tunnel, learning about functions. But, for our purposes of learning FP in JS. We can talk about some special types of functions that follow the rules above and do some interesting things.
+Au contraire, mon ami. You can dig yourself into a tunnel, learning about functions. But, for our purposes of learning FP in JS. We can talk about some special types of functions that follow the rules above and do some interesting things.
 
 ## Recursive Functions
 
 Do you know what factorials are?
-Its this thing you express in math with an exclamation mark after a number like `5!`.
+It's this thing you express in math with an exclamation mark after a number like `5!`.
 
-What's it do? Its an interesting bit of math, its useful for a lot of things that we are not going to discuss right now. The important bit is that we can not just use a number followed by and exclamation mark after it to get a factorial in code. We need to make that functionality ourselves.
+What's it do? It's an interesting bit of math, it's useful for a lot of things that we are not going to discuss right now. The important bit is that we can not just use a number followed by and exclamation mark after it to get a factorial in code. We need to make that functionality ourselves.
 
 Luckily, factorials are very intuitive. There's just two rules about factorials, and you can get the factorial of any number with those.
 
@@ -126,9 +125,9 @@ Simplifying,
 3! = 3 * 2 * 1 * 1
 ```
 
-If we wanted to implement this behaviour in a function and call it `fac`. How would you go about doing that?
+If we wanted to implement this behavior in a function and call it `fac`. How would you go about doing that?
 
-You're probably thinking of loops and if-else statements. But there is a very simple way where we can take the rules of factorial word for word and translate that into code and it would work.
+You're probably thinking of loops and if-else statements. But there is a very simple way where we can take the rules of factorial word for word and translate that into code, and it would work.
 
 This is how it goes
 
@@ -139,32 +138,32 @@ function fac(n) {
 }
 ```
 
-Thats it! This is a very simple and functioning implementation of factorial.
+That's it! This is a very simple and functioning implementation of factorial.
 
 So, how does it work?
 
 This is an example of a **recursion**; a function that calls itself to do something or get a result.
 
-In **every** (intensional) _recursion_ in the world, there are always at least 2 logical cases.
+In **every** (intentional) _recursion_ in the world, there are always at least 2 logical cases.
 
-1. A base case where the function does not call itself (so the recursion is not infinitely spiralling out).
+1. A base case where the function does not call itself (so the recursion is not infinitely spiraling out).
 2. A recursive case where the function calls itself.
 
 In the example above,
 Line#2 is our base case. As you might have noticed, this is usually something that's either easily computable or known.
-Line#3 is our recursive case, This is usually where we put the repetitive behaviour.
+Line#3 is our recursive case, This is usually where we put the repetitive behavior.
 
 **A word of warning,**
 
 > While JavaScript is usually a good enough language for exploring functional concepts, this is one of the places where functional and JS doesn't necessarily agree.
 >
-> A recursion is usually fine for simple algorithms that don't need too many recursive calls in JS. But, if your algorithms does a recursive call way too many times, its either not gonna perform well or going to crash because of a stack overflow.
+> A recursion is usually fine for simple algorithms that don't need too many recursive calls in JS. But, if your algorithms does a recursive call way too many times, it's either not going to perform well or going to crash because of a stack overflow.
 >
-> In future, We might discuss techniques such as memoization to get over this kind of limitations or to make our code more performant than a naive recursion.
+> In the future, We might discuss techniques such as memoization to get over this kind of limitations or to make our code more performant than a naive recursion.
 
 ## Higher-Order Functions
 
-Lets get straight to the point, As previously discussed... A function is a mapping from input to an output.
+Let's get straight to the point, As previously discussed... A function is a mapping from input to an output.
 
 A **Higher-Order Function** is a _function_ that maps,
 
@@ -172,9 +171,9 @@ A **Higher-Order Function** is a _function_ that maps,
 - From input to function
 - From function (input) to function (output)
 
-Take a moment to absorb all of that. If a function does any of those 3 things, its a higher order function.
+Take a moment to absorb all of that. If a function does any of those 3 things, it's a higher order function.
 
-Lets see a few examples,
+Let's see a few examples,
 
 ```javascript
 function propSatisfies(prop, pred, obj) {
@@ -202,9 +201,9 @@ Our function `propSatisfies` takes in 3 parameters(inputs),
 Our function returns a value, either `true` or `false`
 
 On the last line, we call the `propSatisfies` function using 3 values,
-- `prop` => `'age'`
-- `pred` => `isAdult`
-- `obj` => `data`
+- `prop` ⇒ `'age'`
+- `pred` ⇒ `isAdult`
+- `obj` ⇒ `data`
 
 `isAdult` is a simple function that takes an age and returns `true` or `false` (i.e. a predicate). **This is not a Higher-order Function**  
 `'age'` is a string literal, so not a Higher-order Function  
@@ -213,7 +212,7 @@ On the last line, we call the `propSatisfies` function using 3 values,
 So, which one is the Higher-order function? `propSatisfies`  
 Why? Because it maps a function (`isAdult`) to a value `true` or `false`.
 
-Lets look at another Higher-order function.
+Let's look at another Higher-order function.
 
 ```javascript
 function add(a) {
@@ -259,7 +258,7 @@ let dSquare = combine(square, double)
 
 In this example,  
 `combine` takes in two arguments `outer` and `inner`, both of which have to be functions. So, we can already see that it is a Higher-order Function  
-`combine` also returns a function that *combine*s the functionality of both inner and outer. Once again, its a higher-order function (because its returning a function)
+`combine` also returns a function that *combine*s the functionality of both inner and outer. Once again, it's a higher-order function (because it's returning a function)
 
 When we call combine with `square` and `double` as arguments, it returns a function that takes an argument `arg` and returns a value by calling `inner` with `arg` and then calling `outer` with the return value of the `inner` call. In essence, _combining_ the two functions. So, `dSquare` is now a function that, when given a number, doubles it first and then squares it and then returns the result of those operations.
 

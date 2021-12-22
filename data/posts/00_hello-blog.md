@@ -19,25 +19,25 @@ To be fair, markdown has its own problems (different almost-compatible implement
 What’s that got to do with anything?
 ------------------------------------
 
-Nothing really, I’m just trying to indoctrinate you into using markdown.
+Nothing really, I’m just trying to indoctrinate you into using Markdown.
 
-![weird meme gif](/images/1640049434_giphy.gif)
+![Weird meme GIF](/images/1640049434_giphy.gif)
 
-No, that’s not it _(maybe?😉)_. The reason for bringing up markdown is that I like writing in markdown.
+No, that’s not it _(maybe?😉)_. The reason for bringing up Markdown is that I like writing in Markdown.
 
-So automatically, platforms and tools that support markdown has a certain appeal to me.
+So automatically, platforms and tools that support Markdown have a certain appeal to me.
 
 I’ll try to list a few problems I faced with different blogging systems and platforms.
 
 ### WordPress
 
-To be completely honest, there’s a reason its one of the most used piece of software on the interwebs. Its pretty easy to start something with WordPress, and for the most part it gets out of the way and does its job.
+To be completely honest, there’s a reason its one of the most used piece of software on the interwebs. It's pretty easy to start something with WordPress, and for the most part it gets out of the way and does its job.
 
-So my problem with wordpress is that its just too big of a software for running a simple unmaintained blog like mine. Also, I love shitting on PHP (for no good reason 😅 ).
+So my problem with WordPress is that It's just too big of a software for running a simple unmaintained blog like mine. Also, I love shitting on PHP (for no good reason 😅).
 
 ### Ghost
 
-Ghost is awesome! Loved it the first time I used it. Their markdown editor is just 💯 awesome. I wish someone would take that beautiful markdown editor and put it on something far simpler to setup and run.
+Ghost is awesome! Loved it the first time I used it. Their markdown editor is just 💯 awesome. I wish someone would take that beautiful markdown editor and put it on something far simpler to set up and run. Also don't feel like running a DB instance for what can be a static site.
 
 ### Medium
 
