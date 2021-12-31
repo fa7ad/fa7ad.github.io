@@ -31,6 +31,7 @@ I enjoy learning about new technology (languages/frameworks/libraries/syntax…)
 - Tinkering with software/hardware (I will spend hours to automate a 5 min task, because its fun)
 
 ---
+
 ## Non-human Languages That I know
 
 ### Tier 1 (actively work with)

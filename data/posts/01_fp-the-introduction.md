@@ -1,6 +1,7 @@
 You're a developer going about your day writing loops and pushing and deleting stuff from arrays and what not. And then some day you think 🤔
 
 ## Maybe I should test my code... Shouldn't be too hard
+
 — you say.
 
 And then you get started, you learn the basics of unit testing and even write some tests. But as soon as your code gets a bit more complex, it starts to seem like almost impossible to test. But, you are determined, you're not going to give up that easy; you start creating and destroying objects after every test. Maybe your chosen test framework even offers hooks for those.
@@ -43,8 +44,8 @@ Don't worry about the jargon for now, we will discuss those terms shortly.
 
 Let's begin by examining some objects in real life. Do you remember those digital watches (CASIO et al.) from back in the day that lit up when you pressed a button on the side?
 
-| ![Casio W-86 / W86 / W-86-1VQES "Illuminator" digital watch](/images/2d2cecbb109c538689e71394efe2d804.jpg) |
-| :-: |
+|                                                                                      ![Casio W-86 / W86 / W-86-1VQES "Illuminator" digital watch](/images/2d2cecbb109c538689e71394efe2d804.jpg)                                                                                      |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Image**: _Casio W-86 / W86 / W-86-1VQES "Illuminator" digital watch_. [Multicherry](<https://commons.wikimedia.org/wiki/File:Casio_W-86_digital_watch_electroluminescent_backlight_(ii).jpg> 'via Wikimedia Commons') / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0) |
 
 Let's examine that mechanism. The "backlight" on those watches is a very simple greenish LED soldered besides the digital display, powered by the on-board battery and sometimes a tiny little solar panel. If we think of that backlight and button mechanism as a simple program. We can observe a few things,
@@ -101,7 +102,7 @@ In FP a function (or rather a pure function) is a piece of code that may/may not
 - Change the state of anything outside its scope
 - Return different things for the same input
 
-So, getting back to our "Side Effects" discussion, a side effect is any and all the above discussed *despicable* things except the last one.
+So, getting back to our "Side Effects" discussion, a side effect is any and all the above discussed _despicable_ things except the last one.
 
 Or in other words, if a function performs some I/O task instead of or in addition to returning an output, or it changes the global state somehow; it is said to have side effects and is referred to as an impure function\*
 

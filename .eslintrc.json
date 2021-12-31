@@ -6,21 +6,20 @@
   },
   "extends": [
     "next/core-web-vitals",
+    "eslint:recommended",
     "plugin:react/jsx-runtime",
     "plugin:react/recommended",
     "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
-    "standard",
-    "standard-jsx",
-    "standard-react",
     "plugin:prettier/recommended",
     "prettier"
   ],
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "modules": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": 2021,
     "sourceType": "module"
   },
   "plugins": ["react"],
@@ -32,7 +31,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "extensions": [".js", ".jsx"],
         "moduleDirectory": ["node_modules", "."]
       }
     }

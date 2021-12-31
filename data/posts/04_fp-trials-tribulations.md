@@ -102,7 +102,9 @@ Happy composing, Enjoy!
 Once you understood map, filter and reduce you just can't go back. You write code that looks like this
 
 ```javascript
-const dataSet = [/*...*/] // Some dataset
+const dataSet = [
+  /*...*/
+] // Some dataset
 const finalData = dataSet
   .map(someTransformation)
   .map(someFurtherTransformation)

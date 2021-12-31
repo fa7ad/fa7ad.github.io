@@ -1,10 +1,8 @@
-
 This is the nth time I’ve switched blogging platforms.
 
 So, I’ll try to articulate why I switch these things so often.
 
-I ❤️ Markdown
--------------
+## I ❤️ Markdown
 
 Markdown is one of those things that I’ve liked ever since the first time I used it.
 
@@ -16,8 +14,7 @@ Now a _plain_ solution to the HTML problem is of course _plain-text_, no special
 
 To be fair, markdown has its own problems (different almost-compatible implementations, an outdated official spec, trying to build a common spec and building just another incompatible spec `looking at you, commonmark`). But for all it’s flaws, it is still far better than _most_ other alternatives (queue screeching from RST, Pandoc and other weird text format users).
 
-What’s that got to do with anything?
-------------------------------------
+## What’s that got to do with anything?
 
 Nothing really, I’m just trying to indoctrinate you into using Markdown.
 
@@ -62,8 +59,8 @@ Evernote is just terrible, not their fault to be honest…
 
 **Update:** It didn't last very long, but it was a great experience.
 
-So what _(the f\*\*k)_ do you use now?
-----------------------------------
+## So what _(the f\*\*k)_ do you use now?
+
 ### [Next.js](https://nextjs.org/)
 
 Because doing [React](https://reactjs.org) all day at work wasn't enough of a PITA.

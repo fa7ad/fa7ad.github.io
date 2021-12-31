@@ -13,7 +13,7 @@ import styles from './PostPreview.module.css'
  * placeHolderImage?: String,
  * }} props
  */
-function PostPreview({ excerpt, slug, title, date, cover, coverAlt, placeholderImage }) {
+function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
   return (
     <article className={styles.root}>
       <Link passHref href={`/posts/${slug}`}>

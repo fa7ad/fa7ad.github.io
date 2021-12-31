@@ -1,6 +1,6 @@
 In the [last article](/posts/fp-the-introduction), I introduced some core concepts of Functional Programming; but I quickly glossed over Pure Functions. The goal of this article is to discuss functions in more detail.
 
-If there is one thing that you can call absolutely necessary to do functional programming is a good understanding of _Functions_. *(I guess you could infer that from the name, **Function**al Programming)*
+If there is one thing that you can call absolutely necessary to do functional programming is a good understanding of _Functions_. _(I guess you could infer that from the name, **Function**al Programming)_
 
 ## What is a function?
 
@@ -201,13 +201,14 @@ Our function `propSatisfies` takes in 3 parameters(inputs),
 Our function returns a value, either `true` or `false`
 
 On the last line, we call the `propSatisfies` function using 3 values,
+
 - `prop` ⇒ `'age'`
 - `pred` ⇒ `isAdult`
 - `obj` ⇒ `data`
 
 `isAdult` is a simple function that takes an age and returns `true` or `false` (i.e. a predicate). **This is not a Higher-order Function**  
 `'age'` is a string literal, so not a Higher-order Function  
-`obj` is an object, not a Higher-order Function.  
+`obj` is an object, not a Higher-order Function.
 
 So, which one is the Higher-order function? `propSatisfies`  
 Why? Because it maps a function (`isAdult`) to a value `true` or `false`.
