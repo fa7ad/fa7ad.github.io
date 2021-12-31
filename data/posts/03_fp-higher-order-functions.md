@@ -260,7 +260,8 @@ I think it's pretty obvious how this function works, so I won't bore you with th
 
 ```javascript
 // le folded map
-let map = (fn, ftr) => fold_left((acc, val) => acc.concat(fn(val)), ftr.constructor(), ftr)
+let map = (fn, ftr) =>
+  fold_left((acc, val) => acc.concat(fn(val)), ftr.constructor(), ftr)
 ```
 
 Yeah, this code is not very readable, but it's not meant to be. This is a **one-liner** that shows a very simple implementation of map using fold. It works because fold carries the return value from the accumulating function on to the next iteration, allowing us to successively construct a larger list of values resulting from applying `fn` to `val`. Try and tinker with it a bit, and I have faith that you will figure it out.
@@ -271,7 +272,12 @@ On to the next one...
 
 ```javascript
 // le folded filter
-let filter = (pred, flt) => fold_left((acc, val) => (pred(val) ? acc.concat(val) : acc), flt.constructor, flt)
+let filter = (pred, flt) =>
+  fold_left(
+    (acc, val) => (pred(val) ? acc.concat(val) : acc),
+    flt.constructor,
+    flt
+  )
 ```
 
 Once again, this is a **one-liner**. This follows the same principle as map, except we are only concatenating to the list if the predicate is satisfied by the value (i.e., `pred(val)` returns _true_).
@@ -298,4 +304,4 @@ If you are even slightly mathematically minded, lookup Category theory as well a
 
 Peace ✌️
 
-![Doggy-dogg peace](/images/679493a2b51cda300edb28d7d078267a.gif)
+![Doggy dogg peace](/images/679493a2b51cda300edb28d7d078267a.gif)

@@ -38,7 +38,10 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const allPosts = await getAllMeta('posts')
   const posts = compose(
-    map(post => ({ ...post, date: dayjs(post.date).format('dddd, MMMM D, YYYY HH:mm') })),
+    map(post => ({
+      ...post,
+      date: dayjs(post.date).format('dddd, MMMM D, YYYY HH:mm')
+    })),
     reverse,
     sortBy(post => dayjs(post.date).unix())
   )(allPosts)

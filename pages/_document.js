@@ -13,7 +13,7 @@ class MyDocument extends Document {
     return (
       <Html lang='en' ref={this.html}>
         <Head />
-        <body>
+        <body className='line-numbers'>
           <Main />
           <NextScript />
         </body>

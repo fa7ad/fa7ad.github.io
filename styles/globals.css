@@ -26,10 +26,6 @@ body {
   color: var(--color-white);
 }
 
-.prose pre {
-  @apply p-0;
-}
-
 .single-line {
   @apply flex flex-row divide-x-4 divide-transparent;
   > * {
@@ -53,3 +49,5 @@ body {
     @apply first-of-type:clear-both;
   }
 }
+
+@import './a11y-dark.min.css';

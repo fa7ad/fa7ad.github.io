@@ -15,7 +15,10 @@ const uiSlice = createSlice({
     setTheme(state, action) {
       state.theme = action.payload
       localStorage.setItem('darkMode', action.payload === 'dark')
-      document.documentElement.classList.toggle('dark', action.payload === 'dark')
+      document.documentElement.classList.toggle(
+        'dark',
+        action.payload === 'dark'
+      )
     }
   }
 })

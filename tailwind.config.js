@@ -20,7 +20,11 @@ function renderColors({ addBase, theme }) {
 }
 
 module.exports = {
-  content: ['./pages/**/*.{js,ts}', './components/**/*.{js,ts}', './data/**/*.{md,yml}'],
+  content: [
+    './pages/**/*.{js,ts}',
+    './components/**/*.{js,ts}',
+    './data/**/*.{md,yml}'
+  ],
   mode: 'jit',
   darkMode: 'class',
   theme: {

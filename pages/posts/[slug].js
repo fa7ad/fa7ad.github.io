@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 import parse from 'html-react-parser'
 import Image from 'next/image'
 import clsx from 'clsx'
-import 'highlight.js/styles/a11y-dark.css'
 
 import Page from 'components/Page'
 import { setActiveNavKey } from 'app/redux/ui.slice'
@@ -15,23 +14,22 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import Script from 'next/script'
 
-const DiscussionEmbed = dynamic(() => import('disqus-react').then(mod => mod.DiscussionEmbed), {
-  ssr: false,
-  loading: ({ isLoading }) => <p>{isLoading ? 'Loading comments...' : 'Failed to load disqus'}</p>
-})
+const DiscussionEmbed = dynamic(
+  () => import('disqus-react').then(mod => mod.DiscussionEmbed),
+  {
+    ssr: false,
+    loading: ({ isLoading }) => (
+      <p>{isLoading ? 'Loading comments...' : 'Failed to load disqus'}</p>
+    )
+  }
+)
 
 export default function BlogPostFull({ post }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(setActiveNavKey('home'))
-    setTimeout(() => {
-      import('highlight.js').then(mod => {
-        const hljs = mod.default
-        hljs.configure({ ignoreUnescapedHTML: true })
-        hljs.highlightAll()
-      })
-    }, 50)
+    window.Prism = { manual: true, plugins: ['line-numbers'] }
   }, [dispatch])
 
   return (
@@ -67,7 +65,10 @@ export default function BlogPostFull({ post }) {
             : []
         }
       />
-      <article id='content' className={clsx('prose', 'lg:prose-xl', styles.article)}>
+      <article
+        id='content'
+        className={clsx('prose', 'lg:prose-xl', styles.article)}
+      >
         {post.cover ? (
           <div className={styles.coverImage}>
             <Image
@@ -89,8 +90,16 @@ export default function BlogPostFull({ post }) {
             <h2>Series Title: {post.series.title}</h2>
             <ul className={styles.seriesBox}>
               {post.series.posts.map(({ slug, title }) => (
-                <Link passHref={!'i dont like this hack'} href={`/posts/${slug}`} key={slug}>
-                  <li className={clsx(styles.seriesItem, { [styles.activeSeriesItem]: slug === post.slug })}>
+                <Link
+                  passHref={!'i dont like this hack'}
+                  href={`/posts/${slug}`}
+                  key={slug}
+                >
+                  <li
+                    className={clsx(styles.seriesItem, {
+                      [styles.activeSeriesItem]: slug === post.slug
+                    })}
+                  >
                     {title}
                   </li>
                 </Link>
@@ -110,7 +119,20 @@ export default function BlogPostFull({ post }) {
             }}
           />
         </section>
-        <Script strategy='afterInteractive' src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61bfe1b0843dc42e' />
+        <Script
+          strategy='afterInteractive'
+          src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61bfe1b0843dc42e'
+        />
+        <Script
+          id='prism-script'
+          src='/prism.min.js'
+          strategy='afterInteractive'
+          onLoad={() => {
+            if (window.Prism.highlightAll) {
+              window.Prism.highlightAll()
+            }
+          }}
+        />
       </article>
     </Page>
   )

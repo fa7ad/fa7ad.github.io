@@ -41,10 +41,13 @@ const Header = () => {
   const activeNavKey = useSelector(state => state.ui.activeNavKey)
 
   const updateNavScroll = function () {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
+    const scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop
+    const scrollHeight =
+      document.documentElement.scrollHeight || document.body.scrollHeight
     const scrollpos = window.scrollY
-    const scroll = (scrollTop / (scrollHeight - document.documentElement.clientHeight)) * 100
+    const scroll =
+      (scrollTop / (scrollHeight - document.documentElement.clientHeight)) * 100
     if (progress.current) {
       progress.current.style.setProperty('--scroll', scroll + '%')
     }
@@ -89,32 +92,60 @@ const Header = () => {
   }
 
   return (
-    <nav id='header' className={clsx(styles.header, { [styles.headerActive]: headerActive })}>
+    <nav
+      id='header'
+      className={clsx(styles.header, { [styles.headerActive]: headerActive })}
+    >
       <div id='progress' className={styles.progress} ref={progress} />
       <div className={styles.navContainer}>
         <div className={styles.navBrand}>
           <Link href='/'>Mildly Boring</Link>
-          <button className='mx-2 cursor-pointer relative' title='Toggle Dark Mode' onClick={toggleTheme}>
+          <button
+            className='mx-2 cursor-pointer relative'
+            title='Toggle Dark Mode'
+            onClick={toggleTheme}
+          >
             {theme === 'dark' ? '🌙' : '🌞'}
-            <span className={clsx({ hidden: hideDarkModeTooltip }, styles.darkModeTooltip)} role='tooltip'>
+            <span
+              className={clsx(
+                { hidden: hideDarkModeTooltip },
+                styles.darkModeTooltip
+              )}
+              role='tooltip'
+            >
               Toggle Dark Mode
             </span>
           </button>
         </div>
 
         <div className='block lg:hidden pr-4'>
-          <button id='nav-toggle' className={styles.navToggle} onClick={toggleNavContent}>
-            <svg className='fill-current h-3 w-3' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
+          <button
+            id='nav-toggle'
+            className={styles.navToggle}
+            onClick={toggleNavContent}
+          >
+            <svg
+              className='fill-current h-3 w-3'
+              viewBox='0 0 20 20'
+              xmlns='http://www.w3.org/2000/svg'
+            >
               <title>Menu</title>
               <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z' />
             </svg>
           </button>
         </div>
 
-        <div className={clsx(styles.navContent, { hidden: !navContent })} id='nav-content'>
+        <div
+          className={clsx(styles.navContent, { hidden: !navContent })}
+          id='nav-content'
+        >
           <ul className={styles.navMenu}>
             {defaultNavItems.map(item => (
-              <NavItem key={item.key} {...item} active={item.key === activeNavKey} />
+              <NavItem
+                key={item.key}
+                {...item}
+                active={item.key === activeNavKey}
+              />
             ))}
           </ul>
         </div>
