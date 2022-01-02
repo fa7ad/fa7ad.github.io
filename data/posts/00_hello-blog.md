@@ -18,7 +18,7 @@ To be fair, markdown has its own problems (different almost-compatible implement
 
 Nothing really, I’m just trying to indoctrinate you into using Markdown.
 
-![Weird meme GIF](/images/1640049434_giphy.gif)
+![Weird meme GIF](/images/1640049434_giphy_480x480.gif)
 
 No, that’s not it _(maybe?😉)_. The reason for bringing up Markdown is that I like writing in Markdown.
 

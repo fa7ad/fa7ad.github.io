@@ -4,16 +4,17 @@ import Image from 'next/image'
 import Script from 'next/script'
 import { useEffect, useRef } from 'react'
 import { NextSeo } from 'next-seo'
-import parse from 'html-react-parser'
 import { useDispatch } from 'react-redux'
 
-import Page from 'components/Page'
-import { setActiveNavKey } from 'app/redux/ui.slice'
+import renderHtml from 'lib/renderHtml'
+import useOnScreen from 'lib/hooks/useOnScreen'
 import { getAllMeta, getContentBySlug } from 'lib/content'
+
+import Page from 'components/Page'
 import { KATEX_CSS, DiscussionEmbed } from 'components/ThirdParty'
+import { setActiveNavKey } from 'app/redux/ui.slice'
 
 import styles from './Post.module.css'
-import useOnScreen from 'lib/hooks/useOnScreen'
 
 const PostCover = ({ post }) => {
   if (!post.cover) {
@@ -102,7 +103,7 @@ export default function BlogPostFull({ post, ogImages }) {
         <h1 className={styles.title}>{post.title}</h1>
         <p className={styles.date}>{post.date}</p>
         <ArticleSeriesBox post={post} />
-        <div id='readable_content'>{parse(post.content)}</div>
+        <div id='readable_content'>{renderHtml(post.content)}</div>
         <hr />
         <section id='comments_section' className='relative' ref={comments}>
           {commentsVisible ? (
