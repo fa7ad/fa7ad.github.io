@@ -12,7 +12,7 @@ If you don’t know, Markdown is a really simple way of writing **rich text** us
 
 Now a _plain_ solution to the HTML problem is of course _plain-text_, no special formatting… open up your favorite text editor and write away. But plain text is a little too plain for my taste. Why settle for that when you can have your plain text and format it? 🤔
 
-To be fair, markdown has its own problems (different almost-compatible implementations, an outdated official spec, trying to build a common spec and building just another incompatible spec `looking at you, commonmark`). But for all it’s flaws, it is still far better than _most_ other alternatives (queue screeching from RST, Pandoc and other weird text format users).
+To be fair, markdown has its own problems (different almost-compatible implementations, an outdated official spec, trying to build a common spec and building just another incompatible spec `looking at you, commonmark`). But for all its flaws, it is still far better than _most_ other alternatives (queue screeching from RST, Pandoc and other weird text format users).
 
 ## What’s that got to do with anything?
 
