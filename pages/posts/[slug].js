@@ -1,36 +1,80 @@
-import { NextSeo } from 'next-seo'
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import parse from 'html-react-parser'
-import Image from 'next/image'
 import clsx from 'clsx'
+import Link from 'next/link'
+import Image from 'next/image'
+import Script from 'next/script'
+import { useEffect } from 'react'
+import { NextSeo } from 'next-seo'
+import parse from 'html-react-parser'
+import { useDispatch } from 'react-redux'
 
 import Page from 'components/Page'
 import { setActiveNavKey } from 'app/redux/ui.slice'
 import { getAllMeta, getContentBySlug } from 'lib/content'
+import { KATEX_CSS, DiscussionEmbed, AddThis } from 'components/ThirdParty'
 
 import styles from './Post.module.css'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
-import Script from 'next/script'
 
-const DiscussionEmbed = dynamic(
-  () => import('disqus-react').then(mod => mod.DiscussionEmbed),
-  {
-    ssr: false,
-    loading: ({ isLoading }) => (
-      <p>{isLoading ? 'Loading comments...' : 'Failed to load disqus'}</p>
-    )
+const PostCover = ({ post }) => {
+  if (!post.cover) {
+    return null
   }
-)
 
-export default function BlogPostFull({ post }) {
+  return (
+    <div className={styles.coverImage}>
+      <Image
+        src={post.cover}
+        priority
+        placeholder='blur'
+        blurDataURL={post.placeholderImage}
+        alt=''
+        layout='fill'
+      />
+    </div>
+  )
+}
+
+const ArticleSeriesBox = ({ post }) => {
+  if (!post.series) {
+    return null
+  }
+
+  const getSeriesItemClassName = slug =>
+    clsx(styles.seriesItem, {
+      [styles.activeSeriesItem]: slug === post.slug
+    })
+
+  return (
+    <div className={styles.seriesListing}>
+      <h2>This article is part of a series</h2>
+      <h2>Series Title: {post.series.title}</h2>
+      <ul className={styles.seriesBox}>
+        {post.series.posts.map(({ slug, title }) => (
+          <Link
+            key={slug}
+            href={`/posts/${slug}`}
+            passHref={!'i dont like this hack'}
+          >
+            <li className={getSeriesItemClassName(slug)}>{title}</li>
+          </Link>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default function BlogPostFull({ post, ogImages }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(setActiveNavKey('home'))
     window.Prism = { manual: true, plugins: ['line-numbers'] }
   }, [dispatch])
+
+  const activatePrismJs = () => {
+    if (window.Prism && window.Prism.highlightAll) {
+      window.Prism.highlightAll()
+    }
+  }
 
   return (
     <Page>
@@ -43,70 +87,18 @@ export default function BlogPostFull({ post }) {
             publishedTime: post.published,
             authors: ['Fahad Hossain']
           },
-          images: [
-            post.cover
-              ? {
-                  url: `${process.env.NEXT_PUBLIC_URL || ''}/og${post.cover}`,
-                  width: 1200,
-                  height: 630,
-                  type: 'image/jpeg'
-                }
-              : undefined
-          ]
+          images: ogImages
         }}
-        additionalLinkTags={
-          post?.content?.includes('katex')
-            ? [
-                {
-                  rel: 'stylesheet',
-                  href: 'https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css'
-                }
-              ]
-            : []
-        }
+        additionalLinkTags={post?.content?.includes('katex') ? [KATEX_CSS] : []}
       />
       <article
         id='content'
         className={clsx('prose', 'lg:prose-xl', styles.article)}
       >
-        {post.cover ? (
-          <div className={styles.coverImage}>
-            <Image
-              src={post.cover}
-              priority
-              placeholder='blur'
-              blurDataURL={post.placeholderImage}
-              alt=''
-              layout='fill'
-            />
-          </div>
-        ) : null}
+        <PostCover post={post} />
         <h1 className={styles.title}>{post.title}</h1>
         <p className={styles.date}>{post.date}</p>
-
-        {post.series ? (
-          <div className={styles.seriesListing}>
-            <h2>This article is part of a series</h2>
-            <h2>Series Title: {post.series.title}</h2>
-            <ul className={styles.seriesBox}>
-              {post.series.posts.map(({ slug, title }) => (
-                <Link
-                  passHref={!'i dont like this hack'}
-                  href={`/posts/${slug}`}
-                  key={slug}
-                >
-                  <li
-                    className={clsx(styles.seriesItem, {
-                      [styles.activeSeriesItem]: slug === post.slug
-                    })}
-                  >
-                    {title}
-                  </li>
-                </Link>
-              ))}
-            </ul>
-          </div>
-        ) : null}
+        <ArticleSeriesBox post={post} />
         <div id='readable_content'>{parse(post.content)}</div>
         <hr />
         <section id='comments_section' className='relative'>
@@ -119,19 +111,11 @@ export default function BlogPostFull({ post }) {
             }}
           />
         </section>
+        <AddThis />
         <Script
-          strategy='afterInteractive'
-          src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61bfe1b0843dc42e'
-        />
-        <Script
-          id='prism-script'
           src='/prism.min.js'
           strategy='afterInteractive'
-          onLoad={() => {
-            if (window.Prism.highlightAll) {
-              window.Prism.highlightAll()
-            }
-          }}
+          onLoad={activatePrismJs}
         />
       </article>
     </Page>
@@ -140,8 +124,19 @@ export default function BlogPostFull({ post }) {
 
 export async function getStaticProps({ params }) {
   const post = await getContentBySlug('posts', params.slug)
+  let ogImages = undefined
+  if (post.ogCover) {
+    ogImages = [
+      {
+        url: post.ogCover,
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg'
+      }
+    ]
+  }
   return {
-    props: { post }
+    props: { post, ogImages }
   }
 }
 
