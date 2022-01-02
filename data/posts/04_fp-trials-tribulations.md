@@ -191,4 +191,4 @@ Enjoy writing more FP code. I'll try to write about a few more problems and solu
 
 Till then, Peace ✌️
 
-![deuces](https://res.cloudinary.com/practicaldev/image/fetch/s--5QyGr6Q0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.loli.net/2020/06/13/YxJLIu3ADvrHfog.gif)
+![deuces](/images/679493a2b51cda300edb28d7d078267a.gif)

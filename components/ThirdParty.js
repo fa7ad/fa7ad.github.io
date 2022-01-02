@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-import Script from 'next/script'
 
 export const KATEX_CSS = {
   rel: 'stylesheet',
@@ -15,12 +14,3 @@ export const DiscussionEmbed = dynamic(
     )
   }
 )
-
-export const AddThis = () => {
-  return (
-    <Script
-      strategy='afterInteractive'
-      src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61bfe1b0843dc42e'
-    />
-  )
-}

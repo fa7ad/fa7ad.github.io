@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import Image from 'next/image'
 import Script from 'next/script'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { NextSeo } from 'next-seo'
 import parse from 'html-react-parser'
 import { useDispatch } from 'react-redux'
@@ -10,9 +10,10 @@ import { useDispatch } from 'react-redux'
 import Page from 'components/Page'
 import { setActiveNavKey } from 'app/redux/ui.slice'
 import { getAllMeta, getContentBySlug } from 'lib/content'
-import { KATEX_CSS, DiscussionEmbed, AddThis } from 'components/ThirdParty'
+import { KATEX_CSS, DiscussionEmbed } from 'components/ThirdParty'
 
 import styles from './Post.module.css'
+import useOnScreen from 'lib/hooks/useOnScreen'
 
 const PostCover = ({ post }) => {
   if (!post.cover) {
@@ -64,6 +65,8 @@ const ArticleSeriesBox = ({ post }) => {
 
 export default function BlogPostFull({ post, ogImages }) {
   const dispatch = useDispatch()
+  const comments = useRef(null)
+  const commentsVisible = useOnScreen(comments, '-10px')
 
   useEffect(() => {
     dispatch(setActiveNavKey('home'))
@@ -101,17 +104,18 @@ export default function BlogPostFull({ post, ogImages }) {
         <ArticleSeriesBox post={post} />
         <div id='readable_content'>{parse(post.content)}</div>
         <hr />
-        <section id='comments_section' className='relative'>
-          <DiscussionEmbed
-            shortname='mildly-boring'
-            config={{
-              url: `${process.env.NEXT_PUBLIC_URL || ''}/posts/${post.slug}`,
-              identifier: post.slug,
-              title: post.title
-            }}
-          />
+        <section id='comments_section' className='relative' ref={comments}>
+          {commentsVisible ? (
+            <DiscussionEmbed
+              shortname='mildly-boring'
+              config={{
+                url: `${process.env.NEXT_PUBLIC_URL || ''}/posts/${post.slug}`,
+                identifier: post.slug,
+                title: post.title
+              }}
+            />
+          ) : null}
         </section>
-        <AddThis />
         <Script
           src='/prism.min.js'
           strategy='afterInteractive'
