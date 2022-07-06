@@ -1,0 +1,4 @@
+.coverImage {
+  @apply block w-full relative overflow-hidden rounded object-cover object-center;
+  @apply h-48 md:h-[30rem];
+}

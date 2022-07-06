@@ -1,6 +1,4 @@
 import clsx from 'clsx'
-import Link from 'next/link'
-import Image from 'next/image'
 import Script from 'next/script'
 import { useEffect, useRef } from 'react'
 import { NextSeo } from 'next-seo'
@@ -11,58 +9,12 @@ import useOnScreen from 'lib/hooks/useOnScreen'
 import { getAllMeta, getContentBySlug } from 'lib/content'
 
 import Page from 'components/Page'
+import PostCover from 'components/PostCover'
+import ArticleSeriesBox from 'components/ArticleSeriesBox'
 import { KATEX_CSS, DiscussionEmbed } from 'components/ThirdParty'
+
 import { setActiveNavKey } from 'app/redux/ui.slice'
-
 import styles from './Post.module.css'
-
-const PostCover = ({ post }) => {
-  if (!post.cover) {
-    return null
-  }
-
-  return (
-    <div className={styles.coverImage}>
-      <Image
-        src={post.cover}
-        priority
-        placeholder='blur'
-        blurDataURL={post.placeholderImage}
-        alt=''
-        layout='fill'
-      />
-    </div>
-  )
-}
-
-const ArticleSeriesBox = ({ post }) => {
-  if (!post.series) {
-    return null
-  }
-
-  const getSeriesItemClassName = slug =>
-    clsx(styles.seriesItem, {
-      [styles.activeSeriesItem]: slug === post.slug
-    })
-
-  return (
-    <div className={styles.seriesListing}>
-      <h2>This article is part of a series</h2>
-      <h2>Series Title: {post.series.title}</h2>
-      <ul className={styles.seriesBox}>
-        {post.series.posts.map(({ slug, title }) => (
-          <Link
-            key={slug}
-            href={`/posts/${slug}`}
-            passHref={!'i dont like this hack'}
-          >
-            <li className={getSeriesItemClassName(slug)}>{title}</li>
-          </Link>
-        ))}
-      </ul>
-    </div>
-  )
-}
 
 export default function BlogPostFull({ post, ogImages }) {
   const dispatch = useDispatch()
@@ -93,8 +45,8 @@ export default function BlogPostFull({ post, ogImages }) {
           },
           images: ogImages
         }}
-        additionalLinkTags={post?.content?.includes('katex') ? [KATEX_CSS] : []}
       />
+      {post?.content?.includes('katex') ? <link {...KATEX_CSS} /> : null}
       <article
         id='content'
         className={clsx('prose', 'lg:prose-xl', styles.article)}
