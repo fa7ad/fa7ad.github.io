@@ -80,8 +80,7 @@ const compose = (...funcs) =>
   funcs.reduceRight(
     (fx, gx) =>
       (...args) =>
-        gx(fx(...args)),
-    val => val
+        gx(fx(...args))
   )
 ```
 
@@ -89,11 +88,11 @@ Here, our `compose` function takes a _variadic_ number of arguments, all of whic
 
 Because of the rest operator we get the functions as an array, so we can call the built-in `reduceRight` function from the array prototype.
 
-Then, we pass in 2 arguments to the `reduceRight` call.
+Then, we pass in an arguments to the `reduceRight` call.
 
-- First, we pass a function that receives two functions as arguments, and returns an inline variadic function that calls the two functions successively with its arguments. _The variadic (any number of arguments) bit was added so that we can compose non-unary (more than one argument) functions too_.
+We pass a function that receives two functions as arguments, and returns an inline variadic function that calls the two functions successively with its arguments.
 
-- The second parameter to `reduceRight` is an identity function, something that returns whatever it received. This is to prevent the `compose` from crashing and burning if someone passes in only 1 function as argument.
+_The variadic (any number of arguments) bit was added so that we can compose non-unary (more than one argument) functions too_.
 
 Happy composing, Enjoy!
 
