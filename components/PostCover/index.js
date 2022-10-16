@@ -14,7 +14,10 @@ const PostCover = ({ post }) => {
         placeholder='blur'
         blurDataURL={post.placeholderImage}
         alt=''
-        layout='fill'
+        layout='responsive'
+        width={post.coverInfo.width}
+        height={post.coverInfo.height}
+        objectPosition='top center'
       />
     </div>
   )

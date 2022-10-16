@@ -31,6 +31,8 @@ function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
             layout='fill'
             placeholder='blur'
             blurDataURL={placeholderImage}
+            objectFit='cover'
+            objectPosition='center'
           />
         </p>
       ) : null}

@@ -9,14 +9,14 @@ I enjoy learning about new technology (languages/frameworks/libraries/syntax…)
 
 ## Rapidfire
 
-- 🔭 I’m currently "working" on [Mildly Boring (my blog)](https://mildlyboring.com).
-- 🌱 I’m currently learning [ReScript](https://rescript-lang.org/) and [Kubernetes](https://kubernetes.io/).
-- 👯 I’m looking to collaborate on **building an open-source voice assistant that speaks Bengali** (mail me if you want to potentially work together on something like that).
-- 💬 Ask me about **react, redux, ramda, js, functional programming, and music**.
-- 📝 I ~regularly~ write articles on my blog [mildlyboring.com](https://mildlyboring.com) and [dev.to/fa7ad](https://dev.to/fa7ad).
-- 🔥 Hot Take **I honestly think mochas and beers are the best beverages mankind has ever created**.
-- 📫 How to reach me **shoot a mail at _setname.fahad AT gmail.com_**.
-- 💅 Pronouns: He/Him.
+- 🔭 **I’m currently "working" on:** [Mildly Boring (my blog)](https://mildlyboring.com).
+- 🌱 **I’m currently learning:** Logic Pro X (switching from FL Studio)
+- 👯 **I’m looking to collaborate on:** a techno track (PS. send me your samples 😁)
+- 💬 **Ask me about:** **react, redux, ramda, js, functional programming, and music**.
+- 📝 **I ~regularly~ write articles on:** my blog [mildlyboring.com](https://mildlyboring.com) and [dev.to/fa7ad](https://dev.to/fa7ad).
+- 🔥 **Hot Take:** *coffee is the best beverage mankind has ever created*.
+- 📫 **How to reach me:** shoot a mail at _setname.fahad AT gmail.com_.
+- 💅 **Pronouns:** He/Him.
 
 ---
 

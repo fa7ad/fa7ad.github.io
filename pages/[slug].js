@@ -1,18 +1,12 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import parse from 'html-react-parser'
-
 import Page from 'components/Page'
-import { setActiveNavKey } from 'app/redux/ui.slice'
-import { getAllMeta, getContentBySlug } from 'lib/content'
 import { NextSeo } from 'next-seo'
 
-export default function ContentPage({ page }) {
-  const dispatch = useDispatch()
+import renderHtml from 'lib/renderHtml'
+import useNavKey from 'lib/hooks/useNavKey'
+import { getAllMeta, getContentBySlug } from 'lib/content'
 
-  useEffect(() => {
-    dispatch(setActiveNavKey(page.slug))
-  }, [dispatch, page.slug])
+export default function ContentPage({ page }) {
+  useNavKey(page.slug)
 
   return (
     <Page>
@@ -21,7 +15,7 @@ export default function ContentPage({ page }) {
         className='prose lg:prose-xl w-full md:max-w-4xl px-4'
         id='content'
       >
-        {parse(page.content)}
+        {renderHtml(page.content)}
       </article>
     </Page>
   )
