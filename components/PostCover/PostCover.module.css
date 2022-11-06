@@ -2,3 +2,9 @@
   @apply block w-full relative overflow-hidden rounded object-cover object-center;
   /* @apply h-48 md:h-[30rem]; */
 }
+
+.coverImageInner {
+  width: '100%';
+  height: 'auto';
+  object-position: 'top center';
+}

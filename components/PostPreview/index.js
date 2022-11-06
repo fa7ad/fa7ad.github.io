@@ -11,9 +11,18 @@ import styles from './PostPreview.module.css'
  * cover?: String,
  * coverAlt?: String,
  * placeHolderImage?: String,
+ * preload?: Boolean,
  * }} props
  */
-function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
+function PostPreview({
+  excerpt,
+  slug,
+  title,
+  date,
+  cover,
+  placeholderImage,
+  preload
+}) {
   return (
     <article className={styles.root}>
       <Link href={`/posts/${slug}`} className={styles.title}>
@@ -26,11 +35,12 @@ function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
             src={cover}
             alt=''
             role='presentation'
-            layout='fill'
             placeholder='blur'
             blurDataURL={placeholderImage}
-            objectFit='cover'
-            objectPosition='center'
+            priority={preload}
+            fill
+            sizes='100vw'
+            className={styles.coverImageInner}
           />
         </p>
       ) : null}

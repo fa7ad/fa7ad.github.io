@@ -14,6 +14,9 @@
   @apply block w-full object-cover object-center overflow-hidden relative rounded my-4;
   @apply h-48 md:h-[30rem];
 }
+.coverImageInner {
+  @apply object-cover object-center;
+}
 .excerpt {
   @apply whitespace-pre-wrap font-mono my-4 dark:text-neutral-100;
 }
