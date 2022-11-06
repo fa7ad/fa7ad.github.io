@@ -13,7 +13,7 @@ import PostCover from 'components/PostCover'
 import ArticleSeriesBox from 'components/ArticleSeriesBox'
 import { KATEX_CSS, DiscussionEmbed } from 'components/ThirdParty'
 
-import { setActiveNavKey } from 'app/redux/ui.slice'
+import { setActiveNavKey } from 'store/redux/ui.slice'
 import styles from './Post.module.css'
 
 export default function BlogPostFull({ post, ogImages }) {

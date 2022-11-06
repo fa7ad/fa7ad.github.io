@@ -16,10 +16,8 @@ import styles from './PostPreview.module.css'
 function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
   return (
     <article className={styles.root}>
-      <Link passHref href={`/posts/${slug}`}>
-        <a href='#hack' className={styles.title}>
-          <h2>{title}</h2>
-        </a>
+      <Link href={`/posts/${slug}`} className={styles.title}>
+        <h2>{title}</h2>
       </Link>
       <p className={styles.subtitle}>{date}</p>
       {cover ? (
@@ -37,7 +35,11 @@ function PostPreview({ excerpt, slug, title, date, cover, placeholderImage }) {
         </p>
       ) : null}
       {excerpt ? <p className={styles.excerpt}>{excerpt}</p> : null}
-      <Link passHref={!'fuck you, eslint'} href={`/posts/${slug}`}>
+      <Link
+        passHref={!'fuck you, eslint'}
+        href={`/posts/${slug}`}
+        legacyBehavior
+      >
         <button className={styles.button}>Read more</button>
       </Link>
     </article>

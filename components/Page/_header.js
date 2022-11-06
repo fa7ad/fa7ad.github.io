@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useRef, useState } from 'react'
 
 import styles from './Page.module.css'
-import { setTheme } from 'app/redux/ui.slice'
+import { setTheme } from 'store/redux/ui.slice'
 
 export const defaultNavItems = [
   {

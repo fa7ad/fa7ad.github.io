@@ -6,7 +6,7 @@ import { compose, map, reverse, sortBy } from 'ramda'
 
 import { getAllMeta } from 'lib/content'
 
-import { setActiveNavKey } from 'app/redux/ui.slice'
+import { setActiveNavKey } from 'store/redux/ui.slice'
 
 import Page from 'components/Page'
 import PostPreview from 'components/PostPreview'
