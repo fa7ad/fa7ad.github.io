@@ -26,8 +26,12 @@ export default function Home({ posts }) {
       <section className={styles.postsSection} id='blog'>
         <h1>Blog Posts</h1>
         <div className={styles.postsList} id='content'>
-          {posts?.map(post => (
-            <PostPreview key={post.slug + post.date} {...post} />
+          {posts?.map((post, index) => (
+            <PostPreview
+              key={post.slug + post.date}
+              preload={index < 2}
+              {...post}
+            />
           ))}
         </div>
       </section>
