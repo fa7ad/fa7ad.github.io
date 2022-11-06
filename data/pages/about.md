@@ -1,19 +1,19 @@
-# 👋 Hi, I'm Fahad ([/fähɑð/](http://ipa-reader.xyz/?text=f%C3%A4h%C9%91%C3%B0&voice=Amy))
+# Hi 👋, I'm Fahad ([/fähæð/](http://ipa-reader.xyz/?text=f%C3%A4h%C3%A6%C3%B0&voice=Filiz))
 
 <p class='not-prose single-line'><a href="https://github.com/fa7ad"><img src="https://img.shields.io/badge/github-%2324292e.svg?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="github"></a> <a href="https://twitter.com/dev_fahad"> <img src="https://img.shields.io/badge/twitter-%2300acee.svg?style=for-the-badge&amp;logo=twitter&amp;logoColor=white" alt="twitter"> </a> <a href="https://dev.to/fa7ad"> <img src="https://img.shields.io/badge/dev.to-%2308090A.svg?style=for-the-badge&amp;logo=dev.to&amp;logoColor=white" alt="devto"> </a> <a href="https://linkedin.com/in/fa7ad"> <img src="https://img.shields.io/badge/linkedin-%231E77B5.svg?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" alt="linkedin"> </a> <a href="https://stackoverflow.com/users/3639506/trve-fa7ad"><img src="https://img.shields.io/badge/stackoverflow-%23F28032.svg?style=for-the-badge&amp;logo=stackoverflow&amp;logoColor=white" alt="stackoverflow"></a></p>
 
 ## Glad to see you here!
 
-I'm a Software Engineer from Bangladesh; living in Munich, Germany. I make web apps for a living (mostly using React and Node), currently working as a _Software Engineer_ at [Westwing](https://www.westwing.com/home).
-I enjoy learning about new technology (languages/frameworks/libraries/syntax…) and I'm usually willing to pay the early-adopter tax if I think the tech is awesome.
+I'm a Software Engineer from Bangladesh; living in Berlin, Germany. I make web apps using React and stuff; currently working as a *Front-end Engineer* at [Amazon Web Services](https://github.com/aws).  
+I enjoy learning about new technology (languages/frameworks/libraries/syntax…) and I'm usually willing to pay the early-adopter tax if the tech is awesome.
 
 ## Rapidfire
 
 - 🔭 **I’m currently "working" on:** [Mildly Boring (my blog)](https://mildlyboring.com).
-- 🌱 **I’m currently learning:** Logic Pro X (switching from FL Studio)
+- 🌱 **I’m currently learning:** Logic Pro X
 - 👯 **I’m looking to collaborate on:** a techno track (PS. send me your samples 😁)
 - 💬 **Ask me about:** **react, redux, ramda, js, functional programming, and music**.
-- 📝 **I ~regularly~ write articles on:** my blog [mildlyboring.com](https://mildlyboring.com) and [dev.to/fa7ad](https://dev.to/fa7ad).
+- 📝 **I _<sup><sub>very occassionally</sub></sup>_ write articles on:** my blog [mildlyboring.com](https://mildlyboring.com) and [dev.to/fa7ad](https://dev.to/fa7ad).
 - 🔥 **Hot Take:** *coffee is the best beverage mankind has ever created*.
 - 📫 **How to reach me:** shoot a mail at _setname.fahad AT gmail.com_.
 - 💅 **Pronouns:** He/Him.
