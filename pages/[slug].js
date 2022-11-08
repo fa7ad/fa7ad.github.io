@@ -5,16 +5,15 @@ import renderHtml from 'lib/renderHtml'
 import useNavKey from 'lib/hooks/useNavKey'
 import { getAllMeta, getContentBySlug } from 'lib/content'
 
+import styles from './pages/Pages.module.css'
+
 export default function ContentPage({ page }) {
   useNavKey(page.slug)
 
   return (
     <Page>
       <NextSeo title={page.title} description={page.excerpt} />
-      <article
-        className='prose lg:prose-xl w-full md:max-w-4xl px-4'
-        id='content'
-      >
+      <article id='content' className={styles.pageContent}>
         {renderHtml(page.content)}
       </article>
     </Page>

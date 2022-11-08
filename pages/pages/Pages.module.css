@@ -1,0 +1,7 @@
+.pageContent {
+  @apply prose lg:prose-xl w-full md:max-w-4xl px-4;
+}
+
+.pageContent h1:first-child {
+  @apply mb-2 mt-4;
+}
