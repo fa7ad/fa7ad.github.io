@@ -1,8 +1,8 @@
 # Contact Me
 
-This is 2021, you don't need a contact form.
+If you want to contact me. Just shoot a mail to [**setname.fahad+blog AT gmail.com**](mailto:setname.fahad+blog@gmail.com?subject=[blog]).
 
-Just shoot a mail at [**setname.fahad AT gmail.com**](mailto:setname.fahad+blog@gmail.com) 😅.
+I do request that you add a little indicator (`[blog]`) to the subject line; helps me organize my emails, I would love to know that someone is actually reading my blog.
 
 You can also find me on:
 
@@ -14,8 +14,8 @@ You can also find me on:
 <details>
   <summary>Public Key</summary>
 
-  ```text
-  -----BEGIN PGP PUBLIC KEY BLOCK-----
+```
+-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBGNn2j8BEACsXqpH8UsOx8aKM9qO3iPyrh5M+jXpMgfMff9tefzKJq3bJp18
 NdYIYAJDoDM6GxDR0uY6cf0SSNfDeaq5iTPhHc90/WxBkdhxrLcttYR0CrOBH5wY
