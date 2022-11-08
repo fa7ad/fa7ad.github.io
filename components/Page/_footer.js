@@ -9,12 +9,21 @@ function Footer() {
       </span>
       &nbsp;by&nbsp;
       <a
+        rel='me noopener noreferrer'
+        href='https://c.im/@fa7ad'
+        target='_blank'
+        aria-label='Fahad Hossain | Mastodon - new tab'
+      >
+        Fahad
+      </a>
+      &nbsp;
+      <a
+        rel='me noopener noreferrer'
         href='https://github.com/fa7ad'
         target='_blank'
-        rel='noopener noreferrer'
         aria-label='Fahad Hossain | GitHub - new tab'
       >
-        Fahad Hossain
+        Hossain
       </a>
     </footer>
   )
