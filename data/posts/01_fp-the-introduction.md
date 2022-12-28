@@ -44,9 +44,10 @@ Don't worry about the jargon for now, we will discuss those terms shortly.
 
 Let's begin by examining some objects in real life. Do you remember those digital watches (CASIO et al.) from back in the day that lit up when you pressed a button on the side?
 
-|                                                                                  ![Casio W-86 / W86 / W-86-1VQES "Illuminator" digital watch](/images/2d2cecbb109c538689e71394efe2d804_480x480.jpg)                                                                                  |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Image**: _Casio W-86 / W86 / W-86-1VQES "Illuminator" digital watch_. [Multicherry](<https://commons.wikimedia.org/wiki/File:Casio_W-86_digital_watch_electroluminescent_backlight_(ii).jpg> 'via Wikimedia Commons') / [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0) |
+|                        ![Casio W-86 "Illuminator" digital watch](/images/2d2cecbb109c538689e71394efe2d804_480x480.jpg)                        |
+| :-------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                             **Image**: _Casio W-86 "Illuminator" digital watch_.                                              |
+| [Multicherry](<https://commons.wikimedia.org/wiki/File:Casio_W-86_digital_watch_electroluminescent_backlight_(ii).jpg>) via Wikimedia Commons |
 
 Let's examine that mechanism. The "backlight" on those watches is a very simple greenish LED soldered besides the digital display, powered by the on-board battery and sometimes a tiny little solar panel. If we think of that backlight and button mechanism as a simple program. We can observe a few things,
 

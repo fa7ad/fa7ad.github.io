@@ -7,11 +7,10 @@ I do request that you add a little indicator (`[blog]`) to the subject line; hel
 You can also find me on:
 
 - **Mastodon**: <a rel="me" href="https://c.im/@fa7ad">`fa7ad@c.im`</a>
-- **Twitter**: [@dev_fahad](https://twitter.com/dev_fahad)
 - **LinkedIn**: [in/fa7ad](https://www.linkedin.com/in/fa7ad/)
-- **Instagram**: <sup><sup>(not entirely sure why you would text someone on IG but if that's you, here you go)</sup></sup>
-  - [@1fa7ad](https://instagram.com/1fa7ad)
+- **Instagram**: [@1fa7ad](https://instagram.com/1fa7ad) <sup><sup>(not entirely sure why you would text someone on IG, but you do you)</sup></sup>
 
+If you want to send me an encrypted message, you can use my public key below.
 <details>
   <summary>Public Key</summary>
 

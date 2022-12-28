@@ -54,7 +54,7 @@ $$
 Here, _h_ is defined as the composition of _g_ and _f_. Functionally, calling `h(x)` is the same as calling `f(g(x))` So now, we can do this
 
 $$
-y^{\prime} = h(10)
+y^\prime = h(10)
 $$
 
 _"Great"_ I hear you say, _"How does that help me in code, I can't just put a big ol' dot between two functions in JS can I?"_
@@ -143,8 +143,8 @@ Just a word of warning, there are better solutions out there. But, for now we ca
   You might get the idea that we can combine filters the same way we combined maps.
   However, the moment you go to do such a thing, you realize that you forgot that composing predicates just won't work.
 
-  But we can get around that by implement a logical `and` function to combine predicates, since that's essentially what two successive filters do anyway.  
-   Let's try to implement a binary `and` function
+  But we can get around that by implement a logical `and` function to combine predicates, since that's essentially what two successive filters do anyway.
+  Let's try to implement a binary `and` function
 
   ```javascript
   const and =
@@ -174,7 +174,7 @@ Just a word of warning, there are better solutions out there. But, for now we ca
 
 > I write too many helper functions like compose, pipe, etc.
 
-This is a comment I hear from friend very often. And... I'll admit, I had this problem too. While writing helper functions isn't bad, it can be bad when you spend more time writing them than writing your business logic.
+This is a comment I hear from friends very often. And... I'll admit, I had this problem too. While writing helper functions isn't bad, it can be bad when you spend more time writing them than writing your business logic.
 
 The reason why so many JS devs have this problem is that our language gives the very basic tools to get us hooked on FP and then leaves us high and dry and wanting more. So we end up implementing a lot of basic fundamental FP constructs ourselves.
 
