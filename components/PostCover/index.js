@@ -13,7 +13,7 @@ const PostCover = ({ post }) => {
         priority
         placeholder='blur'
         blurDataURL={post.placeholderImage}
-        alt=''
+        alt={`Cover image for "${post.title}"`}
         width={post.coverInfo.width}
         height={post.coverInfo.height}
         sizes='100vw'

@@ -18,13 +18,9 @@ const ArticleSeriesBox = ({ post }) => {
       <h2>Series Title: {post.series.title}</h2>
       <ul className={styles.seriesBox}>
         {post.series.posts.map(({ slug, title }) => (
-          <Link
-            key={slug}
-            href={`/posts/${slug}`}
-            passHref={!'i dont like this hack'}
-          >
-            <li className={getSeriesItemClassName(slug)}>{title}</li>
-          </Link>
+          <li key={slug} className={getSeriesItemClassName(slug)}>
+            <Link href={`/posts/${slug}`}>{title}</Link>
+          </li>
         ))}
       </ul>
     </div>

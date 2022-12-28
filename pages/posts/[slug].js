@@ -4,14 +4,14 @@ import { useEffect, useRef } from 'react'
 import { NextSeo } from 'next-seo'
 import { useDispatch } from 'react-redux'
 
+import Content from 'lib/content'
 import renderHtml from 'lib/renderHtml'
 import useOnScreen from 'lib/hooks/useOnScreen'
-import { getAllMeta, getContentBySlug } from 'lib/content'
 
 import Page from 'components/Page'
 import PostCover from 'components/PostCover'
 import ArticleSeriesBox from 'components/ArticleSeriesBox'
-import { KATEX_CSS, DiscussionEmbed } from 'components/ThirdParty'
+import { DiscussionEmbed } from 'components/ThirdParty'
 
 import { setActiveNavKey } from 'store/redux/ui.slice'
 import styles from './Post.module.css'
@@ -46,7 +46,6 @@ export default function BlogPostFull({ post, ogImages }) {
           images: ogImages
         }}
       />
-      {post?.content?.includes('katex') ? <link {...KATEX_CSS} /> : null}
       <article
         id='content'
         className={clsx('prose', 'lg:prose-xl', styles.article)}
@@ -79,8 +78,10 @@ export default function BlogPostFull({ post, ogImages }) {
   )
 }
 
+const contentProvider = new Content()
+
 export async function getStaticProps({ params }) {
-  const post = await getContentBySlug('posts', params.slug)
+  const post = await contentProvider.getBySlug('posts', params.slug)
   let ogImages = undefined
   if (post.ogCover) {
     ogImages = [
@@ -98,8 +99,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllMeta('posts')
-  const paths = posts.map(post => ({ params: { slug: post.slug } }))
+  const paths = await contentProvider.getAllPaths('posts')
   return {
     paths,
     fallback: false

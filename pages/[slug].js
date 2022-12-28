@@ -1,9 +1,9 @@
 import Page from 'components/Page'
 import { NextSeo } from 'next-seo'
 
+import Content from 'lib/content'
 import renderHtml from 'lib/renderHtml'
 import useNavKey from 'lib/hooks/useNavKey'
-import { getAllMeta, getContentBySlug } from 'lib/content'
 
 import styles from './pages/Pages.module.css'
 
@@ -20,16 +20,17 @@ export default function ContentPage({ page }) {
   )
 }
 
+const contentProvider = new Content()
+
 export async function getStaticProps({ params }) {
-  const page = await getContentBySlug('pages', params.slug)
+  const page = await contentProvider.getBySlug('pages', params.slug)
   return {
     props: { page }
   }
 }
 
 export async function getStaticPaths() {
-  const pages = await getAllMeta('pages')
-  const paths = pages.map(page => ({ params: { slug: page.slug } }))
+  const paths = await contentProvider.getAllPaths('pages')
   return {
     paths,
     fallback: false

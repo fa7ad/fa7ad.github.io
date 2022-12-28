@@ -45,12 +45,8 @@ function PostPreview({
         </p>
       ) : null}
       {excerpt ? <p className={styles.excerpt}>{excerpt}</p> : null}
-      <Link
-        passHref={!'fuck you, eslint'}
-        href={`/posts/${slug}`}
-        legacyBehavior
-      >
-        <button className={styles.button}>Read more</button>
+      <Link href={`/posts/${slug}`} className={styles.button} role='button'>
+        Read more
       </Link>
     </article>
   )

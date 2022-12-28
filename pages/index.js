@@ -1,10 +1,8 @@
-import dayjs from 'dayjs'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { NextSeo } from 'next-seo'
-import { compose, map, reverse, sortBy } from 'ramda'
 
-import { getAllMeta } from 'lib/content'
+import Content from 'lib/content'
 
 import { setActiveNavKey } from 'store/redux/ui.slice'
 
@@ -39,16 +37,11 @@ export default function Home({ posts }) {
   )
 }
 
+const contentProvider = new Content()
+
 export async function getStaticProps() {
-  const allPosts = await getAllMeta('posts')
-  const posts = compose(
-    map(post => ({
-      ...post,
-      date: dayjs(post.date).format('dddd, MMMM D, YYYY HH:mm')
-    })),
-    reverse,
-    sortBy(post => dayjs(post.date).unix())
-  )(allPosts)
+  const posts = await contentProvider.getAll('posts')
+
   return {
     props: { posts }
   }

@@ -13,9 +13,14 @@
   @apply list-none divide-y-[1px] divide-slate-300 dark:divide-slate-600;
 
   .seriesItem {
-    @apply text-base text-center py-4 my-0 cursor-pointer;
+    @apply text-base text-center py-6 my-0 cursor-pointer relative;
+
+    a {
+      @apply no-underline absolute inset-0 inline-grid place-content-center;
+    }
   }
 
+  .seriesItem:hover,
   .activeSeriesItem {
     @apply bg-white dark:bg-black;
   }
