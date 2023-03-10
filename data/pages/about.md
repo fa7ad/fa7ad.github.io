@@ -41,9 +41,8 @@ I enjoy learning about new technology (languages/frameworks/libraries/syntax…)
 
 ### Tier 1 (actively work with)
 
-- JavaScript + TypeScript
-- HTML + JSX (mostly JSX)
-- CSS + S\[AC]SS
+- JavaScript / TypeScript
+- JSX (React) + `/(SA|SC|C)SS/`
 
 ### Tier 2 (worked with, but nothing in Production)
 
@@ -59,20 +58,8 @@ I enjoy learning about new technology (languages/frameworks/libraries/syntax…)
 
 ---
 
-## Libraries/Frameworks That I Use (mostly regularly)
-
-- Express
-- React
-- Ramda
-- Lodash (I prefer ramda, but its not bad)
-- Next.js (recently converted to liking it, still don't like the routing)
-- Razzle / After.js (prefer these over Nextjs for React SSR, but have to admit that Nextjs is a lot more polished)
-- Nest (still prefer vanilla express over nest, but it has its upsides)
-- Electron (made a few apps with it, mostly for shits and giggles)
-
 ## My Toolbelt
 
 - VSCode
 - My killer (neo)vim setup
 - Docker (and docker-compose)
-- Linux (Arch/Manjaro) and MacOS
