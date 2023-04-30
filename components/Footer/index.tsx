@@ -1,13 +1,6 @@
-const footerStyles = {
-  boxShadow: `0 -1px 2px 0 var(--color-neutral-200)`
-}
-
 function Footer() {
   return (
-    <footer
-      className='flex flex-1 items-center justify-center bg-white py-6 text-neutral-900'
-      style={footerStyles}
-    >
+    <footer className='flex flex-1 items-center justify-center bg-white py-6 text-neutral-900 shadow-inner dark:bg-neutral-800 dark:text-neutral-100 dark:shadow-primary-900'>
       Built with
       <span role='img' aria-label='heart'>
         &nbsp;❤️&nbsp;

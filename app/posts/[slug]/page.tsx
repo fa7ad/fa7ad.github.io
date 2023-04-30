@@ -1,12 +1,12 @@
-import { Metadata } from 'next'
-
 import PostCover from 'components/PostCover'
 import ArticleSeriesBox from 'components/ArticleSeriesBox'
 import CommentSection from 'components/CommentSection'
 
 import Content from 'lib/content'
 import renderHtml from 'lib/renderHtml'
-import { Article, WithContext } from 'schema-dts'
+
+import type { Metadata } from 'next'
+import type { Article, WithContext } from 'schema-dts'
 
 interface BlogPageProps {
   params: { slug: string }

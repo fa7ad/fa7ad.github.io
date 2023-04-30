@@ -1,4 +1,6 @@
-import { useState, useEffect, RefObject } from 'react'
+import { useState, useEffect } from 'react'
+
+import type { RefObject } from 'react'
 
 export default function useOnScreen(
   ref: RefObject<HTMLElement>,

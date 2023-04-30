@@ -1,5 +1,6 @@
 import Content from 'lib/content'
-import { MetadataRoute } from 'next'
+
+import type { MetadataRoute } from 'next'
 
 const BASE_URL = process.env.NEXT_PUBLIC_URL || 'https://mildlyboring.com'
 

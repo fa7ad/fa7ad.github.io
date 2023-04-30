@@ -21,7 +21,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'space-before-function-paren': 'off',
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/consistent-type-imports': 'error'
   },
   settings: {
     'import/resolver': {

@@ -2,7 +2,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { NavItem } from './NavItem'
 import { DarkModeToggle } from './DarkModeToggle'
@@ -26,10 +26,9 @@ export const defaultNavItems = [
 ]
 
 const Header = () => {
-  const progress = useRef<HTMLDivElement>(null)
   const [navContent, setNavContent] = useState(true)
   const [headerActive, setHeaderActive] = useState(false)
-  const [scrollAmount, setScrollAmount] = useState(0)
+  const [scrollPosition, setScrollPosition] = useState('0%')
   const params = useParams()
 
   const updateNavScroll = useCallback(() => {
@@ -40,8 +39,8 @@ const Header = () => {
     const scrollpos = window.scrollY
     const scroll =
       (scrollTop / (scrollHeight - document.documentElement.clientHeight)) * 100
-    setScrollAmount(scroll)
 
+    setScrollPosition(`${Math.round(scroll * 1000) / 1000}%`)
     setHeaderActive(scrollpos > 10 || window.innerWidth < 1024)
   }, [])
 
@@ -61,10 +60,6 @@ const Header = () => {
     setNavContent(n => !n)
   }
 
-  const progressStyle = {
-    background: `linear-gradient(to right, var(--colors-primary), ${scrollAmount}%, transparent 0)`
-  }
-
   const currentPath = params?.slug || 'home'
 
   return (
@@ -80,14 +75,18 @@ const Header = () => {
         id='header'
         className={clsx(
           'fixed top-0 z-10 w-full',
-          headerActive && 'bg-white text-neutral-800 shadow'
+          headerActive &&
+            'bg-white text-neutral-800 shadow dark:bg-neutral-800 dark:text-neutral-100 dark:shadow-primary-950'
         )}
       >
+        <style>{`
+          #header {
+            --scroll: ${scrollPosition};
+          }
+        `}</style>
         <div
           id='progress'
-          className='top-0 z-20 h-1'
-          style={progressStyle}
-          ref={progress}
+          className='top-0 z-20 h-1 bg-gradient-to-r from-[var(--color-primary-500)_var(--scroll)] to-0% transition-all'
         />
         <div className='mx-auto mt-0 flex w-full flex-wrap items-center justify-between py-3 md:max-w-4xl'>
           <div className='pl-4'>

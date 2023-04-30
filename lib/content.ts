@@ -8,8 +8,10 @@ import dayjs from 'dayjs'
 import imageSize from 'image-size'
 import { getPlaiceholder } from 'plaiceholder'
 import { assoc, compose, descend, identity, map, prop, sort } from 'ramda'
+
 import renderMarkdown, { renderExcerpt } from './markdown'
-import { ISizeCalculationResult } from 'image-size/dist/types/interface'
+
+import type { ISizeCalculationResult } from 'image-size/dist/types/interface'
 
 type AsyncSizeOf = (t: string | Buffer) => Promise<ISizeCalculationResult>
 const sizeOf = promisify(imageSize) as AsyncSizeOf

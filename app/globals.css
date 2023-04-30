@@ -64,6 +64,14 @@ body {
   @apply my-0 inline;
 }
 
+.prose thead th {
+  @apply leading-3 bg-neutral-200 dark:bg-neutral-700 py-2;
+}
+
+.prose thead th strong ~ :not(strong) {
+  @apply text-xs font-thin;
+}
+
 @keyframes pulse-size {
   0%,
   100% {

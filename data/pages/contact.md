@@ -6,7 +6,7 @@ I do request that you add a little indicator (`[blog]`) to the subject line; hel
 
 You can also find me on:
 
-- **Mastodon**: <a rel="me" href="https://c.im/@fa7ad">`fa7ad@c.im`</a>
+- **Mastodon**: <a rel="me" href="https://c.im/@fa7ad">`@fa7ad@c.im`</a>
 - **LinkedIn**: [in/fa7ad](https://www.linkedin.com/in/fa7ad/)
 - **Instagram**: [@1fa7ad](https://instagram.com/1fa7ad) <sup><sup>(not entirely sure why you would text someone on IG, but you do you)</sup></sup>
 

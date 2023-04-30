@@ -1,6 +1,8 @@
-import parse, { Element } from 'html-react-parser'
 import Image from 'next/image'
-import { ComponentProps } from 'react'
+import parse from 'html-react-parser'
+
+import type { ComponentProps } from 'react'
+import type { Element } from 'html-react-parser'
 
 export default function renderHtml(content: string) {
   return parse(content, {

@@ -1,6 +1,7 @@
 import clsx from 'clsx'
-import { PostData } from 'lib/types'
 import Link from 'next/link'
+
+import type { PostData } from 'lib/types'
 
 interface ArticleSeriesBoxProps {
   post: PostData
