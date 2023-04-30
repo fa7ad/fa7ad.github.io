@@ -1,0 +1,65 @@
+import Image from 'next/image'
+import Link from 'next/link'
+
+interface PostPreviewProps {
+  slug: string
+  title: string
+  date: string | null
+  shortExcerpt: string
+  cover: string | null
+  placeholderImage: string | null
+  preload: boolean
+}
+
+function PostPreview({
+  shortExcerpt,
+  slug,
+  title,
+  date,
+  cover,
+  placeholderImage,
+  preload
+}: PostPreviewProps) {
+  return (
+    <article className='my-4 block rounded bg-white p-4 pt-2 shadow dark:bg-neutral-800'>
+      <Link
+        href={`/posts/${slug}`}
+        className='mb-1 mt-3 block text-3xl font-bold text-primary-600'
+      >
+        <h2>{title}</h2>
+      </Link>
+      <p className='block text-sm italic text-neutral-600 dark:text-neutral-300'>
+        {date}
+      </p>
+      {cover ? (
+        <p className='relative my-4 block h-48 w-full overflow-hidden rounded object-cover object-center md:h-[30rem]'>
+          <Image
+            src={cover}
+            alt=''
+            role='presentation'
+            placeholder='blur'
+            blurDataURL={placeholderImage ?? undefined}
+            priority={!!preload}
+            fill
+            sizes='100vw'
+            className='object-cover object-center'
+          />
+        </p>
+      ) : null}
+      {shortExcerpt ? (
+        <p className='my-4 whitespace-pre-wrap font-mono dark:text-neutral-100'>
+          {shortExcerpt}
+        </p>
+      ) : null}
+      <Link
+        href={`/posts/${slug}`}
+        className='inline-block rounded-full bg-primary-700 px-4 py-2 font-bold text-white hover:bg-primary-800'
+        role='button'
+      >
+        Read article
+      </Link>
+    </article>
+  )
+}
+
+export default PostPreview

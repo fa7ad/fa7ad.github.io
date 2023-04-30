@@ -11,6 +11,7 @@ You can also find me on:
 - **Instagram**: [@1fa7ad](https://instagram.com/1fa7ad) <sup><sup>(not entirely sure why you would text someone on IG, but you do you)</sup></sup>
 
 If you want to send me an encrypted message, you can use my public key below.
+
 <details>
   <summary>Public Key</summary>
 

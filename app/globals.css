@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './a11y-dark.min.css';
+
+body {
+  background-color: #f00;
+  @apply bg-neutral-100 text-neutral-800 dark:bg-neutral-950 dark:text-white;
+  @apply font-sans leading-normal tracking-normal;
+  @apply relative transition-all duration-300 ease-in-out;
+  > * {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+@layer utilities {
+  .float-desktop {
+    @apply float-right mb-4 ml-6;
+  }
+}
+
+.dark .prose,
+.dark #content {
+  --tw-prose-headings: var(--color-white);
+  --tw-prose-quotes: var(--color-neutral-400);
+  --tw-prose-bold: var(--color-neutral-400);
+  --tw-prose-links: var(--color-neutral-400);
+  --tw-prose-code: var(--color-neutral-400);
+  color: var(--color-white);
+}
+
+.single-line {
+  @apply flex flex-row divide-x-4 divide-transparent;
+  > * {
+    @apply flex-grow-0;
+  }
+  img {
+    @apply inline-block;
+  }
+}
+
+#readable_content {
+  & > h1,
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5 {
+    @apply first-of-type:clear-both;
+  }
+}
+
+.main {
+  @apply flex min-h-screen flex-1 flex-col items-center justify-start py-16;
+
+  @apply items-stretch justify-start;
+  @apply mx-auto w-full px-4 md:max-w-4xl;
+}
+
+[data-type='page'] h1:first-child {
+  @apply mb-2 mt-4;
+}
+
+[data-type='page'] a img{
+  @apply my-0 inline;
+}
+
+@keyframes pulse-size {
+  0%,
+  100% {
+    transform: translateX(var(--translate-tooltip-x)) scale(1);
+  }
+  33% {
+    transform: translateX(var(--translate-tooltip-x)) scale(0.9);
+  }
+  66% {
+    transform: translateX(var(--translate-tooltip-x)) scale(1.1);
+  }
+}
+
+.darkModeTooltip {
+  @apply absolute left-1/2 top-full mx-auto mt-2 w-max rounded bg-black/75 p-2 text-white;
+  transition: all 0.2s ease-in-out;
+  --translate-tooltip-x: -50%;
+  transform: translateX(var(--translate-tooltip-x)) scale(1);
+  animation: ease-in-out 300ms 1 pulse-size;
+  &::before {
+    @apply absolute -top-[1.01rem] left-1/2 text-black/75 content-['▲'];
+    transform: translateX(-33%);
+  }
+}

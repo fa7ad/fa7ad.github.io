@@ -19,28 +19,22 @@ function renderColors({ addBase, theme }) {
   })
 }
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts}',
-    './components/**/*.{js,ts}',
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
     './data/**/*.{md,yml}'
   ],
-  mode: 'jit',
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        primary: colors.teal,
-        secondary: colors.fuchsia,
-        neutral: colors.gray
+        primary: colors.fuchsia,
+        secondary: colors.teal,
+        neutral: colors.zinc
       }
-    }
-  },
-  variants: {
-    extend: {
-      backgroundColor: ['dark'],
-      typography: ['dark'],
-      text: ['dark']
     }
   },
   plugins: [require('@tailwindcss/typography'), renderColors]
