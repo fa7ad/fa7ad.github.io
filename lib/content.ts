@@ -1,161 +1,131 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
-import { promisify } from 'node:util'
-import { fileURLToPath } from 'node:url'
 
-import YAML from 'yaml'
+import Jimp from 'jimp'
 import dayjs from 'dayjs'
-import imageSize from 'image-size'
-import { getPlaiceholder } from 'plaiceholder'
-import { assoc, compose, descend, identity, map, prop, sort } from 'ramda'
+import { descend, map, prop, sort, isEmpty } from 'ramda'
 
+import metadata from 'data/metadata'
 import renderMarkdown, { renderExcerpt } from './markdown'
 
-import type { ISizeCalculationResult } from 'image-size/dist/types/interface'
+const FS_DATA_PATH = path.resolve('.', 'data')
+const FS_PUBLIC_PATH = path.resolve('.', 'public')
 
-type AsyncSizeOf = (t: string | Buffer) => Promise<ISizeCalculationResult>
-const sizeOf = promisify(imageSize) as AsyncSizeOf
+type AsyncTransformer<T, U> = (item: T) => Promise<U>
+const mapPromise = async <T, U>(fn: AsyncTransformer<T, U>, list: T[]) =>
+  Promise.all(map(fn, list))
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const FS_DATA_PATH = path.resolve(__dirname, '..', 'data')
+const getPlaceHolder = async (path: string) => {
+  const image = await Jimp.read(path)
+  return image.scale(0.1).blur(10).getBase64Async('image/jpeg')
+}
 
-type MapToPromiseArr = <T, U>(
-  fn: (item: T) => Promise<U>,
-  list: T[]
-) => Promise<U[]>
-const mapPromise: MapToPromiseArr = compose(
-  Promise.all.bind(Promise),
-  map as any
-) as MapToPromiseArr
-
-type Entry = 'posts' | 'pages'
-type SeriesMap = {
-  [key: string]: {
-    title: string
-    posts: {
-      title: string
-      slug: string
-    }[]
+const getDimensions = async (path: string) => {
+  const image = await Jimp.read(path)
+  return {
+    width: image.getWidth(),
+    height: image.getHeight()
   }
 }
 
-type EntryObject = {
-  title: string
-  file: string
-  slug: string
-  date?: string
-  cover?: string
-  series?: string
-}
-
-type ProcessedEntry = {
-  title: string
-  slug: string
-  published: string | null
-  date: string | null
-  shortExcerpt: string
-  longExcerpt: string
-  cover: string | null
-  ogCover: string | null
-  coverInfo: ISizeCalculationResult | null
-  placeholderImage: string | null
-  series: SeriesMap[string] | null
-  content: string
-}
-
 export default class Content {
-  #metadata: Record<Entry, ProcessedEntry[]> = {} as Record<
-    Entry,
-    ProcessedEntry[]
-  >
+  #metadata = {} as Record<Entry, ProcessedEntry[]>
 
   #updatedLast = 0
 
   async #checkAndUpdateMeta() {
-    if (
-      Object.keys(this.#metadata).length === 0 ||
-      Date.now() - this.#updatedLast > 30_000
-    ) {
+    if (isEmpty(this.#metadata) || Date.now() - this.#updatedLast > 30_000) {
       await this.#updateMeta()
     }
   }
 
   #parseEntry(type: Entry, rawSeries: SeriesMap) {
-    return async function (entry: EntryObject): Promise<ProcessedEntry> {
+    return async function (entry: UnprocessedEntry): Promise<ProcessedEntry> {
       const filePath = path.join(FS_DATA_PATH, type, entry.file)
       const fileData = await fs.readFile(filePath, 'utf8')
       const shortExcerpt = await renderExcerpt(fileData, 155)
       const longExcerpt = await renderExcerpt(fileData, 245)
-      const cover = entry?.cover ?? null
+
+      if (type === 'pages') {
+        const pageEntry = entry as UnprocessedPage
+        const content = await renderMarkdown(fileData)
+        return {
+          title: pageEntry.title,
+          slug: pageEntry.slug,
+          content,
+          shortExcerpt,
+          longExcerpt
+        }
+      }
+
+      const postEntry = entry as UnprocessedPost
+
+      const cover = postEntry?.cover ?? null
       let ogCover = null
       let coverInfo = null
-      let placeholderImage = null
+      let placeholderImage = cover
       if (cover) {
-        placeholderImage = (await getPlaiceholder(cover)).base64
-        const { width, height } = await sizeOf(`${__dirname}/../public${cover}`)
+        const imageLoc = path.resolve(FS_PUBLIC_PATH, '.' + cover)
         ogCover = `${process.env.NEXT_PUBLIC_URL || ''}/og${cover}`
-        coverInfo = { width, height }
+        placeholderImage = await getPlaceHolder(imageLoc)
+        coverInfo = await getDimensions(imageLoc)
       }
-      const series = rawSeries?.[entry?.series ?? ''] ?? null
+
+      const seriesName = postEntry?.series ?? null
+      const series = rawSeries?.[seriesName ?? ''] ?? null
       const content = await renderMarkdown(fileData)
-      const date = entry?.date
-        ? dayjs(entry.date).format('dddd, MMMM D, YYYY HH:mm')
-        : null
+
       return {
-        title: entry.title,
-        slug: entry.slug,
-        published: entry?.date ?? null,
-        date,
+        title: postEntry.title,
+        slug: postEntry.slug,
+        date: dayjs(postEntry.date).format('dddd, MMMM D, YYYY HH:mm'),
+        published: postEntry.date,
+        content,
         shortExcerpt,
         longExcerpt,
         cover,
         ogCover,
         coverInfo,
         placeholderImage,
-        series,
-        content
+        series
       }
     }
   }
 
   async #processEntries(
     type: Entry,
-    rawEntries: EntryObject[] = [],
+    rawEntries: UnprocessedEntry[] = [],
     rawSeries: SeriesMap = {}
-  ) {
-    const entries = await mapPromise(
+  ): Promise<ProcessedPage[] | ProcessedPost[]> {
+    const entries = await mapPromise<UnprocessedEntry, ProcessedEntry>(
       this.#parseEntry(type, rawSeries),
       rawEntries
     )
 
-    const orderFns = {
-      posts: sort(descend(prop<number>('published'))),
-      pages: identity
+    if (type === 'posts') {
+      const postPipeline = sort(
+        descend<ProcessedPost>(prop<number>('published'))
+      )
+      return postPipeline(entries as ProcessedPost[])
     }
-
-    return orderFns[type](entries)
+    return entries as ProcessedPage[]
   }
 
   async #updateMeta() {
-    const metadataFile = path.join(FS_DATA_PATH, 'metadata.yml')
-    const metadata = await fs.readFile(metadataFile, 'utf8')
-    const result = await YAML.parse(metadata)
-
-    const withPosts = assoc(
+    const result = structuredClone(metadata)
+    const posts = await this.#processEntries(
       'posts',
-      await this.#processEntries('posts', result?.posts, result?.series),
-      result
+      result.posts,
+      result.series
     )
+    const pages = await this.#processEntries('pages', result.pages)
 
-    const withPages = assoc(
-      'pages',
-      await this.#processEntries('pages', result?.pages),
-      withPosts
-    )
-
-    this.#metadata = withPages
     this.#updatedLast = Date.now()
+
+    this.#metadata = {
+      posts,
+      pages
+    }
   }
 
   async getAll(contentType: Entry) {
@@ -165,11 +135,13 @@ export default class Content {
 
   async getBySlug(contentType: Entry, slug: string) {
     await this.#checkAndUpdateMeta()
-    return this.#metadata[contentType].find(entry => entry.slug === slug)
+    const allEntries = await this.getAll(contentType)
+    return allEntries.find(entry => entry.slug === slug)
   }
 
   async getAllSlugs(contentType: Entry) {
     await this.#checkAndUpdateMeta()
-    return this.#metadata[contentType].map(entry => entry.slug)
+    const allEntries = await this.getAll(contentType)
+    return map(prop<string>('slug'), allEntries)
   }
 }

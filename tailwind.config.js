@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+import { fuchsia, teal, zinc } from 'tailwindcss/colors'
 
 function renderColors({ addBase, theme }) {
   function extractColorVars(colorObj, colorGroup = '') {
@@ -19,23 +19,30 @@ function renderColors({ addBase, theme }) {
   })
 }
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './data/**/*.{md,yml}'
-  ],
-  darkMode: 'class',
-  theme: {
-    extend: {
-      colors: {
-        primary: colors.fuchsia,
-        secondary: colors.teal,
-        neutral: colors.zinc
-      }
+export const content = [
+  './app/**/*.{js,ts,jsx,tsx}',
+  './pages/**/*.{js,ts,jsx,tsx}',
+  './components/**/*.{js,ts,jsx,tsx}',
+  './data/**/*.{md,yml}'
+]
+export const darkMode = 'class'
+export const theme = {
+  extend: {
+    colors: {
+      primary: fuchsia,
+      secondary: teal,
+      neutral: zinc
     }
-  },
-  plugins: [require('@tailwindcss/typography'), renderColors]
+  }
 }
+export const plugins = [require('@tailwindcss/typography'), renderColors]
+
+/** @type {import('tailwindcss').Config} */
+const twConfig = {
+  content,
+  darkMode,
+  theme,
+  plugins
+}
+
+export default twConfig

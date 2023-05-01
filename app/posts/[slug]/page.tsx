@@ -14,7 +14,8 @@ interface BlogPageProps {
 
 export default async function BlogPostPage({ params }: BlogPageProps) {
   const { slug } = params
-  const post = await contentProvider.getBySlug('posts', slug)
+  const _untypedpost = await contentProvider.getBySlug('posts', slug)
+  const post = _untypedpost as ProcessedPost | undefined
   if (!post) {
     return null
   }
@@ -59,26 +60,27 @@ const contentProvider = new Content()
 export async function generateMetadata({
   params
 }: BlogPageProps): Promise<Metadata> {
-  const post = await contentProvider.getBySlug('posts', params.slug)
-  let ogImages = undefined
-  if (post?.ogCover) {
-    ogImages = [
-      {
-        url: post?.ogCover,
-        width: 1200,
-        height: 630,
-        type: 'image/jpeg'
-      }
-    ]
-  }
+  const _untypedpost = await contentProvider.getBySlug('posts', params.slug)
+  const post = _untypedpost as ProcessedPost
+  const ogImages = post?.ogCover
+    ? [
+        {
+          url: post?.ogCover,
+          width: 1200,
+          height: 630,
+          type: 'image/jpeg'
+        }
+      ]
+    : undefined
+
   return {
-    title: post?.title,
-    description: post?.longExcerpt,
+    title: post.title,
+    description: post.longExcerpt,
     openGraph: {
       type: 'article',
       images: ogImages,
       authors: ['Fahad Hossain <fahad at mildlyboring dot com>'],
-      publishedTime: post?.published ?? undefined
+      publishedTime: post.published
     },
     alternates: { canonical: `https://mildlyboring.com/posts/${params.slug}` }
   }

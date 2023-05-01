@@ -15,7 +15,8 @@ export default function renderHtml(content: string) {
         const props: ComponentProps<typeof Image> = {
           src: domNode.attribs.src,
           fill: true,
-          alt: domNode.attribs.alt
+          alt: domNode.attribs.alt,
+          sizes: '100vw'
         }
         if (domNode.attribs.src.startsWith('/images')) {
           const res = domNode.attribs.src.match(

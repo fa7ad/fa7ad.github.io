@@ -4,7 +4,6 @@
 @import './a11y-dark.min.css';
 
 body {
-  background-color: #f00;
   @apply bg-neutral-100 text-neutral-800 dark:bg-neutral-950 dark:text-white;
   @apply font-sans leading-normal tracking-normal;
   @apply relative transition-all duration-300 ease-in-out;

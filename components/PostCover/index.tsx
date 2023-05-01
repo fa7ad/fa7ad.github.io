@@ -1,8 +1,7 @@
 import Image from 'next/image'
-import type { PostData } from 'lib/types'
 
 interface PostCoverProps {
-  post: PostData
+  post: ProcessedPost
 }
 
 const PostCover = ({ post }: PostCoverProps) => {

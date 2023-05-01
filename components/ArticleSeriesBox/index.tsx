@@ -1,10 +1,8 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 
-import type { PostData } from 'lib/types'
-
 interface ArticleSeriesBoxProps {
-  post: PostData
+  post: ProcessedPost
 }
 
 const ArticleSeriesBox = ({ post }: ArticleSeriesBoxProps) => {

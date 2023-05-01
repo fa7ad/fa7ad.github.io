@@ -20,8 +20,6 @@ I make web apps using [React] and stuff. I enjoy learning about new technology (
 - 📫 **How to reach me:** shoot a mail at _setname.fahad AT gmail.com_.
 - 💅 **Pronouns:** He/Him/His.
 
----
-
 ## My Hobbies and Interests
 
 - Listening to **music**: My current favorite genres are Industrial Techno, Vaporwave, and hyperpop, but my favorite genres are always ch-ch-changing 😁.
@@ -32,8 +30,6 @@ I make web apps using [React] and stuff. I enjoy learning about new technology (
 - **Hiking**: Not an expert by any means, more of a fair-weather hiker. Bavarian pre-alps were super fun, but now this is on semi-permanent hold because Berlin is flat as a pancake.
 - **Tinkering** with software/hardware in my spare time. I will spend hours to automate a 5 min task, simply because its fun.
 
----
-
 ## Non-human Languages That I know
 
 | **Tier 1**<br/><sub>actively work with</sub> |       **Tier 2**<br/><sub>want to work with</sub>       | **Tier 3**<br/><sub>familiar, but don't like</sub> |
@@ -42,8 +38,6 @@ I make web apps using [React] and stuff. I enjoy learning about new technology (
 |                  JavaScript                  |                          OCaml                          |                        PHP                         |
 |                      Go                      |                         Haskell                         |                        Java                        |
 |           JSX + `/(SA\|SC\|C)SS/`            | <span title='syntax still looks ugly to me'>Rust</span> |                                                    |
-
----
 
 ## My Toolbelt
 

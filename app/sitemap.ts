@@ -7,8 +7,10 @@ const BASE_URL = process.env.NEXT_PUBLIC_URL || 'https://mildlyboring.com'
 const contentProvider = new Content()
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await contentProvider.getAll('posts')
-  const pages = await contentProvider.getAll('pages')
+  const _untypedposts = await contentProvider.getAll('posts')
+  const posts = _untypedposts as ProcessedPost[]
+  const _untypedpages = await contentProvider.getAll('pages')
+  const pages = _untypedpages as ProcessedPage[]
   return [
     {
       url: BASE_URL,
@@ -16,7 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...pages.map(page => ({
       url: `${BASE_URL}/${page.slug}`,
-      lastModified: page.published || new Date()
+      lastModified: new Date()
     })),
     ...posts.map(post => ({
       url: `${BASE_URL}/posts/${post.slug}`,

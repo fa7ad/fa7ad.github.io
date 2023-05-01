@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 const contentProvider = new Content()
 
 export default async function Home() {
-  const posts = await contentProvider.getAll('posts')
+  const posts = (await contentProvider.getAll('posts')) as ProcessedPost[]
 
   return (
     <section className='flex w-full flex-1 flex-col items-stretch' id='blog'>

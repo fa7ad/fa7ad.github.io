@@ -3,11 +3,8 @@ import React, { useRef } from 'react'
 import { DiscussionEmbed } from 'disqus-react'
 
 import useOnScreen from 'lib/hooks/useOnScreen'
-
-import type { PostData } from 'lib/types'
-
 interface CommentSectionProps {
-  post: PostData
+  post: ProcessedPost
 }
 
 function CommentSection({ post }: CommentSectionProps) {

@@ -1,13 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-interface PostPreviewProps {
-  slug: string
-  title: string
-  date: string | null
-  shortExcerpt: string
-  cover: string | null
-  placeholderImage: string | null
+interface PostPreviewProps extends ProcessedPost {
   preload: boolean
 }
 
@@ -18,7 +12,8 @@ function PostPreview({
   date,
   cover,
   placeholderImage,
-  preload
+  preload,
+  coverInfo
 }: PostPreviewProps) {
   return (
     <article className='my-4 block rounded bg-white p-4 pt-2 shadow dark:bg-neutral-800'>
@@ -40,8 +35,10 @@ function PostPreview({
             placeholder='blur'
             blurDataURL={placeholderImage ?? undefined}
             priority={!!preload}
-            fill
             sizes='100vw'
+            width={coverInfo?.width}
+            height={coverInfo?.height}
+            fill={!coverInfo}
             className='object-cover object-center'
           />
         </p>
