@@ -1,10 +1,4 @@
-interface MetadataStore {
-  posts: UnprocessedPost[]
-  pages: UnprocessedPage[]
-  series: SeriesMap
-}
-
-const metadata: MetadataStore = {
+const metadata = {
   posts: [
     {
       title: 'Hello Blog',

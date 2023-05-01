@@ -5,7 +5,7 @@ import Jimp from 'jimp'
 import dayjs from 'dayjs'
 import { descend, map, prop, sort, isEmpty } from 'ramda'
 
-import metadata from 'data/metadata'
+import metadata from 'data/metadata.mjs'
 import renderMarkdown, { renderExcerpt } from './markdown'
 
 const FS_DATA_PATH = path.resolve('.', 'data')
