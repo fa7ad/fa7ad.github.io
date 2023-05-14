@@ -36,7 +36,7 @@ pages.forEach(page => {
 
 posts.forEach(post => {
   const { slug, date } = post
-  const url = `https://www.mildlyboring.com/blog/${slug}`
+  const url = `https://www.mildlyboring.com/posts/${slug}`
   sitemap += `
   <url>
     <loc>${url}</loc>
