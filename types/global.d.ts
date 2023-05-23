@@ -55,3 +55,7 @@ interface MetadataStore {
   posts: ProcessedPost[]
   pages: ProcessedPage[]
 }
+
+interface Window {
+  DISQUS: unknown
+}

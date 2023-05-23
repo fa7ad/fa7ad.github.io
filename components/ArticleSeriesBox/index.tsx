@@ -1,20 +1,16 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 
-interface ArticleSeriesBoxProps {
-  post: ProcessedPost
+type ArticleSeriesBoxProps = SeriesMap[string] & {
+  activeSlug: string
 }
 
-const ArticleSeriesBox = ({ post }: ArticleSeriesBoxProps) => {
-  if (!post?.series) {
-    return null
-  }
-
+function ArticleSeriesBox({ activeSlug, title, posts }: ArticleSeriesBoxProps) {
   const getSeriesItemClassName = (slug: string) =>
     clsx(
       'text-base text-center py-6 my-0 cursor-pointer relative',
       'hover:bg-white hover:dark:bg-black',
-      slug === post.slug && 'bg-white dark:bg-black'
+      slug === activeSlug && 'bg-white dark:bg-black'
     )
 
   return (
@@ -23,10 +19,10 @@ const ArticleSeriesBox = ({ post }: ArticleSeriesBoxProps) => {
         This article is part of a series
       </h2>
       <h2 className='mb-2 text-sm'>
-        <b className='text-bold'>Series Title</b>: {post.series.title}
+        <b className='text-bold'>Series Title</b>: {title}
       </h2>
       <ul className='list-none divide-y-[1px] divide-neutral-300 overflow-hidden rounded bg-neutral-200 p-0 shadow dark:divide-neutral-600 dark:bg-neutral-700 dark:shadow-neutral-800'>
-        {post.series.posts.map(({ slug, title }) => (
+        {posts.map(({ slug, title }) => (
           <li key={slug} className={getSeriesItemClassName(slug)}>
             <Link
               href={`/posts/${slug}`}

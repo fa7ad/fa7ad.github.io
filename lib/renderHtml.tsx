@@ -10,7 +10,8 @@ export default function renderHtml(content: string) {
       const domNode = _domNode as Element
       if (
         domNode.name === 'img' &&
-        !/^(https?:)?\/\//i.test(domNode.attribs.src)
+        !/^(https?:)?\/\//i.test(domNode.attribs.src) &&
+        !domNode.attribs.src.includes('.gif')
       ) {
         const props: ComponentProps<typeof Image> = {
           src: domNode.attribs.src,

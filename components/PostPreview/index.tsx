@@ -27,7 +27,7 @@ function PostPreview({
         {date}
       </p>
       {cover ? (
-        <p className='relative my-4 block h-48 w-full overflow-hidden rounded object-cover object-center md:h-[30rem]'>
+        <p className='relative my-4 block h-48 w-full overflow-hidden rounded md:h-[30rem]'>
           <Image
             src={cover}
             alt=''
@@ -39,7 +39,7 @@ function PostPreview({
             width={coverInfo?.width}
             height={coverInfo?.height}
             fill={!coverInfo}
-            className='object-cover object-center'
+            className='h-full object-cover object-center'
           />
         </p>
       ) : null}

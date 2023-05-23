@@ -36,21 +36,37 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     ]
   }
 
+  const seriesBox = post.series ? (
+    <ArticleSeriesBox
+      title={post.series.title}
+      posts={post.series.posts}
+      activeSlug={post.slug}
+    />
+  ) : null
+
+  const coverImage = post.cover ? (
+    <PostCover
+      src={post.cover}
+      title={post.title}
+      coverInfo={post.coverInfo}
+      placeholderImage={post.placeholderImage}
+    />
+  ) : null
+
   return (
     <>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <PostCover post={post} />
+      {coverImage}
       <h1 className='mb-2 mt-8 text-center'>{post.title}</h1>
       <p className='text-center text-sm text-neutral-600 dark:text-neutral-400'>
         {post.date}
       </p>
-      <ArticleSeriesBox post={post} />
+      {seriesBox}
       <div id='readable_content'>{renderHtml(post.content)}</div>
-      <hr />
-      <CommentSection post={post} />
+      <CommentSection slug={post.slug} title={post.title} />
     </>
   )
 }

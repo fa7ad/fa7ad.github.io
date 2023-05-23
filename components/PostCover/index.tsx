@@ -1,26 +1,30 @@
 import Image from 'next/image'
 
 interface PostCoverProps {
-  post: ProcessedPost
+  src: string
+  title: string
+  placeholderImage: string | null
+  coverInfo?: { width: number; height: number } | null
 }
 
-const PostCover = ({ post }: PostCoverProps) => {
-  if (!post.cover) {
-    return null
-  }
-
+function PostCover({
+  src,
+  title,
+  coverInfo,
+  placeholderImage
+}: PostCoverProps) {
   return (
-    <div className='relative block w-full overflow-hidden rounded object-cover object-center'>
+    <div className='relative block overflow-hidden rounded'>
       <Image
-        src={post.cover}
+        src={src}
         priority
         placeholder='blur'
-        blurDataURL={post.placeholderImage ?? undefined}
-        alt={`Cover image for "${post.title}"`}
-        width={post.coverInfo?.width}
-        height={post.coverInfo?.height}
+        blurDataURL={placeholderImage ?? undefined}
+        alt={`Cover image for "${title}"`}
+        width={coverInfo?.width}
+        height={coverInfo?.height}
         sizes='100vw'
-        className='h-auto w-full object-top'
+        className='h-auto w-full object-cover object-center'
       />
     </div>
   )
