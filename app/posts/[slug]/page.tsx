@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 import PostCover from 'components/PostCover'
 import ArticleSeriesBox from 'components/ArticleSeriesBox'
 import CommentSection from 'components/CommentSection'
@@ -17,7 +19,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   const _untypedpost = await contentProvider.getBySlug('posts', slug)
   const post = _untypedpost as ProcessedPost | undefined
   if (!post) {
-    return null
+    return notFound()
   }
 
   const jsonLd: WithContext<Article> = {
@@ -66,6 +68,11 @@ const contentProvider = new Content()
 
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const _untypedpost = await contentProvider.getBySlug('posts', params.slug)
+
+  if (!_untypedpost) {
+    return notFound()
+  }
+
   const post = _untypedpost as ProcessedPost
   const ogImages = post?.ogCover
     ? [
