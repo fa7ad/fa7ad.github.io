@@ -7,12 +7,7 @@ interface PostCoverProps {
   coverInfo?: { width: number; height: number } | null
 }
 
-function PostCover({
-  src,
-  title,
-  coverInfo,
-  placeholderImage
-}: PostCoverProps) {
+function PostCover({ src, title, coverInfo, placeholderImage }: PostCoverProps) {
   return (
     <div className='relative block overflow-hidden rounded'>
       <Image

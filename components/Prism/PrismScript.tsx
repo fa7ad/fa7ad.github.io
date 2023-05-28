@@ -15,13 +15,7 @@ function PrismScript() {
     }
   }
 
-  return (
-    <Script
-      src='/prism.min.js'
-      strategy='afterInteractive'
-      onLoad={activatePrismJs}
-    />
-  )
+  return <Script src='/prism.min.js' strategy='afterInteractive' onLoad={activatePrismJs} />
 }
 
 export default PrismScript

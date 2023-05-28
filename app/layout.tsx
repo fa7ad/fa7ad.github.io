@@ -23,9 +23,7 @@ const siteDescription =
   'Some mildly boring rants, mostly about programming; all from the mind of a bored geek (also known as Fahad/@fa7ad).'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_URL ?? 'https://mildlyboring.com'
-  ),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL ?? 'https://mildlyboring.com'),
   viewport: 'width=device-width, initial-scale=1',
   icons: [
     {
@@ -72,17 +70,7 @@ export const metadata: Metadata = {
     template: siteTitleTemplate
   },
   description: siteDescription,
-  keywords: [
-    'programming',
-    'tutorial',
-    'functional',
-    'blog',
-    'rants',
-    'mildlyboring',
-    'fa7ad',
-    'fahad',
-    'hossain'
-  ],
+  keywords: ['programming', 'tutorial', 'functional', 'blog', 'rants', 'mildlyboring', 'fa7ad', 'fahad', 'hossain'],
   openGraph: {
     type: 'website',
     locale: 'en_US',

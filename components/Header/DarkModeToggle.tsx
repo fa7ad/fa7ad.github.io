@@ -27,16 +27,9 @@ export function DarkModeToggle() {
   }, [])
 
   return (
-    <button
-      title='Toggle Dark Mode'
-      onClick={toggleTheme}
-      className='relative mx-2 cursor-pointer'
-    >
+    <button title='Toggle Dark Mode' onClick={toggleTheme} className='relative mx-2 cursor-pointer'>
       {darkMode ? '🌙' : '🌞'}
-      <span
-        className={clsx('darkModeTooltip', hideDarkModeTooltip && 'hidden')}
-        role='tooltip'
-      >
+      <span className={clsx('darkModeTooltip', hideDarkModeTooltip && 'hidden')} role='tooltip'>
         Toggle Dark Mode
       </span>
     </button>

@@ -13,11 +13,7 @@ export default async function StaticPage({ params }: PageProps) {
   const page = await contentProvider.getBySlug('pages', slug)
 
   return (
-    <article
-      id='content'
-      data-type='page'
-      className='prose w-full lg:prose-xl md:max-w-4xl'
-    >
+    <article id='content' data-type='page' className='prose w-full lg:prose-xl md:max-w-4xl'>
       {renderHtml(page?.content ?? '')}
     </article>
   )

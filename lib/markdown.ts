@@ -23,8 +23,7 @@ export default async function renderMarkdown(markdown: string) {
     .use(rehypeSanitize, sanitize)
     .use(rehypeMathJax, {
       chtml: {
-        fontURL:
-          'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
+        fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
       }
     })
     .use(rehypePrism, { showLineNumbers: true, ignoreMissing: true })
@@ -39,7 +38,7 @@ export async function renderExcerpt(markdown: string, length: number) {
     .use(remarkParse)
     .use(remarkGfm)
     .use(strip)
-    .use(stringify)
+    .use(stringify) // \n
     .process(markdown)
   const contentText = result.toString().trim().replace(/\s+/g, ' ')
   const excerpt = contentText.slice(0, length)

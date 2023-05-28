@@ -80,6 +80,7 @@
     "singleQuote": true,
     "jsxSingleQuote": true,
     "quoteProps": "as-needed",
-    "bracketSpacing": true
+    "bracketSpacing": true,
+    "printWidth": 120
   }
 }

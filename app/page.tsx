@@ -12,11 +12,7 @@ export default async function Home() {
       <h1 className='mb-4 mt-6 text-center text-4xl font-bold'>Blog Posts</h1>
       <div className='block' id='content'>
         {posts?.map((post, index) => (
-          <PostPreview
-            {...post}
-            key={post.slug + post.date}
-            preload={index < 2}
-          />
+          <PostPreview {...post} key={post.slug + post.date} preload={index < 2} />
         ))}
       </div>
     </section>

@@ -32,13 +32,10 @@ const Header = () => {
   const params = useParams()
 
   const updateNavScroll = useCallback(() => {
-    const scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop
-    const scrollHeight =
-      document.documentElement.scrollHeight || document.body.scrollHeight
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
     const scrollpos = window.scrollY
-    const scroll =
-      (scrollTop / (scrollHeight - document.documentElement.clientHeight)) * 100
+    const scroll = (scrollTop / (scrollHeight - document.documentElement.clientHeight)) * 100
 
     setScrollPosition(`${Math.round(scroll * 1000) / 1000}%`)
     setHeaderActive(scrollpos > 10 || window.innerWidth < 1024)
@@ -90,10 +87,7 @@ const Header = () => {
         />
         <div className='mx-auto mt-0 flex w-full flex-wrap items-center justify-between py-3 md:max-w-4xl'>
           <div className='pl-4'>
-            <Link
-              href='/'
-              className='text-xl font-extrabold text-inherit no-underline hover:no-underline'
-            >
+            <Link href='/' className='text-xl font-extrabold text-inherit no-underline hover:no-underline'>
               Mildly Boring
             </Link>
             <DarkModeToggle />
@@ -105,11 +99,7 @@ const Header = () => {
               className='flex appearance-none items-center rounded border border-primary-600 px-3 py-2 text-primary-600 focus:outline-none'
               onClick={toggleNavContent}
             >
-              <svg
-                className='h-3 w-3 fill-current'
-                viewBox='0 0 20 20'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+              <svg className='h-3 w-3 fill-current' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
                 <title>Menu</title>
                 <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z' />
               </svg>
@@ -117,19 +107,14 @@ const Header = () => {
           </div>
 
           <div
-            className={clsx(
-              'z-20 mt-2 w-full flex-grow bg-transparent lg:mt-0 lg:flex lg:w-auto lg:items-center',
-              { hidden: !navContent }
-            )}
+            className={clsx('z-20 mt-2 w-full flex-grow bg-transparent lg:mt-0 lg:flex lg:w-auto lg:items-center', {
+              hidden: !navContent
+            })}
             id='nav-content'
           >
             <ul className='flex-1 list-none items-center justify-end p-0 lg:flex'>
               {defaultNavItems.map(item => (
-                <NavItem
-                  {...item}
-                  key={item.key}
-                  active={item.key === currentPath}
-                />
+                <NavItem {...item} key={item.key} active={item.key === currentPath} />
               ))}
             </ul>
           </div>

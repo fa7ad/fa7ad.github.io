@@ -12,8 +12,7 @@ const FS_DATA_PATH = path.resolve('.', 'data')
 const FS_PUBLIC_PATH = path.resolve('.', 'public')
 
 type AsyncTransformer<T, U> = (item: T) => Promise<U>
-const mapPromise = async <T, U>(fn: AsyncTransformer<T, U>, list: T[]) =>
-  Promise.all(map(fn, list))
+const mapPromise = async <T, U>(fn: AsyncTransformer<T, U>, list: T[]) => Promise.all(map(fn, list))
 
 const getPlaceHolder = async (path: string) => {
   const image = await Jimp.read(path)
@@ -97,15 +96,10 @@ export default class Content {
     rawEntries: UnprocessedEntry[] = [],
     rawSeries: SeriesMap = {}
   ): Promise<ProcessedPage[] | ProcessedPost[]> {
-    const entries = await mapPromise<UnprocessedEntry, ProcessedEntry>(
-      this.#parseEntry(type, rawSeries),
-      rawEntries
-    )
+    const entries = await mapPromise<UnprocessedEntry, ProcessedEntry>(this.#parseEntry(type, rawSeries), rawEntries)
 
     if (type === 'posts') {
-      const postPipeline = sort(
-        descend<ProcessedPost>(prop<number>('published'))
-      )
+      const postPipeline = sort(descend<ProcessedPost>(prop<number>('published')))
       return postPipeline(entries as ProcessedPost[])
     }
     return entries as ProcessedPage[]
@@ -113,11 +107,7 @@ export default class Content {
 
   async #updateMeta() {
     const result = structuredClone(metadata)
-    const posts = await this.#processEntries(
-      'posts',
-      result.posts,
-      result.series
-    )
+    const posts = await this.#processEntries('posts', result.posts, result.series)
     const pages = await this.#processEntries('pages', result.pages)
 
     this.#updatedLast = Date.now()

@@ -37,11 +37,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   }
 
   const seriesBox = post.series ? (
-    <ArticleSeriesBox
-      title={post.series.title}
-      posts={post.series.posts}
-      activeSlug={post.slug}
-    />
+    <ArticleSeriesBox title={post.series.title} posts={post.series.posts} activeSlug={post.slug} />
   ) : null
 
   const coverImage = post.cover ? (
@@ -55,15 +51,10 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
   return (
     <>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {coverImage}
       <h1 className='mb-2 mt-8 text-center'>{post.title}</h1>
-      <p className='text-center text-sm text-neutral-600 dark:text-neutral-400'>
-        {post.date}
-      </p>
+      <p className='text-center text-sm text-neutral-600 dark:text-neutral-400'>{post.date}</p>
       {seriesBox}
       <div id='readable_content'>{renderHtml(post.content)}</div>
       <CommentSection slug={post.slug} title={post.title} />
@@ -73,9 +64,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
 const contentProvider = new Content()
 
-export async function generateMetadata({
-  params
-}: BlogPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const _untypedpost = await contentProvider.getBySlug('posts', params.slug)
   const post = _untypedpost as ProcessedPost
   const ogImages = post?.ogCover

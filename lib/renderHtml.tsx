@@ -20,9 +20,7 @@ export default function renderHtml(content: string) {
           sizes: '100vw'
         }
         if (domNode.attribs.src.startsWith('/images')) {
-          const res = domNode.attribs.src.match(
-            /_(?<width>\d+)x(?<height>\d+)\..*?$/
-          )
+          const res = domNode.attribs.src.match(/_(?<width>\d+)x(?<height>\d+)\..*?$/)
           const width = res?.groups?.width as number | undefined
           const height = res?.groups?.height as number | undefined
           if (width && height) {
