@@ -1,3 +1,5 @@
+import blurHashes from './blurhashes.mjs'
+
 const metadata = {
   posts: [
     {
@@ -5,14 +7,16 @@ const metadata = {
       date: '2020-02-08T15:50:17.000Z',
       file: '00_hello-blog.md',
       slug: 'hello-blog',
-      cover: '/featured/hello-blog-again.jpg'
+      cover: '/featured/hello-blog-again.webp',
+      coverHash: blurHashes['featured/hello-blog-again.webp']
     },
     {
       title: 'The Introduction. Functional JS Series (Part 1)',
       date: '2020-04-10T18:57:22.000Z',
       file: '01_fp-the-introduction.md',
       slug: 'fp-the-introduction',
-      cover: '/featured/intro-functional-js.jpg',
+      cover: '/featured/intro-functional-js.webp',
+      coverHash: blurHashes['featured/intro-functional-js.webp'],
       series: 'fp-js'
     },
     {
@@ -20,7 +24,8 @@ const metadata = {
       date: '2020-04-25T17:34:39.000Z',
       file: '02_fp-functions.md',
       slug: 'fp-functions',
-      cover: '/featured/functions-functional-js.jpg',
+      cover: '/featured/functions-functional-js.webp',
+      coverHash: blurHashes['featured/functions-functional-js.webp'],
       series: 'fp-js'
     },
     {
@@ -28,7 +33,8 @@ const metadata = {
       date: '2020-06-12T16:41:10.000Z',
       file: '03_fp-higher-order-functions.md',
       slug: 'fp-higher-order-functions',
-      cover: '/featured/higher-order-functions-functional-js.jpg',
+      cover: '/featured/higher-order-functions-functional-js.webp',
+      coverHash: blurHashes['featured/higher-order-functions-functional-js.webp'],
       series: 'fp-js'
     },
     {
@@ -36,7 +42,8 @@ const metadata = {
       date: '2020-08-16T17:38:30.000Z',
       file: '04_fp-trials-tribulations.md',
       slug: 'fp-trial-tribulations',
-      cover: '/featured/trials-tribulations-functional-js.jpg',
+      cover: '/featured/trials-tribulations-functional-js.webp',
+      coverHash: blurHashes['featured/trials-tribulations-functional-js.webp'],
       series: 'fp-js'
     }
   ],

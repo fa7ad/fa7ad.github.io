@@ -65,7 +65,7 @@ Next, we defined a function named `firstLetter` that takes a string input and re
 
 Then, we make a call to _Array.prototype.map_ by invoking `fruits.map` with the argument `firstLetter`. What this is doing is, telling the map function to iterate over every element contained by `fruits` and _apply_ `firstLetter` to each element, store the results in a new array, and then return the new resulting array. This return value is what we assign to `firstLetters`.
 
-|                        ![Array map](/images/7c94d5a7bdb514d0b1e801f997a5d9f5_1200x1000.png)                         |
+|                        ![Array map](/images/7c94d5a7bdb514d0b1e801f997a5d9f5_1200x1000.webp)                        |
 | :-----------------------------------------------------------------------------------------------------------------: |
 | _Illustration adapted from [John Ferris' article](https://atendesigngroup.com/blog/array-map-filter-and-reduce-js)_ |
 
@@ -149,9 +149,9 @@ Next, we defined a function named `isCitrus` that takes a string input and check
 
 Then, we make a call to _Array.prototype.filter_ by invoking `fruits.filter` with the argument `isCitrus`. This tells the filter function to iterate over every element contained by `fruits` and call `isCitrus` with each element as argument, if `isCitrus` returns `true` that elements is kept, otherwise the element is skipped over and the next element is checked. This process is repeated for all the elements of the array. An array is constructed containing only the elements for which `isCitrus` returned `true`.
 
-| ![Array filter](/images/e4238c2f183527e388a814e9feeb105c_1200x1000.png) |
-| :---------------------------------------------------------------------: |
-|          _Illustration adapted from **John Ferris' article**_           |
+| ![Array filter](/images/e4238c2f183527e388a814e9feeb105c_1200x1000.webp) |
+| :----------------------------------------------------------------------: |
+|           _Illustration adapted from **John Ferris' article**_           |
 
 Let's try to implement a filter (using mutable code) that works for different containers (object & array).
 
@@ -232,9 +232,9 @@ We then define another variables, this time it's a string named `saladStarter`.
 
 Then, we make a call to _Array.prototype.reduce_ by invoking `fruits.reduce` with the arguments `makeSalad` and `saladStarter`. This tells the fold function to iterate over every element contained in `fruits` and call `makeSalad` with an _accumulated value_ and an element from `fruits`. For the first iteration, there is no accumulated value, so `makeSalad` is called with `saladStarter` as the _accumulated value_. For every subsequent iteration, `makeSalad` is called with the return value of the previous iteration as the _accumulated value_ and the next item in the array. This process is continued until `makeSalad` has been called with the accumulated value from its previous iteration and the last item in `fruits`. Finally, the return value from the final call is passed on as the return value for the _reduce_ call and stored in the variable named `salad`.
 
-| ![Array Reduce/Fold](/images/f4a6519b84d8d5c0f5f85c6207d9e20c_1200x1000.png) |
-| :--------------------------------------------------------------------------: |
-|             _Illustration adapted from **John Ferris' article**_             |
+| ![Array Reduce/Fold](/images/f4a6519b84d8d5c0f5f85c6207d9e20c_1200x1000.webp) |
+| :---------------------------------------------------------------------------: |
+|             _Illustration adapted from **John Ferris' article**_              |
 
 Let's try to implement a _fold_ of our own. Using mutable and imperative code, of course.
 
@@ -260,8 +260,7 @@ I think it's pretty obvious how this function works, so I won't bore you with th
 
 ```javascript
 // le folded map
-let map = (fn, ftr) =>
-  fold_left((acc, val) => acc.concat(fn(val)), ftr.constructor(), ftr)
+let map = (fn, ftr) => fold_left((acc, val) => acc.concat(fn(val)), ftr.constructor(), ftr)
 ```
 
 Yeah, this code is not very readable, but it's not meant to be. This is a **one-liner** that shows a very simple implementation of map using fold. It works because fold carries the return value from the accumulating function on to the next iteration, allowing us to successively construct a larger list of values resulting from applying `fn` to `val`. Try and tinker with it a bit, and I have faith that you will figure it out.
@@ -272,12 +271,7 @@ On to the next one...
 
 ```javascript
 // le folded filter
-let filter = (pred, flt) =>
-  fold_left(
-    (acc, val) => (pred(val) ? acc.concat(val) : acc),
-    flt.constructor,
-    flt
-  )
+let filter = (pred, flt) => fold_left((acc, val) => (pred(val) ? acc.concat(val) : acc), flt.constructor, flt)
 ```
 
 Once again, this is a **one-liner**. This follows the same principle as map, except we are only concatenating to the list if the predicate is satisfied by the value (i.e., `pred(val)` returns _true_).
@@ -304,4 +298,4 @@ If you are even slightly mathematically minded, lookup Category theory as well a
 
 Peace ✌️
 
-![Doggy dogg peace](/images/679493a2b51cda300edb28d7d078267a_500x281.gif)
+![Doggy dogg peace](/images/679493a2b51cda300edb28d7d078267a_500x281.webp)

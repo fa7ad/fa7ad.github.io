@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     siteName: siteTitle,
     images: [
       {
-        url: '/og/featured/default_cover.jpg',
+        url: '/og/featured/default_cover.webp',
         alt: siteTitle,
         width: 1200,
         height: 630,

@@ -190,4 +190,4 @@ Enjoy writing more FP code. I'll try to write about a few more problems and solu
 
 Till then, Peace ✌️
 
-![deuces](/images/679493a2b51cda300edb28d7d078267a_500x281.gif)
+![deuces](/images/679493a2b51cda300edb28d7d078267a_500x281.webp)

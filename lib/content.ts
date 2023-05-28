@@ -1,8 +1,8 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
 
-import Jimp from 'jimp'
 import dayjs from 'dayjs'
+import imageSize from 'image-size'
 import { descend, map, prop, sort, isEmpty } from 'ramda'
 
 import metadata from 'data/metadata.mjs'
@@ -14,16 +14,12 @@ const FS_PUBLIC_PATH = path.resolve('.', 'public')
 type AsyncTransformer<T, U> = (item: T) => Promise<U>
 const mapPromise = async <T, U>(fn: AsyncTransformer<T, U>, list: T[]) => Promise.all(map(fn, list))
 
-const getPlaceHolder = async (path: string) => {
-  const image = await Jimp.read(path)
-  return image.scale(0.1).blur(10).getBase64Async('image/jpeg')
-}
-
 const getDimensions = async (path: string) => {
-  const image = await Jimp.read(path)
+  const image = imageSize(path)
+  if (image.width == null || image.height == null) return null
   return {
-    width: image.getWidth(),
-    height: image.getHeight()
+    width: image.width,
+    height: image.height
   }
 }
 
@@ -66,7 +62,7 @@ export default class Content {
       if (cover) {
         const imageLoc = path.resolve(FS_PUBLIC_PATH, '.' + cover)
         ogCover = `${process.env.NEXT_PUBLIC_URL || ''}/og${cover}`
-        placeholderImage = await getPlaceHolder(imageLoc)
+        placeholderImage = postEntry.coverHash ?? ''
         coverInfo = await getDimensions(imageLoc)
       }
 

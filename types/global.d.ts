@@ -6,6 +6,7 @@ interface UnprocessedPost {
   file: string
   slug: string
   cover?: string
+  coverHash?: string
   series?: string
 }
 
