@@ -14,7 +14,7 @@ function ArticleSeriesBox({ activeSlug, title, posts }: ArticleSeriesBoxProps) {
     )
 
   return (
-    <div className='not-prose flex max-w-sm flex-col justify-center md:float-right md:my-4 md:ml-6 md:rounded-md md:border-2 md:border-dashed md:border-neutral-300 md:p-4 md:dark:border-neutral-800'>
+    <div className='not-prose mx-auto flex max-w-sm flex-col md:float-right md:my-4 md:ml-6 md:rounded-md md:border-2 md:border-dashed md:border-neutral-300 md:p-4 md:dark:border-neutral-800'>
       <h2 className='mt-0 text-center text-sm font-bold'>This article is part of a series</h2>
       <h2 className='mb-2 text-sm'>
         <b className='text-bold'>Series Title</b>: {title}

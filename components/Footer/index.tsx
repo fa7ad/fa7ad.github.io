@@ -10,7 +10,7 @@ function Footer() {
         rel='me noopener noreferrer'
         href='https://c.im/@fa7ad'
         target='_blank'
-        aria-label='Fahad Hossain | Mastodon - new tab'
+        aria-label='open Mastodon profile "Fahad Hossain" in a new tab'
       >
         Fahad
       </a>
@@ -19,7 +19,7 @@ function Footer() {
         rel='me noopener noreferrer'
         href='https://github.com/fa7ad'
         target='_blank'
-        aria-label='Fahad Hossain | GitHub - new tab'
+        aria-label='open GitHub profile "Fahad Hossain" in a new tab'
       >
         Hossain
       </a>

@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { NavItem } from './NavItem'
 import { DarkModeToggle } from './DarkModeToggle'
+import useWindowSize from 'lib/hooks/useWindowSize'
 
 export const defaultNavItems = [
   {
@@ -26,9 +27,11 @@ export const defaultNavItems = [
 ]
 
 const Header = () => {
-  const [navContent, setNavContent] = useState(true)
+  const [navContent, setNavContent] = useState(false)
   const [headerActive, setHeaderActive] = useState(false)
   const [scrollPosition, setScrollPosition] = useState('0%')
+  const [windowWidth] = useWindowSize()
+
   const params = useParams()
 
   const updateNavScroll = useCallback(() => {
@@ -41,17 +44,22 @@ const Header = () => {
     setHeaderActive(scrollpos > 10 || window.innerWidth < 1024)
   }, [])
 
+  const handleNavigation = useCallback((evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (evt.currentTarget.nodeName === 'A') {
+      Promise.resolve().then(() => setNavContent(false))
+    }
+  }, [])
+
+  const handleKeyboardNavigation = useCallback((evt: React.KeyboardEvent<HTMLDivElement>) => {
+    if (evt.key === 'Enter' && evt.currentTarget.nodeName === 'A') {
+      Promise.resolve().then(() => setNavContent(false))
+    }
+  }, [])
+
   useEffect(() => {
     document.addEventListener('scroll', updateNavScroll)
     return () => document.removeEventListener('scroll', updateNavScroll)
   }, [updateNavScroll])
-
-  useEffect(() => {
-    if (window.innerWidth < 1024) {
-      setNavContent(false)
-      setHeaderActive(true)
-    }
-  }, [])
 
   const toggleNavContent = () => {
     setNavContent(n => !n)
@@ -59,11 +67,14 @@ const Header = () => {
 
   const currentPath = params?.slug || 'home'
 
+  const showNavMenu = windowWidth >= 1024 || navContent
+  const showNavBackground = windowWidth < 1024 || headerActive
+
   return (
     <>
       <a
         href='#content'
-        className='absolute left-0 top-0 bg-white p-2 text-black opacity-0 transition-opacity duration-300 ease-in-out focus:opacity-100'
+        className='absolute left-0 top-0 z-50 bg-white p-2 text-black opacity-0 transition-opacity duration-300 ease-in-out focus:opacity-100'
         tabIndex={0}
       >
         Skip to content
@@ -72,7 +83,7 @@ const Header = () => {
         id='header'
         className={clsx(
           'fixed top-0 z-10 w-full',
-          headerActive &&
+          showNavBackground &&
             'bg-white text-neutral-800 shadow dark:bg-neutral-800 dark:text-neutral-100 dark:shadow-primary-950'
         )}
       >
@@ -96,7 +107,7 @@ const Header = () => {
           <div className='block pr-4 lg:hidden'>
             <button
               id='nav-toggle'
-              className='flex appearance-none items-center rounded border border-primary-600 px-3 py-2 text-primary-600 focus:outline-none'
+              className='flex appearance-none items-center rounded border border-primary-600 px-3 py-2 text-primary-600 focus:outline-dotted'
               onClick={toggleNavContent}
             >
               <svg className='h-3 w-3 fill-current' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
@@ -108,11 +119,14 @@ const Header = () => {
 
           <div
             className={clsx('z-20 mt-2 w-full flex-grow bg-transparent lg:mt-0 lg:flex lg:w-auto lg:items-center', {
-              hidden: !navContent
+              hidden: !showNavMenu
             })}
+            role='none'
             id='nav-content'
+            onClickCapture={handleNavigation}
+            onKeyDownCapture={handleKeyboardNavigation}
           >
-            <ul className='flex-1 list-none items-center justify-end p-0 lg:flex'>
+            <ul className='flex-1 list-none items-center justify-end p-0 lg:flex' role='menu'>
               {defaultNavItems.map(item => (
                 <NavItem {...item} key={item.key} active={item.key === currentPath} />
               ))}
