@@ -11,64 +11,42 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const rootDir = resolve(__dirname, '..')
 const publicDir = resolve(rootDir, 'public')
 
-/**
- * 
- * @param {Awaited<ReturnType<Vips>>} vips
- * @param {Buffer} buf 
- * @returns 
- */
+/** @type {<T, U>(arr: T[], fn: (v: T) => Promise<U>) => Promise<U[]>} */
+const mapPromise = (arr, fn) => Promise.all(arr.map(async v => await fn(v)))
+
+/** @type {(vips: Awaited<ReturnType<Vips>>, buf: Buffer) => Promise<string>)} */
 async function blurHashForImage(vips, buf) {
   const image = vips.Image.newFromBuffer(buf)
   const arBuf = image.resize(0.1).gaussblur(2).writeToBuffer('.webp')
   return Buffer.from(arBuf).toString('base64')
 }
 
-/**
- * @param {typeof argv} argv
- * @returns {*}
- */
-async function main(argv) {
+async function blurHashAll(category) {
   const vips = await Vips()
+  const fullLocation = resolve(publicDir, category)
+  const directoryListing = await fsp.readdir(fullLocation)
+  return mapPromise(directoryListing, async img => {
+    if (!img.endsWith('.webp')) return []
+    console.error(`Processing ${category}/${img}`)
+    const imageContent = await fsp.readFile(resolve(publicDir, category, img))
+    return [`${category}/${img}`, `data:image/webp;base64,${await blurHashForImage(vips, imageContent)}`]
+  })
+}
 
-  const imagesDir = resolve(publicDir, 'images')
-  const featuredDir = resolve(publicDir, 'featured')
-
-  const images = (await fsp.readdir(imagesDir)).filter(f => f.endsWith('.webp'))
-  const featured = (await fsp.readdir(featuredDir)).filter(f => f.endsWith('.webp'))
-
-  const imagesBlurHashes = await Promise.all(
-    images.map(async img => {
-      const b64 = await blurHashForImage(vips, await fsp.readFile(resolve(imagesDir, img)))
-      return { [`images/${img}`]: `data:image/webp;base64,${b64}` }
-    })
-  )
-  const featuredBlurHashes = await Promise.all(
-    featured.map(async img => {
-      const b64 = await blurHashForImage(vips, await fsp.readFile(resolve(featuredDir, img)))
-      return { [`featured/${img}`]: `data:image/webp;base64,${b64}` }
-    })
-  )
-
-  const map = Object.assign({}, ...imagesBlurHashes, ...featuredBlurHashes)
-  const jazon = JSON.stringify(map, null, 2)
-
-  const output = `const blurHashes = ${jazon}\n\nexport default blurHashes\n`
-
-  const config = await prettier.resolveConfig(rootDir)
-  const fmtd = prettier.format(output, { filepath: 'blurhashes.mjs', ...config })
-
+async function main() {
+  const blurHashes = (await Promise.all([blurHashAll('images'), blurHashAll('featured')])).flat()
+  const output = `const blurHashes = ${JSON.stringify(Object.fromEntries(blurHashes), null, 2)}\n\nexport default blurHashes`
+  const fmtd = prettier.format(output, { filepath: 'blurhashes.mjs', ...(await prettier.resolveConfig(rootDir)) })
   return fsp.writeFile(resolve(rootDir, 'data', 'blurhashes.mjs'), fmtd)
 }
 
-const argv = yargs(process.argv.slice(2), __dirname)
+const parsedArgv = yargs(process.argv.slice(2), __dirname)
   .command('$0', 'Generate blurhashes for all images in public/images and save to public/featured')
   .alias('h', 'help')
   .help('h').argv
 
-main(argv)
-  .then(() => {
-    process.exit(0)
-  })
+main(parsedArgv)
+  .then(() => process.exit(0))
   .catch(err => {
     console.error(err)
     process.exit(1)

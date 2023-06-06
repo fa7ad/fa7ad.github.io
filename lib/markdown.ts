@@ -11,7 +11,7 @@ import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import rehypeMathJax from 'rehype-mathjax/chtml'
 
-import { sanitize } from './markdown.config'
+import { sanitizationOptions } from './markdown.config'
 
 export default async function renderMarkdown(markdown: string) {
   const result = await unified()
@@ -20,7 +20,7 @@ export default async function renderMarkdown(markdown: string) {
     .use(remarkMath)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
-    .use(rehypeSanitize, sanitize)
+    .use(rehypeSanitize, sanitizationOptions)
     .use(rehypeMathJax, {
       chtml: {
         fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'

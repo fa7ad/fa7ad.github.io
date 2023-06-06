@@ -1,16 +1,13 @@
-import { defaultSchema } from 'hast-util-sanitize/lib/schema'
-import concat from 'ramda/es/concat'
-import mergeDeepWith from 'ramda/es/mergeDeepWith'
-/**
- * @type {import('remark-html').ExtraOptionsFields['sanitize']}
- */
-const customSchema = {
-  allowComments: true,
-  tagNames: ['div', 'figure', 'figcaption'],
-  attributes: {
-    '*': ['className', 'data*', 'data-*', 'aria*', 'line'],
-    a: ['href', 'target', 'rel']
-  }
-}
+import { defaultSchema } from 'rehype-sanitize'
 
-export const sanitize = mergeDeepWith(concat, defaultSchema, customSchema)
+export const sanitizationOptions = structuredClone(defaultSchema)
+
+sanitizationOptions.tagNames ??= []
+sanitizationOptions.attributes ??= {}
+sanitizationOptions.attributes.a ??= []
+sanitizationOptions.attributes['*'] ??= []
+
+sanitizationOptions.allowComments = true
+sanitizationOptions.tagNames.push('div', 'figure', 'figcaption')
+sanitizationOptions.attributes.a.push('href', 'target', 'rel')
+sanitizationOptions.attributes['*'].push('className', 'data*', 'data-*', 'aria*', 'line')
