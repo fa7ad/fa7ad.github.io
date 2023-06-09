@@ -20,7 +20,7 @@ export function NavItem({ href, label, active }: NavItemProps) {
 
   return (
     <li
-      className={clsx('mx-4 my-2 focus:outline-dotted md:m-0 md:mr-3', {
+      className={clsx('mx-4 my-2 focus:bg-neutral-200 focus:outline-none lg:m-0 lg:mr-3', {
         'font-bold text-primary-700 dark:text-primary-700': active
       })}
       role='menuitem'
@@ -29,7 +29,7 @@ export function NavItem({ href, label, active }: NavItemProps) {
     >
       <Link
         href={href}
-        className='block px-4 py-2 no-underline hover:text-primary-600 hover:underline focus:text-primary-600 focus:underline md:inline-block'
+        className='block px-4 py-2 no-underline hover:text-primary-600 hover:underline focus:text-primary-600 focus:underline lg:inline-block'
         passHref
       >
         {label}

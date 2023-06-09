@@ -45,13 +45,13 @@ const Header = () => {
   }, [])
 
   const handleNavigation = useCallback((evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (evt.currentTarget.nodeName === 'A') {
+    if (evt.currentTarget.querySelector('a')) {
       Promise.resolve().then(() => setNavContent(false))
     }
   }, [])
 
   const handleKeyboardNavigation = useCallback((evt: React.KeyboardEvent<HTMLDivElement>) => {
-    if (evt.key === 'Enter' && evt.currentTarget.nodeName === 'A') {
+    if (evt.key === 'Enter' && evt.currentTarget.querySelector('a')) {
       Promise.resolve().then(() => setNavContent(false))
     }
   }, [])
@@ -73,9 +73,9 @@ const Header = () => {
   return (
     <>
       <a
-        href='#content'
-        className='absolute left-0 top-0 z-50 bg-white p-2 text-black opacity-0 transition-opacity duration-300 ease-in-out focus:opacity-100'
         tabIndex={0}
+        href='#content'
+        className='absolute left-0 top-0 bg-white p-2 text-black opacity-0 transition-opacity duration-300 ease-in-out focus:z-50 focus:opacity-100'
       >
         Skip to content
       </a>
@@ -107,7 +107,7 @@ const Header = () => {
           <div className='block pr-4 lg:hidden'>
             <button
               id='nav-toggle'
-              className='flex appearance-none items-center rounded border border-primary-600 px-3 py-2 text-primary-600 focus:outline-dotted'
+              className='flex appearance-none items-center rounded border border-primary-600 px-3 py-2 text-primary-600 outline-primary-100 focus:outline-dotted focus:outline-1'
               onClick={toggleNavContent}
             >
               <svg className='h-3 w-3 fill-current' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>

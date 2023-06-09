@@ -25,7 +25,7 @@
     "hast-util-sanitize": "^4.1.0",
     "html-react-parser": "4.0.0",
     "image-size": "^1.0.2",
-    "next": "13.4.5-canary.6",
+    "next": "13.4.5-canary.9",
     "next-sitemap": "4.1.3",
     "prismjs": "^1.29.0",
     "ramda": "^0.29.0",
@@ -87,6 +87,9 @@
     "jsxSingleQuote": true,
     "quoteProps": "as-needed",
     "bracketSpacing": true,
-    "printWidth": 120
+    "printWidth": 120,
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }
