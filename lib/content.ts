@@ -95,7 +95,7 @@ export default class Content {
     const entries = await mapPromise<UnprocessedEntry, ProcessedEntry>(this.#parseEntry(type, rawSeries), rawEntries)
 
     if (type === 'posts') {
-      const postPipeline = sort(descend<ProcessedPost>(prop<number>('published')))
+      const postPipeline = sort(descend<ProcessedPost>(prop<'published'>('published')))
       return postPipeline(entries as ProcessedPost[])
     }
     return entries as ProcessedPage[]
@@ -128,6 +128,6 @@ export default class Content {
   async getAllSlugs(contentType: Entry) {
     await this.#checkAndUpdateMeta()
     const allEntries = await this.getAll(contentType)
-    return map(prop<string>('slug'), allEntries)
+    return map(prop<'slug'>('slug'), allEntries)
   }
 }

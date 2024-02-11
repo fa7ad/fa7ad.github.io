@@ -1,6 +1,6 @@
 import Footer from 'components/Footer'
 import Header from 'components/Header'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import type { PropsWithChildren } from 'react'
 
 import './globals.css'
@@ -22,9 +22,14 @@ const siteTitleTemplate = '%s | Mildly Boring'
 const siteDescription =
   'Some mildly boring rants, mostly about programming; all from the mind of a bored geek (also known as Fahad/@fa7ad).'
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#ffffff'
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_URL ?? 'https://mildlyboring.com'),
-  viewport: 'width=device-width, initial-scale=1',
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -59,7 +64,6 @@ export const metadata: Metadata = {
     title: siteTitle
   },
   applicationName: siteTitle,
-  themeColor: '#ffffff',
   other: {
     'msapplication-config': '/icons/browserconfig.xml?v=2.0.0',
     'msapplication-TileColor': '#00aba9',
