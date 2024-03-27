@@ -4463,6 +4463,7 @@ __metadata:
     strip-markdown: "npm:^6.0.0"
     tailwindcss: "npm:^3.4.1"
     ts-node: "npm:^10.9.2"
+    types-ramda: "npm:^0.29.9"
     typescript: "npm:^5.3.3"
     unified: "npm:^11.0.4"
     wasm-vips: "npm:0.0.7"
@@ -6672,6 +6673,15 @@ __metadata:
   dependencies:
     ts-toolbelt: "npm:^9.6.0"
   checksum: 10c0/605c5a4be09f3e3617da99c129ccff7af0ead2e1c5f62b0756af77e574225479d2842b4577dd217f89063583310d71cefe2d7c4687a76a85b7bd23c9f1dea48b
+  languageName: node
+  linkType: hard
+
+"types-ramda@npm:^0.29.9":
+  version: 0.29.9
+  resolution: "types-ramda@npm:0.29.9"
+  dependencies:
+    ts-toolbelt: "npm:^9.6.0"
+  checksum: 10c0/c0aa8c95d9ed9d73b6791d52b2e5caf6927bded79894fb826b56f2bb55aca2be97d4ad3211babf6f1367cc70120e3bf2fbd47d10ad3e0c47ea44b5e7623f35fd
   languageName: node
   linkType: hard
 

@@ -3,7 +3,7 @@
   "private": true,
   "license": "SEE LICENSE IN LICENSE.code.txt AND LICENSE.content.txt",
   "type": "module",
-  "packageManager": "yarn@4.1.0",
+  "packageManager": "yarn@4.1.1",
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "next dev --turbo",
@@ -75,6 +75,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
+    "types-ramda": "^0.29.9",
     "typescript": "^5.3.3"
   },
   "overrides": {

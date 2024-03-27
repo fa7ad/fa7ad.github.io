@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { RedirectType, notFound, redirect } from 'next/navigation'
 
 import Content from 'lib/content'
 import renderHtml from 'lib/renderHtml'
@@ -16,6 +16,10 @@ export default async function StaticPage({ params }: PageProps) {
 
   if (!page) {
     notFound()
+  }
+
+  if (page.longExcerpt.startsWith('௷௷௷௷=')) {
+    redirect(page.longExcerpt.replace('௷௷௷௷=', '').trim(), RedirectType.push)
   }
 
   return (

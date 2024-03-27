@@ -57,6 +57,12 @@ const metadata = {
       title: 'Contact',
       file: 'contact.md',
       slug: 'contact'
+    },
+    {
+      title: 'Music',
+      file: 'music.md',
+      slug: 'music',
+      isHidden: true
     }
   ],
   series: {
