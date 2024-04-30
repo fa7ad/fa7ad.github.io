@@ -16,6 +16,9 @@
     "generate:blur": "node ./.bin/compute_blurhash.mjs"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.3",
     "@reduxjs/toolkit": "2.2.3",
     "@tailwindcss/typography": "0.5.13",
     "@types/ramda": "^0.29.12",
@@ -38,8 +41,10 @@
     "rehype-raw": "^7.0.0",
     "rehype-sanitize": "^6.0.0",
     "rehype-stringify": "^10.0.0",
+    "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
+    "remark-mdx-frontmatter": "^4.0.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.0",
     "remark-stringify": "^11.0.0",

@@ -1,7 +1,7 @@
 'use client'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
 
 import { NavItem } from './NavItem'
@@ -32,7 +32,9 @@ const Header = () => {
   const [scrollPosition, setScrollPosition] = useState('0%')
   const [windowWidth] = useWindowSize()
 
-  const params = useParams()
+  const pathname = usePathname()
+
+  const currentPath = pathname.split('/').filter(Boolean)?.[0] ?? 'home'
 
   const updateNavScroll = useCallback(() => {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
@@ -64,8 +66,6 @@ const Header = () => {
   const toggleNavContent = () => {
     setNavContent(n => !n)
   }
-
-  const currentPath = params?.slug || 'home'
 
   const showNavMenu = windowWidth >= 1024 || navContent
   const showNavBackground = windowWidth < 1024 || headerActive
