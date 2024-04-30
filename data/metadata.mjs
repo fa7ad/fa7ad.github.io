@@ -61,8 +61,7 @@ const metadata = {
     {
       title: 'Music',
       file: 'music.md',
-      slug: 'music',
-      isHidden: true
+      slug: 'music'
     }
   ],
   series: {
