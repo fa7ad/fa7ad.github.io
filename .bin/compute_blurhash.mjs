@@ -29,15 +29,19 @@ async function blurHashAll(category) {
     if (!img.endsWith('.webp')) return []
     console.error(`Processing ${category}/${img}`)
     const imageContent = await fsp.readFile(resolve(publicDir, category, img))
-    return [`${category}/${img}`, `data:image/webp;base64,${await blurHashForImage(vips, imageContent)}`]
+    return [`/${category}/${img}`, `data:image/webp;base64,${await blurHashForImage(vips, imageContent)}`]
   })
 }
 
 async function main() {
   const blurHashes = (await Promise.all([blurHashAll('images'), blurHashAll('featured')])).flat()
-  const output = `const blurHashes = ${JSON.stringify(Object.fromEntries(blurHashes), null, 2)}\n\nexport default blurHashes`
-  const fmtd = prettier.format(output, { filepath: 'blurhashes.mjs', ...(await prettier.resolveConfig(rootDir)) })
-  return fsp.writeFile(resolve(rootDir, 'data', 'blurhashes.mjs'), fmtd)
+  const output = `/** @type {Record<string, string>} */
+const blurHashes = ${JSON.stringify(Object.fromEntries(blurHashes), null, 2)}\n\nexport default blurHashes`
+  const fmtd = await prettier.format(output, {
+    filepath: 'blurhashes.mjs',
+    ...(await prettier.resolveConfig(import.meta.url))
+  })
+  await fsp.writeFile(resolve(rootDir, 'data', 'blurhashes.mjs'), fmtd, 'utf-8')
 }
 
 const parsedArgv = yargs(process.argv.slice(2), __dirname)

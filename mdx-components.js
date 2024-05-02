@@ -17,13 +17,13 @@ export function useMDXComponents(components) {
           const width = res?.groups?.width
           const height = res?.groups?.height
           if (width && height) {
-            props.width = width
-            props.height = height
-            props.style = {
+            nxProps.width = width
+            nxProps.height = height
+            nxProps.style = {
               maxWidth: '100%',
               height: 'auto'
             }
-            props.fill = false
+            nxProps.fill = false
           }
         }
         // eslint-disable-next-line jsx-a11y/alt-text
@@ -32,6 +32,7 @@ export function useMDXComponents(components) {
       // eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element
       return <img {...props} />
     },
+    style: props => <style {...props} suppressHydrationWarning />,
     ...components
   }
 }
