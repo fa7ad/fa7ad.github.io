@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-interface PostPreviewProps extends ProcessedPost {
+interface PostPreviewProps extends PostMetadata {
   preload: boolean
 }
 
 function PostPreview({
-  shortExcerpt,
+  description,
   slug,
   title,
   date,
@@ -27,7 +27,7 @@ function PostPreview({
             src={cover}
             alt=''
             role='presentation'
-            placeholder='blur'
+            placeholder={placeholderImage ? 'blur' : undefined}
             blurDataURL={placeholderImage ?? undefined}
             priority={!!preload}
             sizes='100vw'
@@ -38,7 +38,7 @@ function PostPreview({
           />
         </p>
       ) : null}
-      {shortExcerpt ? <p className='my-4 whitespace-pre-wrap font-mono dark:text-neutral-100'>{shortExcerpt}</p> : null}
+      {description ? <p className='my-4 whitespace-pre-wrap font-mono dark:text-neutral-100'>{description}</p> : null}
       <Link
         href={`/posts/${slug}`}
         className='inline-block rounded-full bg-primary-700 px-4 py-2 font-bold text-white hover:bg-primary-800'

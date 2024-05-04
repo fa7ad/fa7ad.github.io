@@ -13,7 +13,7 @@ function PostCover({ src, title, coverInfo, placeholderImage }: PostCoverProps) 
       <Image
         src={src}
         priority
-        placeholder='blur'
+        placeholder={placeholderImage ? 'blur' : undefined}
         blurDataURL={placeholderImage ?? undefined}
         alt={`Cover image for "${title}"`}
         width={coverInfo?.width}

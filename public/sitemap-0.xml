@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://mildlyboring.com</loc><lastmod>2024-04-30T14:15:27.427Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mildlyboring.com/posts/fp-trial-tribulations</loc><lastmod>2024-04-30T14:15:27.428Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mildlyboring.com/posts/fp-higher-order-functions</loc><lastmod>2024-04-30T14:15:27.428Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mildlyboring.com/posts/fp-functions</loc><lastmod>2024-04-30T14:15:27.428Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mildlyboring.com/posts/fp-the-introduction</loc><lastmod>2024-04-30T14:15:27.428Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mildlyboring.com/posts/hello-blog</loc><lastmod>2024-04-30T14:15:27.428Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mildlyboring.com/about</loc><lastmod>2024-04-30T14:15:27.428Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mildlyboring.com/contact</loc><lastmod>2024-04-30T14:15:27.428Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://mildlyboring.com/music</loc><lastmod>2024-04-30T14:15:27.428Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com/about</loc><lastmod>2024-05-03T19:02:23.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com/music</loc><lastmod>2024-05-03T19:02:23.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com/posts/fp-functions</loc><lastmod>2024-05-03T19:02:23.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com/posts/hello-blog</loc><lastmod>2024-05-03T19:02:23.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com/posts/fp-higher-order-functions</loc><lastmod>2024-05-03T19:02:23.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com/posts/fp-the-introduction</loc><lastmod>2024-05-03T19:02:23.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com/posts/fp-trial-tribulations</loc><lastmod>2024-05-03T19:02:23.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com</loc><lastmod>2024-05-03T19:02:23.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mildlyboring.com/contact</loc><lastmod>2024-05-03T19:02:23.605Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

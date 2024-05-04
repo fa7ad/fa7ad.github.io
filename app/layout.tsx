@@ -3,11 +3,11 @@ import Header from 'components/Header'
 import type { Metadata, Viewport } from 'next'
 import type { PropsWithChildren } from 'react'
 
-import './globals.css'
+import './(utils)/globals.css'
 
 export default function RootLayout({ children }: PropsWithChildren<unknown>) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body className='line-numbers'>
         <Header />
         <main className='main'>{children}</main>
