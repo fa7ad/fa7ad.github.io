@@ -23,6 +23,11 @@ export const defaultNavItems = [
     key: 'contact',
     href: '/contact',
     label: 'Contact'
+  },
+  {
+    key: 'music',
+    href: '/music',
+    label: '♪'
   }
 ]
 
