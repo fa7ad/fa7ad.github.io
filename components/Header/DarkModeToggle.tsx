@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 
 export function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   const [hideDarkModeTooltip, setHideDarkModeTooltip] = useState(true)
 
   const toggleTheme = () => {
@@ -15,7 +15,7 @@ export function DarkModeToggle() {
 
   useEffect(() => {
     const darkModePrefs = localStorage.getItem('darkMode')
-    const isDarkModeActive = darkModePrefs === 'true'
+    const isDarkModeActive = darkModePrefs !== 'false'
     if (!darkModePrefs && window.innerWidth >= 640) {
       setHideDarkModeTooltip(false)
       setTimeout(() => {

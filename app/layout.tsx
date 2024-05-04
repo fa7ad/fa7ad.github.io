@@ -7,7 +7,7 @@ import './(utils)/globals.css'
 
 export default function RootLayout({ children }: PropsWithChildren<unknown>) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang='en' className='dark' suppressHydrationWarning>
       <body className='line-numbers'>
         <Header />
         <main className='main'>{children}</main>
