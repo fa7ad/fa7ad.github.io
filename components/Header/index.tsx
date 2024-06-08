@@ -95,6 +95,7 @@ const Header = () => {
         <style>{`
           #header {
             --scroll: ${scrollPosition};
+            --tw-bg-opacity: 60%;
           }
         `}</style>
         <div

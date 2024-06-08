@@ -3,6 +3,8 @@ import Image from 'next/image'
 import type { MDXComponents } from 'mdx/types'
 import type { ComponentProps } from 'react'
 
+import { makeHeadingLinky } from 'lib/heading'
+
 // This file is required to use @next/mdx in the `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -40,6 +42,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       // eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element
       return <img {...props} />
     },
-    style: props => <style {...props} suppressHydrationWarning />
+    style: props => <style {...props} suppressHydrationWarning />,
+    h1: makeHeadingLinky('h1'),
+    h2: makeHeadingLinky('h2'),
+    h3: makeHeadingLinky('h3')
   }
 }

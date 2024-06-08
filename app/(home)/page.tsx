@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import PostPreview from 'components/PostPreview'
-import * as Posts from 'lib/Posts'
+import * as Posts from 'lib/posts'
 
 export default async function Home() {
   const posts = await Posts.findAll()
