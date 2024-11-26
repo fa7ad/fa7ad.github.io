@@ -8,9 +8,9 @@ function Footer() {
       &nbsp;by&nbsp;
       <a
         rel='me noopener noreferrer'
-        href='https://c.im/@fa7ad'
+        href='http://bsky.nolap.top'
         target='_blank'
-        aria-label='open Mastodon profile "Fahad Hossain" in a new tab'
+        aria-label='open Bluesky profile "Fahad Hossain" in a new tab'
       >
         Fahad
       </a>
