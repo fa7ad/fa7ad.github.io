@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import type { RefObject } from 'react'
 
-export default function useOnScreen(ref: RefObject<HTMLElement>, rootMargin = '0px', oneOff = true) {
+export default function useOnScreen(ref: RefObject<HTMLElement | null>, rootMargin = '0px', oneOff = true) {
   // State and setter for storing whether element is visible
   const [isIntersecting, setIntersecting] = useState(false)
   useEffect(() => {

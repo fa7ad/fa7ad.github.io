@@ -13,7 +13,7 @@ function siteUrl(url: string) {
 }
 
 function CommentSection({ slug, title }: CommentSectionProps) {
-  const mut$ = useRef<MutationObserver>()
+  const mut$ = useRef<MutationObserver>(undefined)
   const comments = useRef<HTMLElement>(null)
   const commentsVisible = useOnScreen(comments, '-10px')
 

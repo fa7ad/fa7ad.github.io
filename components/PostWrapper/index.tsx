@@ -2,6 +2,7 @@ import PostCover from 'components/PostCover'
 import ArticleSeriesBox from 'components/ArticleSeriesBox'
 import CommentSection from 'components/CommentSection'
 
+import type { JSX } from 'react'
 import type { Article, WithContext } from 'schema-dts'
 
 import { generateMeta } from './generateMeta'
